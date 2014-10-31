@@ -1,0 +1,51 @@
+<div class="container">
+
+    <?php if ($this->order): ?>
+
+        <h3><?php echo $this->translate('Thank you for your order'); ?></h3>
+           
+        <?php if ($this->order->OrderState === 'Unpaid'): ?>
+            
+            <p>
+                <?php echo sprintf($this->translate('You have chosen to pay by %s.'), $this->order->PaymentMethot); ?>
+                <?php echo sprintf($this->translate('Please pay the amount of <strong>%s</strong> using the banking details and reference below.'), $this->currency($this->order->_TotalAmount)); ?>
+            </p> <br>
+            
+            <table class="table table-striped">
+            <tr>
+                <th><?php echo $this->translate('Bank'); ?></th>
+                <td><?php echo $this->escape($this->store['Info']->BankName); ?></td>
+            </tr>
+            <tr>
+                <th><?php echo $this->translate('Branch'); ?></th>
+                <td><?php echo $this->escape($this->store['Info']->BankBranchCode); ?></td>
+            </tr>
+            <tr>
+                <th><?php echo $this->translate('Account Name'); ?></th>
+                <td><?php echo $this->escape($this->store['Info']->BankAccountName); ?></td>
+            </tr>
+            <tr>
+                <th><?php echo $this->translate('Account Number'); ?></th>
+                <td><?php echo $this->escape($this->store['Info']->BankAccountNumber); ?></td>
+            </tr>
+            <tr>
+                <th><?php echo $this->translate('Reference'); ?></th>
+                <td><?php echo $this->escape($this->order->PaymentReference); ?></td>
+            </tr>
+            <tr>
+                <th><?php echo $this->translate('Total'); ?></th>
+                <td><?php echo $this->escape($this->currency($this->order->_TotalAmount)); ?></td>
+            </tr>
+            </table>
+            
+            <?php // Zend_Debug::dump($this->order); ?>
+            
+        <?php else: ?>
+            
+            <p><?php echo sprintf($this->translate('Payment for your order with reference <strong>%s</strong> has been processed successfully.'), $this->order->OrderRef); ?></p>
+            
+        <?php endif; ?>
+            
+    <?php endif; ?>
+        
+</div>

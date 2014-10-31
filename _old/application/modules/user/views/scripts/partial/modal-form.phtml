@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">
+        <span>&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="modal-title"><?php echo $this->title; ?></h4>
+</div>
+<div class="modal-body">
+    <?php if ($this->script): ?>
+        <?php echo $this->partial($this->script, array('form' => $this->form, 'params' => $this->params)); ?>
+    <?php else: ?>
+        <?php echo $this->form; ?>
+    <?php endif; ?>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->translate('Close'); ?></button>
+    <button type="submit" class="btn btn-primary"><?php echo $this->translate('Submit'); ?></button>
+</div>

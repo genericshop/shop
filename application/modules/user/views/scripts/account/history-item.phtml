@@ -1,0 +1,52 @@
+<div class="modal-body">
+    <?php 
+            $grand       = 0;
+        ?>
+
+    <?php if ($this->items): ?>
+    
+        <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Student</th>
+            <th>Item</th>
+            <th>Qty</th>
+	    <th>Price</th>
+ 	    <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($this->items as $item): ?>
+	<?php $grand += $item->_TotalAmount; ?>
+
+        <tr>
+            <td><?php echo $item->Student ? $this->escape($item->Student) : 'N/A'; ?></td>
+            <td><?php  echo $item->ItemDescription ? $this->escape($item->ItemDescription) : $this->escape($item->Name); ?></td>
+            <td><?php echo $this->escape($item->Quantity); ?></td>
+	    <td><?php echo $this->escape($item->_Amount); ?></td>
+	    <td><?php echo $this->escape($item->_TotalAmount); ?></td>
+        </tr>
+        <?php endforeach; ?>
+	<tfoot>
+        <tr>
+            <th colspan="4"></th>
+            <th colspan="1">
+                <span class="grand-total" id="grand-total"><?php echo $this->currency($grand); ?></span>
+            </th>
+        </tr>
+        </tfoot>
+        </tbody>
+        </table>
+    
+    <?php else: ?>
+    
+        <p><?php echo $this->translate('There are no items in this order.'); ?></p>
+    
+    <?php endif; ?>
+    
+    <?php //Zend_Debug::dump($this->items); ?>
+    
+</div>
+<div class="modal-footer">	
+    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->translate('Close'); ?></button>
+</div>

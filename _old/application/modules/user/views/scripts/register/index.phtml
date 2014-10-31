@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="col-sm-7">
+            
+            <h3><?php echo $this->translate('Registration Terms & Conditions'); ?></h3>
+            
+            <div class="wysiwyg">
+                <?php $key = 'TC' . ($this->lang === 'AFR' ? '_AFR' : null); ?>
+                <?php echo $this->terms->{$key}; ?>
+            </div>
+            
+            <?php /*
+            
+            <div class="seperator"></div>
+            
+            <div class="clearfix">
+                <button class="btn btn-default btn-terms" data-value="1"><?php echo $this->translate('I Agree'); ?></button>
+                <button class="btn btn-default btn-terms pull-right"><?php echo $this->translate('I Don\'t Agree'); ?></button>
+            </div>
+            
+            */ ?>
+            
+        </div>
+        
+        <div class="col-sm-5">
+            
+            <h3><?php echo $this->translate('Register'); ?></h3>
+            <?php echo $this->form; ?>
+            
+        </div>
+        
+    </div>
+
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(function() { 
+    <?php /*
+    $('.btn-terms').on('click', function(e) {
+    	$('#submit').prop('disabled', 'disabled');
+    	$('.btn-terms').removeClass('btn-primary');
+    	$(this).addClass('btn-primary');
+        if ($(this).data('value'))
+            $('#submit').prop('disabled', false);
+    });
+    $('#submit').prop('disabled', 'disabled');
+    */ ?>
+    $('#Email, #EmailC').attr('type', 'email');
+    $('#HomePhone, #CellPhone').attr('type', 'tel');
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>
