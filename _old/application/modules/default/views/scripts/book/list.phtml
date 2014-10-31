@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="col-sm-8 col-lg-9 col-sm-push-4 col-lg-push-3">
+        
+            <h3><?php echo $this->heading; ?></h3>
+            
+            <div class="product-list">
+                <?php echo $this->partial('partial/list-book.phtml', array('items' => $this->items, 'item_class' => 'col-xs-6 col-sm-4', 'item_clearfix' => array(2 => 'visible-xs', 3 => 'visible-sm visible-md visible-lg'))); ?>
+            </div>
+        
+        </div>
+        
+        <div class="col-sm-4 col-lg-3 col-sm-pull-8 col-lg-pull-9">
+        
+            <div class="sidebar">
+        
+                <h3><?php echo $this->translate('Categories'); ?></h3>
+                <?php 
+                    $navigation = $this->navigation()->findOneById('nav-book');
+                    echo $this->navigation()->menu()->renderPartial($navigation, array('partial/sidebar-nav.phtml', 'default'));
+                ?>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+</div>

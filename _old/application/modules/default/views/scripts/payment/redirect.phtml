@@ -1,0 +1,16 @@
+<div class="container">
+
+    <h3><?php echo $this->translate('Redirecting'); ?></h3>	
+    <p><?php echo $this->translate('Please wait while we redirect you for payment processing'); ?>...</p>
+    	
+    <?php echo $this->form; ?>
+
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(window).on('load', function() {
+    $('#form-payment').submit();
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

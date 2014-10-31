@@ -1,0 +1,17 @@
+<div class="container">
+
+    <h3><?php echo $this->translate('Notice Board'); ?></h3>
+
+    <?php if ($this->notice): ?>
+
+        <div class="wysiwyg">
+            <?php echo $this->notice; ?>
+        </div>
+        
+    <?php else: ?>
+    
+        <?php echo $this->translate('There are currently no notices.'); ?>
+    
+    <?php endif; ?>
+
+</div>

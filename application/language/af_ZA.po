@@ -1,0 +1,889 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sapient\n"
+"POT-Creation-Date: 2014-10-24 07:56+0200\n"
+"PO-Revision-Date: 2014-10-24 07:57+0200\n"
+"Last-Translator: Gregg <gregg@bigg.co.za>\n"
+"Language-Team: Bigg\n"
+"Language: af_ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-Basepath: C:\\Users\\Suzzy\\Desktop\\Full Backup\\NEw backup\\\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: translate;label;_\n"
+"X-Poedit-SearchPath-0: application\n"
+
+#: application/modules/default/controllers/BookController.php:25
+msgid "Books (Print)"
+msgstr "Boeke (Gedrukde)"
+
+#: application/modules/default/controllers/BookController.php:30
+msgid "Books (Digital)"
+msgstr "Books (Digitaal)"
+
+#: application/modules/default/controllers/BundleController.php:17
+msgid "Please Choose"
+msgstr "Kies asseblief"
+
+#: application/modules/default/controllers/CartController.php:64
+#, php-format
+msgid "%s item(s) added to cart."
+msgstr "% s item (s) bygevoeg by mandjie."
+
+#: application/modules/default/controllers/CheckoutController.php:128
+msgid ""
+"An unknown error has occurred. Please contact us for further assistance."
+msgstr "n onbekende fout het voorgekom. Kontak ons asseblief vir verdere hulp."
+
+#: application/modules/default/controllers/CheckoutController.php:135
+msgid "Please select a payment option before proceeding."
+msgstr "Kies 'n betaling opsie voordat jy voortgaan."
+
+#: application/modules/default/controllers/ContentController.php:76
+msgid "We have received your message and will contact your shortly, thank you."
+msgstr "Ons het jou boodskap ontvang en sal jou binnekort kontak, dankie."
+
+#: application/modules/default/controllers/PaymentController.php:207
+msgid "An unknown error has occurred. Please contact us for further assistance"
+msgstr "n onbekende fout het voorgekom. Kontak ons asseblief vir verdere hulp."
+
+#: application/modules/default/controllers/PaymentController.php:214
+msgid ""
+"Your online payment has been processed successfully. Please allow 72 hours "
+"for the payment to reflect on your account."
+msgstr ""
+"U betaling is ontvang. Dit sal ongeveer 72 uur neem voorbetalings op u "
+"rekening reflekteer."
+
+#: application/modules/default/controllers/PaymentController.php:220
+msgid "Payment failed - "
+msgstr "betaling misluk - "
+
+#: application/modules/default/forms/Contact.php:11
+#: application/modules/default/views/scripts/content/buy-back.phtml:23
+#: application/modules/user/views/scripts/account/book.phtml:25
+#: application/modules/user/views/scripts/student/list.phtml:24
+msgid "Name"
+msgstr "Naam"
+
+#: application/modules/default/forms/Contact.php:18
+#: application/modules/user/forms/Login.php:10
+#: application/modules/user/forms/Register.php:65
+#: application/modules/user/views/scripts/student/list.phtml:26
+msgid "Email Address"
+msgstr "E-pos Adres"
+
+#: application/modules/default/forms/Contact.php:26
+msgid "Telephone"
+msgstr "Telefoon"
+
+#: application/modules/default/forms/Contact.php:33
+msgid "Your message"
+msgstr "Jou boodskap"
+
+#: application/modules/default/forms/Contact.php:38
+#: application/modules/user/views/scripts/partial/modal-form.phtml:16
+msgid "Submit"
+msgstr "Stuur"
+
+#: application/modules/default/forms/Payment.php:9
+msgid "Credit Card"
+msgstr "Krediet Kaart"
+
+#: application/modules/default/forms/Payment.php:10
+msgid "EFT"
+msgstr "EFT"
+
+#: application/modules/default/forms/Payment.php:17
+msgid "Own Ammount"
+msgstr "Eie Bedrag"
+
+#: application/modules/default/forms/Payment.php:18
+msgid "Full Ammount"
+msgstr "Volle Bedrag"
+
+#: application/modules/default/forms/Payment.php:27
+msgid "How would you like to pay?"
+msgstr "Hoe wil jy betaal?"
+
+#: application/modules/default/forms/Payment.php:33
+msgid "Place Order"
+msgstr "Plaas Bestelling"
+
+#: application/modules/user/controllers/AccountController.php:65
+msgid "Update Details"
+msgstr "Verander besonderhede"
+
+#: application/modules/user/controllers/LoginController.php:102
+msgid ""
+"Your password was successfully reset. Please check your email account for "
+"your new password."
+msgstr ""
+"Jou wagwoord was suksesvol verander. Gaan asseblief na jou e-pos rekening "
+"vir jou nuwe wagwoord."
+
+#: application/modules/user/controllers/LoginController.php:107
+msgid ""
+"We were unable to reset your password. Please contact us for further "
+"assistance."
+msgstr ""
+"Ons was nie in staat om jou wagwoord te verander. Kontak ons asseblief vir "
+"verdere hulp."
+
+#: application/modules/user/controllers/RegisterController.php:42
+#: application/modules/user/controllers/RegisterController.php:84
+msgid "You must agree to the terms and conditions to continue."
+msgstr "U moet in stem met terme en voorwaardes om aan te gaan"
+
+#: application/modules/user/controllers/RegisterController.php:45
+#: application/modules/user/controllers/RegisterController.php:87
+msgid "You must enter a password to continue."
+msgstr "U moet 'n wagwoord verskaf om voort te gaan."
+
+#: application/modules/user/controllers/StudentController.php:51
+msgid "Link Student Account"
+msgstr "Heg Student Rekening"
+
+#: application/modules/user/controllers/StudentController.php:105
+#: application/modules/user/views/scripts/student/list.phtml:67
+msgid "New Student Account"
+msgstr "Nuwe Studente Rekening"
+
+#: application/modules/user/controllers/StudentController.php:174
+msgid "Leave blank if unchanged"
+msgstr "Laat leeg as onveranderd "
+
+#: application/modules/user/controllers/StudentController.php:186
+msgid "Edit Student Account"
+msgstr "Verander Student Rekening"
+
+#: application/modules/user/forms/Login.php:17
+#: application/modules/user/forms/Register.php:110
+msgid "Password"
+msgstr "Wagwoord"
+
+#: application/modules/user/forms/Login.php:23
+#: application/layouts/scripts/layout.phtml:117
+msgid "Sign In"
+msgstr "Teken In"
+
+#: application/modules/user/forms/Register.php:19
+msgid "First Name"
+msgstr "Eerste Naam"
+
+#: application/modules/user/forms/Register.php:26
+msgid "Last Name"
+msgstr "Van"
+
+#: application/modules/user/forms/Register.php:35
+msgid "Home Telephone"
+msgstr "Huis Telefoon"
+
+#: application/modules/user/forms/Register.php:42
+msgid "Mobile Telephone"
+msgstr "Mobiele Telefoon"
+
+#: application/modules/user/forms/Register.php:49
+msgid "South African ID Number"
+msgstr "Suid Afrikaanse ID Nommer"
+
+#: application/modules/user/forms/Register.php:56
+msgid "Old Account Number 2014"
+msgstr "Ou Rekening Nommer 2014"
+
+#: application/modules/user/forms/Register.php:74
+#: application/modules/user/forms/StudentLink.php:10
+msgid "Student or ID number"
+msgstr "Suid Afrikaanse ID Nommer"
+
+#: application/modules/user/forms/Register.php:82
+msgid "Grade (2015)"
+msgstr "Graad (2015)"
+
+#: application/modules/user/forms/Register.php:91
+msgid "Email Address (child)"
+msgstr "E-pos Adres (Kind)"
+
+#: application/modules/user/forms/Register.php:101
+msgid "Confirm Email"
+msgstr "Bevestig E-pos"
+
+#: application/modules/user/forms/Register.php:117
+msgid "Confirm Password"
+msgstr "Bevestig Wagwoord"
+
+#: application/modules/user/forms/Register.php:125
+msgid "I have read and accept the terms and conditions."
+msgstr "Ek het gelees en aanvaar die terme en voorwaardes."
+
+#: application/modules/user/forms/Register.php:133
+msgid "Create My Account"
+msgstr "Skep My Rekening"
+
+#: application/layouts/scripts/layout.phtml:4
+#: application/layouts/scripts/layout.phtml:48
+#: application/modules/default/views/scripts/index/index.phtml:3
+msgid "Bookshop"
+msgstr "Boekwinkel"
+
+#: application/layouts/scripts/layout.phtml:62
+#, php-format
+msgid "Welcome %s"
+msgstr "Welkom by %s"
+
+#: application/layouts/scripts/layout.phtml:88
+#: application/modules/default/views/scripts/checkout/index.phtml:4
+msgid "Checkout"
+msgstr "My Mandjie"
+
+#: application/layouts/scripts/layout.phtml:98
+#: application/modules/user/views/scripts/account/index.phtml:14
+msgid "My Account"
+msgstr "My Rekening"
+
+#: application/layouts/scripts/layout.phtml:107
+msgid "Sign Out"
+msgstr "Teken Uit"
+
+#: application/layouts/scripts/layout.phtml:126
+#: application/modules/user/views/scripts/login/index.phtml:17
+#: application/modules/user/views/scripts/register/index.phtml:29
+msgid "Register"
+msgstr "Registreer"
+
+#: application/layouts/scripts/layout.phtml:180
+msgid "Contact"
+msgstr "Kontak"
+
+#: application/layouts/scripts/layout.phtml:205
+msgid "Links"
+msgstr "Skakels"
+
+#: application/layouts/scripts/layout.phtml:226
+msgid "Copyright"
+msgstr "Kopiereg"
+
+#: application/modules/default/views/scripts/book/list.phtml:19
+#: application/modules/default/views/scripts/book/view.phtml:42
+#: application/modules/default/views/scripts/product/list.phtml:25
+#: application/modules/default/views/scripts/product/view.phtml:43
+msgid "Categories"
+msgstr "Kategorieë"
+
+#: application/modules/default/views/scripts/book/view.phtml:29
+#: application/modules/default/views/scripts/bundle/_list.phtml:110
+#: application/modules/default/views/scripts/bundle/list.phtml:188
+#: application/modules/default/views/scripts/product/view.phtml:30
+msgid "Add to Cart"
+msgstr "Voeg by Mandjie"
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:9
+msgid "Bundles"
+msgstr "Pakette"
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:35
+msgid "Product Bundles"
+msgstr "Produk Pakette"
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:38
+msgid ""
+"If you would like to customise any items in this order please tick the "
+"relevant item checkbox."
+msgstr "As u die bestelling items will verander kliek die boks lanksaan "
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:42
+#: application/modules/default/views/scripts/bundle/list.phtml:45
+msgid "Please select one or more bundles from the options provided."
+msgstr "Kies een of meer pakette van the opsies beskikbaar"
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:62
+#: application/modules/default/views/scripts/bundle/list.phtml:67
+#: application/modules/default/views/scripts/checkout/confirm.phtml:14
+#: application/modules/default/views/scripts/checkout/index.phtml:19
+msgid "Item"
+msgstr "Item"
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:63
+#: application/modules/default/views/scripts/bundle/list.phtml:70
+#: application/modules/default/views/scripts/checkout/confirm.phtml:15
+#: application/modules/default/views/scripts/checkout/index.phtml:20
+#: application/modules/default/views/scripts/content/buy-back.phtml:25
+msgid "Price"
+msgstr "Prys"
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:64
+#: application/modules/default/views/scripts/bundle/list.phtml:71
+#: application/modules/default/views/scripts/checkout/confirm.phtml:16
+#: application/modules/default/views/scripts/checkout/index.phtml:21
+msgid "Qty"
+msgstr "Aantal"
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:65
+#: application/modules/default/views/scripts/bundle/list.phtml:72
+#: application/modules/default/views/scripts/bundle/list.phtml:183
+#: application/modules/default/views/scripts/checkout/complete.phtml:36
+#: application/modules/default/views/scripts/checkout/confirm.phtml:17
+#: application/modules/default/views/scripts/checkout/index.phtml:22
+msgid "Total"
+msgstr "Totaal"
+
+#: application/modules/default/views/scripts/bundle/_list.phtml:196
+#: application/modules/default/views/scripts/bundle/list.phtml:362
+msgid "Please wait..."
+msgstr "Wag asseblief..."
+
+#: application/modules/default/views/scripts/bundle/index.phtml:3
+msgid "Place an Order"
+msgstr "Plaas Bestelling"
+
+#: application/modules/default/views/scripts/bundle/index.phtml:4
+msgid "Choose your child that will recieve the bundles"
+msgstr "Kies die betrokke kind vir hierdie bestelling"
+
+#: application/modules/default/views/scripts/bundle/index.phtml:8
+msgid "Show bundles for"
+msgstr "Wys pakkette vir"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:10
+msgid "Packages"
+msgstr "Pakette"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:36
+msgid "Product Packages"
+msgstr "Pakette"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:39
+msgid "If you would like to customise this order, please"
+msgstr "As u die bestelling will verander , kliek %s."
+
+#: application/modules/default/views/scripts/bundle/list.phtml:40
+#: application/modules/default/views/scripts/bundle/list.phtml:227
+msgid "Click here"
+msgstr "Kliek hier"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:68
+msgid "Type"
+msgstr "Tipe"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:97
+#: application/modules/default/views/scripts/bundle/list.phtml:102
+#: application/modules/default/views/scripts/bundle/list.phtml:110
+msgid "Book"
+msgstr "Boek"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:97
+#: application/modules/default/views/scripts/bundle/list.phtml:102
+#: application/modules/default/views/scripts/bundle/list.phtml:103
+msgid "eBook"
+msgstr "eBoek"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:110
+msgid "2nd Hand"
+msgstr "2de Handse"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:116
+msgid "Stationery"
+msgstr "Skryfbehoeftes"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:136
+msgid "Optional"
+msgstr "Optioneel"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:140
+msgid "required"
+msgstr "benodig"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:192
+msgid "Go to Cart"
+msgstr "Gaan na Mandjie"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:196
+msgid "Print Packages"
+msgstr "Print Pakette"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:227
+msgid "Please Note"
+msgstr "Let Wel"
+
+#: application/modules/default/views/scripts/bundle/list.phtml:227
+#, php-format
+msgid ""
+"Second hand books are available in this bundle. %s to toggle these items on/"
+"off."
+msgstr ""
+"Tweede handse boeke is beskikbaar in hierdie pakket. %s om hierdie items aan/"
+"af te skakel."
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:5
+msgid "Thank you for your order"
+msgstr "Dankie vir jou bestelling"
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:10
+#, php-format
+msgid "You have chosen to pay by %s."
+msgstr "Jy het gekies om te betaal deur %s"
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:11
+#, php-format
+msgid ""
+"Please pay the amount of <strong>%s</strong> using the banking details and "
+"reference below."
+msgstr ""
+"Betaal asseblief die bedrag van <strong>%s<strong> met die bank besonderhede "
+"en verwysing hier onder."
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:16
+#: application/modules/user/views/scripts/account/index.phtml:57
+msgid "Bank"
+msgstr "Bank"
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:20
+#: application/modules/user/views/scripts/account/index.phtml:61
+msgid "Branch"
+msgstr "Tak"
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:24
+#: application/modules/user/views/scripts/account/index.phtml:65
+msgid "Account Name"
+msgstr "Rekening Naam"
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:28
+#: application/modules/user/views/scripts/account/index.phtml:69
+msgid "Account Number"
+msgstr "Rekening Nommer"
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:32
+#: application/modules/user/views/scripts/account/history.phtml:22
+#: application/modules/user/views/scripts/account/transaction.phtml:24
+msgid "Reference"
+msgstr "Verwysing"
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:45
+#, php-format
+msgid ""
+"Payment for your order with reference <strong>%s</strong> has been processed "
+"successfully."
+msgstr ""
+"Betaling vir jou bestelling met verwysing <strong>%s</strong> is verwerk."
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:3
+msgid "My Order"
+msgstr "My Bestelling"
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:13
+#: application/modules/default/views/scripts/checkout/index.phtml:18
+msgid "Student"
+msgstr "Student"
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:47
+#: application/modules/default/views/scripts/payment/redirect.phtml:8
+msgid "Back to checkout"
+msgstr "Terug na bestelling"
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:52
+#: application/modules/default/views/scripts/checkout/index.phtml:62
+msgid "Payment"
+msgstr "Betaal"
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:53
+#: application/modules/default/views/scripts/checkout/index.phtml:63
+msgid "Please select your preferred payment method below."
+msgstr "Kies jou betaling metode"
+
+#: application/modules/default/views/scripts/checkout/index.phtml:8
+msgid "Please find the contents of your shopping cart below."
+msgstr "Vind die items in jou maandjie hieronder"
+
+#: application/modules/default/views/scripts/checkout/index.phtml:59
+msgid "Continue to Payment"
+msgstr "Gaan na Betaling"
+
+#: application/modules/default/views/scripts/checkout/index.phtml:97
+msgid "login"
+msgstr "Teken In"
+
+#: application/modules/default/views/scripts/checkout/index.phtml:98
+msgid "register"
+msgstr "Regsiteer"
+
+#: application/modules/default/views/scripts/checkout/index.phtml:101
+#, php-format
+msgid "Please %s or %s to continue."
+msgstr "Asseblief %s or %s om voort te gaan."
+
+#: application/modules/default/views/scripts/checkout/index.phtml:107
+msgid "Your shopping cart is empty."
+msgstr "Jou mandjie is leeg."
+
+#: application/modules/default/views/scripts/checkout/index.phtml:111
+msgid "Go Back"
+msgstr "Gaan Terug"
+
+#: application/modules/default/views/scripts/checkout/index.phtml:132
+msgid "Are you sure you want to remove item form cart?"
+msgstr "Is U seker u wil die item van die mandjie afhaal ?"
+
+#: application/modules/default/views/scripts/content/buy-back.phtml:14
+msgid "Buy Back Books"
+msgstr "Terugkoop boeke"
+
+#: application/modules/default/views/scripts/content/buy-back.phtml:24
+#: application/modules/user/views/scripts/account/book.phtml:26
+msgid "ISBN"
+msgstr "ISBN"
+
+#: application/modules/default/views/scripts/content/buy-back.phtml:40
+msgid "Print"
+msgstr "Print"
+
+#: application/modules/default/views/scripts/content/buy-back.phtml:45
+msgid "Search returned no results"
+msgstr "Soektog het geen resultate"
+
+#: application/modules/default/views/scripts/content/contact.phtml:7
+msgid "Contact Form"
+msgstr "Kontak Vorm"
+
+#: application/modules/default/views/scripts/content/contact.phtml:8
+msgid "Have a question? Complete your details below and we'll get back to you."
+msgstr ""
+"Het jy 'n vraag? Voltooi jou besonderhede hieronder en ons sal jou terug bel."
+
+#: application/modules/default/views/scripts/content/contact.phtml:16
+msgid "Find Us"
+msgstr "Vind ons"
+
+#: application/modules/default/views/scripts/content/contact.phtml:20
+msgid "Address"
+msgstr "Adress"
+
+#: application/modules/default/views/scripts/content/notice-board.phtml:3
+msgid "Notice Board"
+msgstr "Kennisgewingbord"
+
+#: application/modules/default/views/scripts/content/notice-board.phtml:13
+msgid "There are currently no notices."
+msgstr "Daar is tans geen kennisgewings."
+
+#: application/modules/default/views/scripts/index/index.phtml:3
+#, php-format
+msgid "Welcome to %s"
+msgstr "Welkom by %s"
+
+#: application/modules/default/views/scripts/index/index.phtml:7
+#: application/modules/user/views/scripts/register/index.phtml:7
+msgid "Registration Terms & Conditions"
+msgstr "Registrasie Voorwaardes"
+
+#: application/modules/default/views/scripts/partial/item-list.phtml:2
+#: application/modules/default/views/scripts/partial/list-book.phtml:2
+#: application/modules/default/views/scripts/partial/list-product.phtml:2
+#: application/modules/user/views/scripts/account/transaction.phtml:45
+msgid "Search returned no results."
+msgstr "Geen resultate"
+
+#: application/modules/default/views/scripts/payment/complete.phtml:4
+msgid "Thank you for your payment"
+msgstr "Dankie vir jou betaling"
+
+#: application/modules/default/views/scripts/payment/complete.phtml:5
+msgid ""
+"Your online payment has been processed successfully. Please allow 72 hour "
+"for the payment to reflect on your account."
+msgstr ""
+"U betaaling is ontvang. Dit sal ongeveer 72 uur neem voorbetalings op u "
+"rekening reflekteer"
+
+#: application/modules/default/views/scripts/payment/redirect.phtml:3
+msgid "Please Enter amount to pay"
+msgstr "Sit Bedrag in om te betaal "
+
+#: application/modules/default/views/scripts/payment/redirect.phtml:7
+#: application/modules/user/views/scripts/account/index.phtml:37
+msgid "Pay Now"
+msgstr "Betaal Nou"
+
+#: application/modules/user/views/scripts/account/book.phtml:14
+msgid "My Books"
+msgstr "My Boeke"
+
+#: application/modules/user/views/scripts/account/book.phtml:37
+#: application/modules/user/views/scripts/account/book.phtml:73
+msgid "Download"
+msgstr "Laai af"
+
+#: application/modules/user/views/scripts/account/book.phtml:40
+msgid "Generate Download Link"
+msgstr "Gaan Haal "
+
+#: application/modules/user/views/scripts/account/book.phtml:53
+msgid "You have not ordered any digital books with us."
+msgstr "Jy het nie enige eboeke bestel nie."
+
+#: application/modules/user/views/scripts/account/book.phtml:69
+msgid "processing..."
+msgstr "proceseer...."
+
+#: application/modules/user/views/scripts/account/history-item.phtml:43
+#: application/modules/user/views/scripts/account/history-itemPayment.phtml:28
+msgid "There are no items in this order."
+msgstr "Daar is geen items in hierdie volgorde."
+
+#: application/modules/user/views/scripts/account/history-item.phtml:51
+#: application/modules/user/views/scripts/account/history-itemPayment.phtml:37
+#: application/modules/user/views/scripts/partial/modal-form.phtml:15
+#: application/modules/user/views/scripts/student/subject-manage.phtml:29
+msgid "Close"
+msgstr "Maak toe"
+
+#: application/modules/user/views/scripts/account/history-itemPayment.phtml:36
+msgid "Pay"
+msgstr "Betaal"
+
+#: application/modules/user/views/scripts/account/history.phtml:14
+msgid "Order History"
+msgstr "Bestel Geskiedenis"
+
+#: application/modules/user/views/scripts/account/history.phtml:21
+#: application/modules/user/views/scripts/account/transaction.phtml:23
+msgid "Date"
+msgstr "Datum"
+
+#: application/modules/user/views/scripts/account/history.phtml:23
+msgid "Payment Reference"
+msgstr "Betaling Verwysing"
+
+#: application/modules/user/views/scripts/account/history.phtml:24
+msgid "Status"
+msgstr "Status"
+
+#: application/modules/user/views/scripts/account/history.phtml:60
+msgid "You have not placed any orders with us recently."
+msgstr "Jy het nie onlangs enige bestellings geplaas nie."
+
+#: application/modules/user/views/scripts/account/history.phtml:74
+msgid "Are you sure you want to remove this order ?"
+msgstr "Is U seker u wil die transaksie verwyder ?"
+
+#: application/modules/user/views/scripts/account/index.phtml:19
+#: application/modules/user/views/scripts/account/index.phtml:86
+#, php-format
+msgid "Your Balance : %s"
+msgstr "U Balans is : %s"
+
+#: application/modules/user/views/scripts/account/index.phtml:20
+msgid "Please allow 72 hours for any payments to reflect on your account."
+msgstr "Dit sal ongeveer 72 uur neem voor betalings op u rekening reflekteer"
+
+#: application/modules/user/views/scripts/account/index.phtml:33
+msgid "Pay Online"
+msgstr "Betaal Hier"
+
+#: application/modules/user/views/scripts/account/index.phtml:34
+msgid "Click on the \"Pay Now\" button below to pay with your credit card."
+msgstr "Kliek op die ”Betaal nou” knoppie om met jou krediet kaart te betaal."
+
+#: application/modules/user/views/scripts/account/index.phtml:40
+msgid ""
+"The payment will be processed by PayGate to ensure that your credit card "
+"details remain safe."
+msgstr ""
+"Die betaling word verwerk deur PayGate wat sal verseker dat u kredietkaart "
+"besonderhede veilig bly."
+
+#: application/modules/user/views/scripts/account/index.phtml:50
+msgid "Pay By EFT"
+msgstr "Betaal met EFT"
+
+#: application/modules/user/views/scripts/account/index.phtml:52
+#, php-format
+msgid ""
+"Please use the reference number <strong>%s</strong> when making a payment."
+msgstr ""
+"Gebruik asseblief die verwysings nommer <strong>%s</strong> wanneer U n "
+"betaling maak."
+
+#: application/modules/user/views/scripts/account/index.phtml:53
+msgid "Use the following banking details for any payments."
+msgstr "Gebruik die bank besonderhede hieronder om betaling te maak"
+
+#: application/modules/user/views/scripts/account/index.phtml:85
+msgid "Welcome to your MyAccount."
+msgstr "Welkom by U 'My Rekening'"
+
+#: application/modules/user/views/scripts/account/profile.phtml:14
+msgid "My Profile"
+msgstr "My Profiel"
+
+#: application/modules/user/views/scripts/account/profile.phtml:15
+msgid "Changes can be made to your details below."
+msgstr "Veranderinge kan gemaak word aan jou besonderhede hieronder. "
+
+#: application/modules/user/views/scripts/account/transaction.phtml:14
+msgid "My Transactions"
+msgstr "My Transaksies"
+
+#: application/modules/user/views/scripts/account/transaction.phtml:25
+msgid "Debit"
+msgstr "Debiet"
+
+#: application/modules/user/views/scripts/account/transaction.phtml:26
+msgid "Credit"
+msgstr "Krediet"
+
+#: application/modules/user/views/scripts/login/forgot-password.phtml:3
+#: application/modules/user/views/scripts/login/index.phtml:10
+msgid "Forgotten your password?"
+msgstr "Wagwoord vergeet?"
+
+#: application/modules/user/views/scripts/login/forgot-password.phtml:4
+msgid ""
+"Please provide the email address associated with your account in the box "
+"below. A new password will be generated and sent to you."
+msgstr ""
+"Verskaf asseblief die e-pos adres wat verband hou met jou rekening in die "
+"bokshieronder. 'N nuwe wagwoord sal gegenereer word en aan u gestuur word."
+
+#: application/modules/user/views/scripts/login/index.phtml:7
+msgid "Login to your account"
+msgstr "Teken in op jou rekening"
+
+#: application/modules/user/views/scripts/login/index.phtml:16
+msgid "New User"
+msgstr "Nuwe Rekening"
+
+#: application/modules/user/views/scripts/login/index.phtml:17
+msgid "Dont' have an account?"
+msgstr "Geen Rekening? "
+
+#: application/modules/user/views/scripts/register/success.phtml:3
+msgid "Registration Successful"
+msgstr "Registrasie Suksesvol"
+
+#: application/modules/user/views/scripts/register/success.phtml:4
+msgid "A confirmation email has been sent to the address you provided."
+msgstr "'n Bevestigings epos was aan u email adress gestuur."
+
+#: application/modules/user/views/scripts/student/list.phtml:14
+msgid "My Children"
+msgstr "My Kinders"
+
+#: application/modules/user/views/scripts/student/list.phtml:23
+msgid "Grade"
+msgstr "Graad"
+
+#: application/modules/user/views/scripts/student/list.phtml:25
+msgid "Learner Number"
+msgstr "Leerling Nommer"
+
+#: application/modules/user/views/scripts/student/list.phtml:38
+msgid "edit"
+msgstr "verander"
+
+#: application/modules/user/views/scripts/student/list.phtml:44
+msgid "manage subjects"
+msgstr "Verander Vakke"
+
+#: application/modules/user/views/scripts/student/list.phtml:58
+msgid "There are currently no student accounts linked to you."
+msgstr "Daar is tans geen studente rekeninge aan jou gekoppel."
+
+#: application/modules/user/views/scripts/student/list.phtml:70
+msgid "Link Existing Account"
+msgstr "Koppel bestaande rekening"
+
+#: application/modules/user/views/scripts/student/list.phtml:93
+msgid "Please wait"
+msgstr "Wag asseblief"
+
+#: application/modules/user/views/scripts/student/subject-list.phtml:20
+msgid "There are currently no subjects assigned to this student."
+msgstr "Daar is tans geen student rekeninge gekoppel aan jou."
+
+#: application/modules/user/views/scripts/student/subject-manage.phtml:5
+msgid "Subject Management"
+msgstr "Vakke"
+
+#: application/modules/user/views/scripts/student/subject-manage.phtml:17
+msgid "Add"
+msgstr "Voeg by"
+
+#~ msgid "Home"
+#~ msgstr "Tuis"
+
+#~ msgid "Books"
+#~ msgstr "Boeke"
+
+#~ msgid "Print Books"
+#~ msgstr "Gedrukde Boeke"
+
+#~ msgid "Digital Books"
+#~ msgstr "Digitale Boeke"
+
+#~ msgid "Products"
+#~ msgstr "Produkte"
+
+#~ msgid "My Orders"
+#~ msgstr "My Bestellings"
+
+#~ msgid "My eBooks"
+#~ msgstr "My eBoeke"
+
+#~ msgid "Redirecting"
+#~ msgstr "Herverwysing"
+
+#~ msgid "Please wait while we redirect you for payment processing"
+#~ msgstr "Wag asseblief terwyl ons skakel na betalings herverwys"
+
+#~ msgid "Your current account balance is  %s"
+#~ msgstr "U huidige balans is %s"
+
+#~ msgid "Proceed to Payment"
+#~ msgstr "Gaan na Betaaling"
+
+#~ msgid "Transactions"
+#~ msgstr "Transaksies"
+
+#~ msgid "Cash"
+#~ msgstr "Kontant"
+
+#~ msgid "Cheque Deposit"
+#~ msgstr "Tjekdeposito"
+
+#~ msgid "Please assign these items to a student account."
+#~ msgstr "Skakel hierdie items aan 'n student se rekening."
+
+#~ msgid "Specials"
+#~ msgstr "Spesiale aanbiedinge"
+
+#~ msgid "Previous"
+#~ msgstr "Vorige"
+
+#~ msgid "Next"
+#~ msgstr "Vollgende"
+
+#~ msgid "Thank you"
+#~ msgstr "Dankie"
+
+#~ msgid ""
+#~ "Your order will be processed as soon as we have received payment "
+#~ "confirmation from the payment gateway."
+#~ msgstr ""
+#~ "Jou bestelling sal so gou as ons betaling ontvang verwerk word "
+#~ "bevestiging van die betaling gateway."
+
+#~ msgid ""
+#~ "To complete your order, please pay the outstanding amount with correct "
+#~ "reference. This information has been sent through to you by email. If you "
+#~ "have not received this message within 5 minutes please check your spam "
+#~ "folder."
+#~ msgstr ""
+#~ "Om jou bestelling te voltooi, neem die uitstaande bedrag met die korrekte "
+#~ "betaal verwysing. Hierdie inligting is deur aan u gestuur per e-pos. As "
+#~ "jy nie hierdie boodskap binne 5 minute ontvang kyk binne jou spam leer."
+
+#~ msgid "Your order will be processed shortly."
+#~ msgstr "Jou bestelling word binnekort voltooi."

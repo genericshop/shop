@@ -1,0 +1,83 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="sidebar col-sm-3">
+            <?php 
+                $navigation = $this->navigation()->findOneById('nav-account');
+                echo $this->navigation()->menu()->renderPartial($navigation, array('partial/sidebar-nav.phtml', 'default'));
+            ?>
+        </div>
+        
+        <div class="col-sm-9">
+        
+            <h3><?php echo $this->translate('My Books'); ?></h3>
+            
+            <?php if ($this->items): ?>
+            
+                <?php //Zend_Debug::dump($this->items); ?>
+            
+                <div class="table-responsive">
+            
+                    <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th><?php echo $this->translate('Name'); ?></th>
+                        <th><?php echo $this->translate('ISBN'); ?></th>
+                        <th></th>
+                    </tr> 
+                    </thead>
+                    <tbody>
+                    <?php foreach ($this->items as $item): ?>
+                    <tr>
+                        <td><?php echo $this->escape($item->Name); ?></td>
+                        <td><?php echo $this->escape($item->ISBN); ?></td>
+                        <td>
+                            <?php if ($item->DownloadLink): ?>
+                            <a href="<?php echo $item->DownloadLink; ?>"><?php echo $this->translate('Download'); ?></a>
+                            <?php elseif ($item->OrderRef): ?>
+                            <a href="<?php echo $this->url(array('reference' => $item->OrderRef, 'id' => $item->Reference), 'account-otd-link'); ?>" class="btn-generate">
+                                <?php echo $this->translate('Generate Download Link'); ?>
+                            </a>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                    </tbody>           
+                    </table>
+                
+                </div>
+            
+            <?php else: ?>
+            
+                <p><?php echo $this->translate('You have not ordered any digital books with us.'); ?></p>
+                
+            <?php endif; ?>
+        
+        </div>
+        
+    </div>
+
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(function() {
+    $('.btn-generate').on('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        $this.hide().after('<span class="processing"><?php echo $this->translate('processing...'); ?></span>');
+        $.getJSON($this.attr('href'), function(data) {
+            $('.processing').remove();
+            if (data.result === 1) {
+                $this.replaceWith('<a href="' + data.url + '"><?php echo $this->translate('Download'); ?></a>');
+            } else {
+                if (data.message)
+                    displayMessage(data.message, 'error');
+                $this.show();
+            }
+        });
+    });
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

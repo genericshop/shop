@@ -1,0 +1,141 @@
+@import 'bootstrap/variables.less';
+
+@color-1: #C94136;
+@brand-danger: @color-1;
+
+body {
+    background-color: #fff;
+}
+
+a {
+    color: @color-1;
+    &:focus,
+    &:hover {
+        color: darken(@color-1, 8%);
+    }
+}
+
+hr {
+    border-color: #ccc;
+}
+
+.header {
+    
+    background-color: @color-1;
+    
+    a {
+        color: #fff;
+    }
+    
+    .logo {
+        color: #fff;
+    }
+    
+    .quick {
+        color: #000;
+    }
+    
+    .fa { color: #000; }
+    .fa-inverse { color: #fff; }
+        
+}
+
+.footer {
+    
+    color: #eee;
+    background-color: #000;
+    
+	hr { 
+	    border-color: #444 
+    }
+
+    a {
+        color: @color-1;
+    }
+
+    .fa { color: @color-1; }
+    .fa-inverse { color: #fff; }
+    
+}
+
+// navbar
+.navbar {
+    background-color: #000;
+}
+
+.navbar-toggle {
+    .fa {
+        color: #fff;
+    }
+}
+
+.navbar-nav {
+   
+    li { 
+        
+        a {
+            color: #fff;
+            &:hover,
+            &:focus {
+                color: @color-1;
+            }
+        }
+        
+        &.active {
+            a {
+                background-color: #fff;
+                color: @color-1;
+            }
+        }
+        
+    }
+    
+}
+// end navbar
+
+// sidebar
+.sidebar {
+    
+    .navigation {
+        
+        ul {
+            a {
+                color: #333;
+            }
+        }
+        
+    }
+    
+}
+// end sidebar
+
+// forms & buttons
+.btn-default {
+    background: #eee;
+}
+
+.btn-primary {
+    background: @color-1 !important;
+}
+// end forms & buttons
+
+// responsive
+
+@media (min-width: @screen-md-min) {
+
+    .header {
+        
+        background-image: url('castlewalk/header-tile.png');
+        background-repeat: repeat-x;
+        background-size: 1px 65%;
+        background-position: 0 100%;
+        
+        .quick {
+            ul {
+                vertical-align: top;
+            }
+        }
+        
+    }
+    
+}
