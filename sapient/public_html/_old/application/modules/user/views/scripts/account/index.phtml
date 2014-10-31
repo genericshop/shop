@@ -1,0 +1,95 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="col-sm-3 sidebar">
+            <?php 
+                $navigation = $this->navigation()->findOneById('nav-account');
+                echo $this->navigation()->menu()->renderPartial($navigation, array('partial/sidebar-nav.phtml', 'default'));
+            ?>
+        </div>
+        
+        <div class="col-sm-9">
+        
+            <h3><?php echo $this->translate('My Account'); ?></h3>
+            
+            <?php if ($this->balance && $this->balance < 0): ?>
+            
+                <p>
+                    <?php echo sprintf($this->translate('You currently have an outstanding balance of %s'), '<strong>' . $this->currency($this->balance) . '</strong>'); ?><br>
+                    <?php echo $this->translate('Please allow 72 hours for any payments to reflect on your account.'); ?>
+                </p>
+            
+                <hr>
+            
+                <div class="account-payment">
+            
+                    <div class="row">
+                    
+                        <div class="col-xs-12 col-md-6">
+    
+                            <div class="payment-option">
+    
+                                <h4><?php echo $this->translate('Pay Online'); ?></h4>
+                                <p><?php echo $this->translate('Click on the "Pay Now" button below to pay with your credit card.'); ?></p>
+    
+                                <div style="margin: 20px 0;">
+                                    <p><a href="<?php echo $this->url(array(), 'account-paygate'); ?>" class="btn btn-primary"><?php echo $this->translate('Pay Now'); ?></a></p>
+                                </div>
+    
+                                <p><?php echo $this->translate('The payment will be processed by PayGate to ensure that your credit card details remain safe.'); ?></p>
+    
+                            </div>
+    
+                        </div>
+                        
+                        <div class="col-xs-12 col-md-6">
+                        
+                            <div class="payment-option">
+                        
+                                <h4><?php echo $this->translate('Pay By EFT'); ?></h4>
+                                
+                                <p><?php echo sprintf($this->translate('Please use the reference number <strong>%s</strong> when making a payment.'), $this->auth->PaymentReference); ?></p>
+                                <p><?php echo $this->translate('Use the following banking details for any payments.'); ?>
+                                
+                                <table class="table table-striped">
+                                <tr>
+                                    <th><?php echo $this->translate('Bank'); ?></th>
+                                    <td><?php echo $this->escape($this->store['Info']->BankName); ?></td>
+                                </tr>
+                                <tr>
+                                    <th><?php echo $this->translate('Branch'); ?></th>
+                                    <td><?php echo $this->escape($this->store['Info']->BankBranchCode); ?></td>
+                                </tr>
+                                <tr>
+                                    <th><?php echo $this->translate('Account Name'); ?></th>
+                                    <td><?php echo $this->escape($this->store['Info']->BankAccountName); ?></td>
+                                </tr>
+                                <tr>
+                                    <th><?php echo $this->translate('Account Number'); ?></th>
+                                    <td><?php echo $this->escape($this->store['Info']->BankAccountNumber); ?></td>
+                                </tr>
+                                </table>
+                        
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+            
+            <?php else: ?>
+            
+                <p>
+                    <?php echo $this->translate('Welcome to your MyAccount.'); ?>
+                    <?php echo sprintf($this->translate('Your current account balance is  %s'), '<strong>' . $this->currency($this->balance) . '</strong>'); ?>
+                </p>
+            
+            <?php endif; ?>
+        
+        </div>
+        
+    </div>
+
+</div>

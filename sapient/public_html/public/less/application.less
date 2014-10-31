@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+@import 'bootstrap/bootstrap.less';
+
+@import 'application/mixins.less';
+@import 'application/layout.less';
+@import 'application/navbar.less';
+@import 'application/sidebar.less';
+@import 'application/forms.less';
+@import 'application/responsive.less';
+
+.section {
+    margin-bottom: 30px;
+}
+
+.bundle, .bundles-checked, .bundles-unchecked {
+    display: none;
+}
+
+.product-list {
+    
+    .item {
+        
+        .block;
+        
+        padding: 15px;
+        margin-bottom: 20px;
+        color: #444;
+
+        &:hover {
+            
+            background-color: #eee;
+            color: #444;
+            
+        }
+        
+    }
+    
+    .item-image {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    
+    .item-detail {
+        
+        h4, p {
+            margin-bottom: 0;
+        }
+        
+        .ellipsis {
+            height: 60px;
+            max-height: 60px;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+    }
+    
+    .item-price {
+        font-weight: 600;
+    }
+    
+}
+
+.product-view {
+
+    h3 {
+        margin: 0;
+    }
+
+    .item-image {
+        
+        margin-bottom: 30px;
+        
+        img {
+            .center-block;
+        }
+        
+    }
+
+}
+
+.seperator {
+	height: 5px;
+	margin: 10px 0px;
+	background: url('../img/sep.png') repeat-x;
+}
+
+// misc
+
+.paytype-info-item {
+    .text-primary;
+    display: none;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.wysiwyg {
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 14px;
+    }
+
+}
+
+// bootstrap specific
+
+.btn {
+    border: none;
+    border-radius: 0;
+}
+
+.table {
+    
+    th, td {
+        vertical-align: middle !important;
+    }
+    
+    thead {
+        tr {
+            th {
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    }
+    
+    &.table-item {
+        
+        input[name="qty"] {
+            .input-sm;
+        }
+        
+        .tiny {
+            .block;
+            .font-2;
+            font-size: 0.8em;
+            color: @brand-primary;
+        }
+        
+    }
+    
+}

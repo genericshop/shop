@@ -1,0 +1,34 @@
+<div class="container">
+
+    <table class="table">
+    <tbody>
+    <tr>
+        <td>ZZZ</td>
+        <td>ABC</td>
+    </tr>
+    <tr>
+        <td>ABC</td>
+        <td>ZZZ</td>
+    </tr>
+    <tr>
+        <td>ABC</td>
+        <td>FFF</td>
+    </tr>
+    <tr>
+        <td>ABC</td>
+        <td>AAA</td>
+    </tr>
+    </tbody>
+    </table>
+
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script type="text/javascript" src="js/vendor/tinysort/jquery.tinysort.min.js"></script>
+<script type="text/javascript" src="js/vendor/tinysort/jquery.tinysort.charorder.min.js"></script>
+<script>
+$(function() {
+	$('.table > tbody > tr').tsort('td:eq(0)', 'td:eq(1)');
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

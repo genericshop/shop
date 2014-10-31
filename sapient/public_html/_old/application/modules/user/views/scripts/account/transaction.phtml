@@ -1,0 +1,53 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="sidebar col-sm-3">
+            <?php 
+                $navigation = $this->navigation()->findOneById('nav-account');
+                echo $this->navigation()->menu()->renderPartial($navigation, array('partial/sidebar-nav.phtml', 'default'));
+            ?>
+        </div>
+        
+        <div class="col-sm-9">
+        
+            <h3><?php echo $this->translate('My Transactions'); ?></h3>
+        
+            <?php if ($this->transactions): ?>
+            
+                <div class="table-responsive">
+            
+                    <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th><?php echo $this->translate('Date'); ?></th>
+                        <th><?php echo $this->translate('Reference'); ?></th>
+                        <th><?php echo $this->translate('Debit'); ?></th>
+                        <th><?php echo $this->translate('Credit'); ?></th>
+                    </tr> 
+                    </thead>
+                    <tbody>
+                    <?php foreach ($this->transactions as $item): ?>
+                    <tr>
+                        <td><?php echo date('Y-m-d', $item->TransactionDate / 1000)?></td>
+                        <td><?php echo $this->escape($item->Description); ?></td>
+                        <td><?php echo $this->escape($this->currency($item->Debit)); ?></td>
+                        <td><?php echo $this->escape($this->currency($item->Credit)); ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                    </tbody>           
+                    </table>
+                
+                </div>
+            
+            <?php else: ?>
+            
+                <p><?php echo $this->translate('Search returned no results.'); ?>
+            
+            <?php endif; ?>
+        
+        </div>
+        
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+<?php
+
+function renderMenuSidebar($container, $navigation)
+{
+    
+    $translator = $navigation->getTranslator();
+    
+    foreach ($container as $page) {
+        
+        $class    = array();
+        $hasPages = false;
+        
+        /*
+        if (!$page->isVisible() || !$navigation->accept($page))
+            continue;
+        */
+        
+        if ($page->isActive(true)) 
+            $class[] = 'active';
+        
+        if ($page->hasPages()) {
+            $class[]  = 'dropdown';
+            $hasPages = true;
+        } 
+        
+        $label = $translator ? $translator->translate($page->getLabel()) : $page->getLabel();
+        
+    	echo '<li' . (!empty($class) ? ' class="' . implode(' ', $class) . '"' : null) . '>';
+        if ($hasPages) {
+            echo '<a href="' . $page->getHref() . '">';
+            	echo $label;
+            echo '</a>';
+            echo '<ul>';
+            	renderMenuSidebar($page->getPages(), $navigation);
+            echo '</ul>';
+        } else {
+            echo '<a href="' . urldecode($page->getHref()) . '">' . $label . '</a>';
+        }
+    	echo '</li>';
+    
+    }
+
+}
+
+?>
+
+<?php 
+    if (Zend_Registry::isRegistered('Zend_Translate'))
+        $this->navigation()->setTranslator(Zend_Registry::get('Zend_Translate'))->setUseTranslator(true); 
+?>
+
+<nav><ul class="navigation"><?php renderMenuSidebar($this->container, $this->navigation()); ?></ul></nav> <br>

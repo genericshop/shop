@@ -1,0 +1,87 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="sidebar col-sm-3">
+            <?php 
+                $navigation = $this->navigation()->findOneById('nav-account');
+                echo $this->navigation()->menu()->renderPartial($navigation, array('partial/sidebar-nav.phtml', 'default'));
+            ?>
+        </div>
+        
+        <div class="col-sm-9">
+        
+            <h3><?php echo $this->translate('Order History'); ?></h3>
+        
+            <?php if ($this->orders): ?>
+            
+                <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th><?php echo $this->translate('Date'); ?></th>
+                    <th><?php echo $this->translate('Reference'); ?></th>
+                    <th><?php echo $this->translate('Payment Reference'); ?></th>
+                    <th><?php echo $this->translate('Status'); ?></th>
+                    <th></th>
+                </tr> 
+                </thead>
+                <tbody>
+                <?php foreach ($this->orders as $item): ?>
+                <?php //Zend_Debug::dump($item); ?>
+                <tr>
+                    <td><?php echo date('Y-m-d', $item->DateTime / 1000)?></td>
+                    <td><?php echo $this->escape($item->OrderRef); ?></td>
+                    <td><?php echo $this->escape($item->PaymentReference); ?></td>
+                    <td><?php echo $this->escape($item->OrderState); ?></td>
+                    <td class="text-center">
+                        <a href="user/account/history-item?order=<?php echo $item->OrderRef; ?>" data-toggle="modal" data-target="#modal">
+                            <span class="fa-stack">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-list fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </td>
+		    <td class="text-center">
+                        <a href="<?php echo $this->url(array(), 'account-paygate'); ?>">
+                            <span class="fa-stack">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-paypal fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </td>
+		    <td class="text-center"><a href="javascript:;" class="order-remove" tabIndex="-1"><i class="fa fa-times text-danger"></i></a></td> 
+                </tr>
+                <?php endforeach; ?>
+                </tbody>           
+                </table>
+            
+            <?php else: ?>
+            
+                <p><?php echo $this->translate('You have not placed any orders with us recently.'); ?>
+            
+            <?php endif; ?>
+        
+        </div>
+        
+    </div>
+
+</div>
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+
+	$('.order-remove').on('click', function(e) {
+		e.preventDefault();
+		if (window.confirm("<?php echo $this->translate('Are you sure you want to remove this order ?'); ?>")) {       
+		var $tr = $(this).closest('tr');
+		//$.getJSON('cart/remove', { id: $tr.data('id') }, function(data) {
+			var $table = $tr.closest('table');
+			if ($table.find('tbody tr').length <= 2) {
+				location.href = document.location;
+			} else {
+			    $tr.remove(); 
+		}
+		//});
+		}		
+	});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>
