@@ -18,9 +18,14 @@ class User_AccountController extends App_Controller_Action
     {
         $form = new User_Form_Register('parent');
         
-        foreach (array('HomePhone', 'NationalID', 'Email', 'EmailC', 'Password', 'PasswordC') as $element)
+       // foreach (array('HomePhone', 'NationalID', 'Email', 'EmailC', 'Password', 'PasswordC') as $element)
+
+	   foreach (array('HomePhone', 'NationalID', 'Email', 'EmailC') as $element)
             $form->removeElement($element);
-        
+
+        $form->Password->setRequired(false);
+	$form->PasswordC->setRequired(false);
+
         $request = $this->getRequest();
         $account = $this->_api->getAccountDetails($this->_auth->UniqueRef);
         
@@ -60,7 +65,7 @@ class User_AccountController extends App_Controller_Action
             
         }
         
-        // $form->Password->setDescription($this->view->translate('Leave blank if unchanged'));
+         $form->Password->setDescription($this->view->translate('Leave blank if unchanged'));
         
         $form->submit->setLabel(_('Update Details'));
         $this->view->form = $form;

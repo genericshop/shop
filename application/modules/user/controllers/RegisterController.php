@@ -90,15 +90,22 @@ class User_RegisterController extends App_Controller_Action
     	}
     	
     	$options = array();
+	//getAllGradesByStore
     	foreach ($this->_api->getAllGrades() as $grade)
-    	    $options[$grade->GradeID] = $grade->Grade_ENG;
-    	
+	{
+    	   $options[$grade->GradeID] = $grade->Grade_ENG;
+ 	}   	
+	//foreach ($this->_api->getAllGradesByStore() as $grade)
+    	//    $options[$grade->GradeID] = $grade->Grade_ENG;
+
+	$this->view->options = $this->_api->getAllGrades();
     	asort($options, SORT_NATURAL);
     	$form->GradeID->setMultiOptions($options);
     	
     	$this->view->form  = $form;
     	$this->view->terms = $this->_api->getStoreTerms();
     	$this->renderScript('register/index.phtml');
+	//Zend_Debug::dump($options);
     }
 
     public function successAction()

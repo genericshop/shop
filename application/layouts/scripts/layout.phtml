@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-8">
                 	
-                    <div>
+                    <div align="right">
 			<table>
 			<tr>
 			<td align="right" height="20"><h2>
@@ -63,7 +63,7 @@
                         <?php endif; ?>
 			</h2<</td>
 			</tr>
-			<td><div id="Quickclass" class="quick">		
+			<td><div id="Quickclass" class="quick" >		
                         <ul>
                             <?php 
                                 $locale     = Zend_Registry::get('Zend_Locale');
@@ -95,7 +95,7 @@
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-user fa-stack-1x fa-inverse"></i>
                                         </span>
-                                        <?php echo $this->translate('My Account'); ?>
+                                        <?php echo $this->translate('My account'); ?>
                                     </a>
                                 </li>
                                 <li>
@@ -104,7 +104,7 @@
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-sign-out fa-stack-1x fa-inverse"></i>
                                         </span>
-                                        <?php echo $this->translate('Sign Out'); ?>
+                                        <?php echo $this->translate('Sign out'); ?>
                                     </a>
                                 </li>
                             <?php else: ?>
@@ -114,7 +114,7 @@
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-sign-in fa-stack-1x fa-inverse"></i>
                                         </span>
-                                        <?php echo $this->translate('Sign In'); ?>
+                                        <?php echo $this->translate('Sign in'); ?>
                                     </a>
                                 </li>
                                 <li>
@@ -247,12 +247,20 @@
 $( document ).ready(function() {
 console.log("Ready");
 $('#Quickclass').attr('style', '');
+if (navigator.mimeTypes ["application/x-shockwave-flash"] == undefined)
+      {
+        console.log("Flash is not insalled on your Web browser.");
+      }
+      else
+      {
+        console.log("Flash is insalled on your Web browser.");
+      }
+
 });
 </script>
 <script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/vendor/jquery.dotdotdot.min.js"></script>
 <script src="js/main.js"></script>
-
 <?php echo $this->placeholder('deferred'); ?>
 
 </body>

@@ -33,10 +33,13 @@
         
         <div class="col-sm-8 col-lg-9">
         
-            <h3><?php echo $this->translate('Product Packages'); ?> - <?php echo $this->escape($this->student->FullName); ?></h3>
+            <h3><?php echo $this->translate('Product packages'); ?> - <?php echo $this->escape($this->student->FullName); ?></h3>
             
             <p class="bundles-checked">
-                <?php echo $this->translate('If you would like to customise this order, please');
+                <?php
+		echo '<b><font size="4">'; 
+		echo $this->translate('List below is the complete package of stationery and textbooks . If you just want to purchase only certain items , ');
+		echo ('</font></b>');
 		echo ('<a href="javascript:;" id="customize" style="font-size: 20px;color:red">' . $this->translate('Click here').'</a>');
 		 ?>
             </p>
@@ -85,7 +88,6 @@
                                     'data-qty="' . $item->Quantity . '"',
                                     'data-qty-default="' . $item->Quantity . '"',
                                     'data-total="' . $total . '"',
-                                    'data-gradeid="' . $this->GradeID . '"',
                                 );
                             
                                 $type_text = null; 
@@ -132,6 +134,8 @@
                                 <td>
                                     <?php echo $this->escape($item->{$key_name_i}); ?>
                                     <span class="tiny"><?php
+
+					  echo '<font color="red">'. $item->Note .'</font>';
 					 if( $item->ProductType === "EBooks")
 					 {
 					  echo '( '. $this->translate('Optional'). ' )';
@@ -186,15 +190,15 @@
                     </h4>
                 <span class="pull-right">
                     <button id="cart-add" class="btn btn-primary " data-id="<?php echo $this->product->StockID; ?>" data-type="stock" type="button">
-                        <?php echo $this->translate('Add to Cart'); ?>
+                        <?php echo $this->translate('Add to cart'); ?>
                     </button>
 		 &nbsp;
 		   <button id="cart-view" class="btn btn-primary " data-id="<?php echo $this->product->StockID; ?>" data-type="stock" type="button">
-                        <?php echo $this->translate('Go to Cart'); ?>
+                        <?php echo $this->translate('Go to cart'); ?>
                     </button>
 		 &nbsp;
 		   <button id="cart-print" class="btn btn-primary pull-right" data-id="<?php echo $this->product->StockID; ?>" data-type="stock" type="button">
-                        <?php echo $this->translate('Print Packages'); ?>
+                        <?php echo $this->translate('Print packages'); ?>
                     </button>
 
 		</span>
@@ -320,7 +324,6 @@ $(function() {
     	    var $id   = $(this).attr('data-sid'),
     	        $bid  = $(this).attr('data-bid'),
     	        $qty  = $(this).attr('data-qty'),
-                $grade_id = $(this).attr('data-grade_id'),
     	        $type = $(this).attr('data-type');
 	        
     	    if (!$id || $qty <= 0)
@@ -343,7 +346,7 @@ $(function() {
     	        
     	    } else {
 
-    	    	var $item = { sid: $id, qty: $qty, type: $type, bundle_id: $bid , grade_id : $grade_id};
+    	    	var $item = { sid: $id, qty: $qty, type: $type, bundle_id: $bid };
 
         	    <?php if ($this->auth->AccountType === 'Parent'): ?>
         	    $item.student_id   = '<?php echo $this->student->StudentUniqueRef; ?>';

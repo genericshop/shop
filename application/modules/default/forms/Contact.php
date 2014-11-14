@@ -15,7 +15,7 @@ class Default_Form_Contact extends App_Form
     	));
     	
     	$this->addElement('text', 'email', array(
-			'label' 		=> _('Email Address'),
+			'label' 		=> _('E-mail address'),
 			'required' 		=> true,
 			'maxlength' 	=> 50,
     		'filters'		=> array(array('StringToLower')),

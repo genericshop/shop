@@ -58,14 +58,22 @@ class User_StudentController extends App_Controller_Action
         $form    = new User_Form_Register('student');
         $request = $this->getRequest();
                 //    Zend_Debug::dump('Page loaded');
+	$form->addElement('hidden', 'ParentUniqueRef', array('value' => $this->_auth->UniqueRef));
+		$form->addElement('hidden', 'Password', array('value' => '123456'));
+		$form->addElement('hidden', 'PasswordC', array('value' => '123456'));
+		$form->addElement('hidden', 'EmailC', array('value' => '123456'));
+
         if ($request->isPost()) {
                   //  Zend_Debug::dump($request);
             $json = array('result' => 0);
             $data = $request->getPost();
-        
+        	
             if ($form->isValid($data)) {
 		          //  Zend_Debug::dump('Request is valid');
                 $form->addElement('hidden', 'ParentUniqueRef', array('value' => $this->_auth->UniqueRef));
+		$form->addElement('hidden', 'Password', array('value' => '123456'));
+		$form->addElement('hidden', 'PasswordC', array('value' => '123456'));
+		$form->addElement('hidden', 'EmailC', array('value' => '123456'));
                 $result = $this->_api->addStudentToParent($form->getValues());
                 
                 if (true === $result->Status) {
@@ -128,9 +136,7 @@ class User_StudentController extends App_Controller_Action
         
             $json = array('result' => 0);
             $data = $request->getPost();
-          // Zend_Debug::dump('Request Recieved');
             if ($form->isValid($data)) {
-		//Zend_Debug::dump('Request is valid');
                 $values = $form->getValues();                
                 $values['StudentUniqueRef'] = $student->StudentUniqueRef;
                 

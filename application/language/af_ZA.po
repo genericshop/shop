@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Sapient\n"
-"POT-Creation-Date: 2014-10-24 07:56+0200\n"
-"PO-Revision-Date: 2014-10-24 07:57+0200\n"
+"POT-Creation-Date: 2014-11-08 20:07+0200\n"
+"PO-Revision-Date: 2014-11-08 20:10+0200\n"
 "Last-Translator: Gregg <gregg@bigg.co.za>\n"
 "Language-Team: Bigg\n"
 "Language: af_ZA\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.10\n"
-"X-Poedit-Basepath: C:\\Users\\Suzzy\\Desktop\\Full Backup\\NEw backup\\\n"
+"X-Poedit-Basepath: C:\\xampp\\htdocs\\Upload\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: translate;label;_\n"
@@ -113,7 +113,12 @@ msgstr "Hoe wil jy betaal?"
 msgid "Place Order"
 msgstr "Plaas Bestelling"
 
-#: application/modules/user/controllers/AccountController.php:65
+#: application/modules/user/controllers/AccountController.php:68
+#: application/modules/user/controllers/StudentController.php:177
+msgid "Leave blank if unchanged"
+msgstr "Laat leeg as onveranderd "
+
+#: application/modules/user/controllers/AccountController.php:70
 msgid "Update Details"
 msgstr "Verander besonderhede"
 
@@ -147,16 +152,12 @@ msgstr "U moet 'n wagwoord verskaf om voort te gaan."
 msgid "Link Student Account"
 msgstr "Heg Student Rekening"
 
-#: application/modules/user/controllers/StudentController.php:105
-#: application/modules/user/views/scripts/student/list.phtml:67
+#: application/modules/user/controllers/StudentController.php:110
+#: application/modules/user/views/scripts/student/list.phtml:62
 msgid "New Student Account"
 msgstr "Nuwe Studente Rekening"
 
-#: application/modules/user/controllers/StudentController.php:174
-msgid "Leave blank if unchanged"
-msgstr "Laat leeg as onveranderd "
-
-#: application/modules/user/controllers/StudentController.php:186
+#: application/modules/user/controllers/StudentController.php:189
 msgid "Edit Student Account"
 msgstr "Verander Student Rekening"
 
@@ -166,7 +167,6 @@ msgid "Password"
 msgstr "Wagwoord"
 
 #: application/modules/user/forms/Login.php:23
-#: application/layouts/scripts/layout.phtml:117
 msgid "Sign In"
 msgstr "Teken In"
 
@@ -184,7 +184,7 @@ msgstr "Huis Telefoon"
 
 #: application/modules/user/forms/Register.php:42
 msgid "Mobile Telephone"
-msgstr "Mobiele Telefoon"
+msgstr "Selfoonnommer"
 
 #: application/modules/user/forms/Register.php:49
 msgid "South African ID Number"
@@ -192,20 +192,19 @@ msgstr "Suid Afrikaanse ID Nommer"
 
 #: application/modules/user/forms/Register.php:56
 msgid "Old Account Number 2014"
-msgstr "Ou Rekening Nommer 2014"
+msgstr "Ou Rekeningnommer 2014"
 
 #: application/modules/user/forms/Register.php:74
-#: application/modules/user/forms/StudentLink.php:10
-msgid "Student or ID number"
-msgstr "Suid Afrikaanse ID Nommer"
+msgid "Email (Optional)"
+msgstr "Epos (Optioneel)"
 
 #: application/modules/user/forms/Register.php:82
 msgid "Grade (2015)"
 msgstr "Graad (2015)"
 
 #: application/modules/user/forms/Register.php:91
-msgid "Email Address (child)"
-msgstr "E-pos Adres (Kind)"
+msgid "Id Number"
+msgstr "ID Nommer"
 
 #: application/modules/user/forms/Register.php:101
 msgid "Confirm Email"
@@ -219,9 +218,13 @@ msgstr "Bevestig Wagwoord"
 msgid "I have read and accept the terms and conditions."
 msgstr "Ek het gelees en aanvaar die terme en voorwaardes."
 
-#: application/modules/user/forms/Register.php:133
+#: application/modules/user/forms/Register.php:134
 msgid "Create My Account"
 msgstr "Skep My Rekening"
+
+#: application/modules/user/forms/StudentLink.php:10
+msgid "Student or ID number"
+msgstr "Suid Afrikaanse ID Nommer"
 
 #: application/layouts/scripts/layout.phtml:4
 #: application/layouts/scripts/layout.phtml:48
@@ -232,21 +235,24 @@ msgstr "Boekwinkel"
 #: application/layouts/scripts/layout.phtml:62
 #, php-format
 msgid "Welcome %s"
-msgstr "Welkom by %s"
+msgstr "Welkom  %s"
 
 #: application/layouts/scripts/layout.phtml:88
 #: application/modules/default/views/scripts/checkout/index.phtml:4
 msgid "Checkout"
-msgstr "My Mandjie"
+msgstr "My mandjie"
 
 #: application/layouts/scripts/layout.phtml:98
-#: application/modules/user/views/scripts/account/index.phtml:14
-msgid "My Account"
-msgstr "My Rekening"
+msgid "My account"
+msgstr "My rekening"
 
 #: application/layouts/scripts/layout.phtml:107
-msgid "Sign Out"
-msgstr "Teken Uit"
+msgid "Sign out"
+msgstr "Teken uit"
+
+#: application/layouts/scripts/layout.phtml:117
+msgid "Sign in"
+msgstr "Teken in"
 
 #: application/layouts/scripts/layout.phtml:126
 #: application/modules/user/views/scripts/login/index.phtml:17
@@ -275,18 +281,18 @@ msgstr "Kategorieë"
 
 #: application/modules/default/views/scripts/book/view.phtml:29
 #: application/modules/default/views/scripts/bundle/_list.phtml:110
-#: application/modules/default/views/scripts/bundle/list.phtml:188
+#: application/modules/default/views/scripts/bundle/list.phtml:190
 #: application/modules/default/views/scripts/product/view.phtml:30
-msgid "Add to Cart"
-msgstr "Voeg by Mandjie"
+msgid "Add to cart"
+msgstr "Voeg by mandjie"
 
 #: application/modules/default/views/scripts/bundle/_list.phtml:9
 msgid "Bundles"
-msgstr "Pakette"
+msgstr "Pakkette"
 
 #: application/modules/default/views/scripts/bundle/_list.phtml:35
-msgid "Product Bundles"
-msgstr "Produk Pakette"
+msgid "Product bundles"
+msgstr "Produk pakkette"
 
 #: application/modules/default/views/scripts/bundle/_list.phtml:38
 msgid ""
@@ -297,7 +303,7 @@ msgstr "As u die bestelling items will verander kliek die boks lanksaan "
 #: application/modules/default/views/scripts/bundle/_list.phtml:42
 #: application/modules/default/views/scripts/bundle/list.phtml:45
 msgid "Please select one or more bundles from the options provided."
-msgstr "Kies een of meer pakette van the opsies beskikbaar"
+msgstr "Kies een of meer pakkette van die opsies beskikbaar"
 
 #: application/modules/default/views/scripts/bundle/_list.phtml:62
 #: application/modules/default/views/scripts/bundle/list.phtml:67
@@ -323,7 +329,7 @@ msgstr "Aantal"
 
 #: application/modules/default/views/scripts/bundle/_list.phtml:65
 #: application/modules/default/views/scripts/bundle/list.phtml:72
-#: application/modules/default/views/scripts/bundle/list.phtml:183
+#: application/modules/default/views/scripts/bundle/list.phtml:185
 #: application/modules/default/views/scripts/checkout/complete.phtml:36
 #: application/modules/default/views/scripts/checkout/confirm.phtml:17
 #: application/modules/default/views/scripts/checkout/index.phtml:22
@@ -331,13 +337,13 @@ msgid "Total"
 msgstr "Totaal"
 
 #: application/modules/default/views/scripts/bundle/_list.phtml:196
-#: application/modules/default/views/scripts/bundle/list.phtml:362
+#: application/modules/default/views/scripts/bundle/list.phtml:364
 msgid "Please wait..."
 msgstr "Wag asseblief..."
 
 #: application/modules/default/views/scripts/bundle/index.phtml:3
-msgid "Place an Order"
-msgstr "Plaas Bestelling"
+msgid "Place an order"
+msgstr "Plaas bestelling"
 
 #: application/modules/default/views/scripts/bundle/index.phtml:4
 msgid "Choose your child that will recieve the bundles"
@@ -349,18 +355,22 @@ msgstr "Wys pakkette vir"
 
 #: application/modules/default/views/scripts/bundle/list.phtml:10
 msgid "Packages"
-msgstr "Pakette"
+msgstr "Pakkette"
 
 #: application/modules/default/views/scripts/bundle/list.phtml:36
-msgid "Product Packages"
-msgstr "Pakette"
+msgid "Product packages"
+msgstr "Pakkette "
 
 #: application/modules/default/views/scripts/bundle/list.phtml:39
-msgid "If you would like to customise this order, please"
-msgstr "As u die bestelling will verander , kliek %s."
+msgid ""
+"List below is the complete package of stationery and textbooks . If you just "
+"want to purchase only certain items , "
+msgstr ""
+"Ondergenoemde lys is die volledige pakket van skryfbehoeftes en handboeke. "
+"Indien u net sekere items wil aankoop , "
 
 #: application/modules/default/views/scripts/bundle/list.phtml:40
-#: application/modules/default/views/scripts/bundle/list.phtml:227
+#: application/modules/default/views/scripts/bundle/list.phtml:229
 msgid "Click here"
 msgstr "Kliek hier"
 
@@ -388,27 +398,27 @@ msgstr "2de Handse"
 msgid "Stationery"
 msgstr "Skryfbehoeftes"
 
-#: application/modules/default/views/scripts/bundle/list.phtml:136
+#: application/modules/default/views/scripts/bundle/list.phtml:138
 msgid "Optional"
 msgstr "Optioneel"
 
-#: application/modules/default/views/scripts/bundle/list.phtml:140
+#: application/modules/default/views/scripts/bundle/list.phtml:142
 msgid "required"
 msgstr "benodig"
 
-#: application/modules/default/views/scripts/bundle/list.phtml:192
-msgid "Go to Cart"
-msgstr "Gaan na Mandjie"
+#: application/modules/default/views/scripts/bundle/list.phtml:194
+msgid "Go to cart"
+msgstr "Gaan na mandjie"
 
-#: application/modules/default/views/scripts/bundle/list.phtml:196
-msgid "Print Packages"
-msgstr "Print Pakette"
+#: application/modules/default/views/scripts/bundle/list.phtml:198
+msgid "Print packages"
+msgstr "Druk pryslys"
 
-#: application/modules/default/views/scripts/bundle/list.phtml:227
+#: application/modules/default/views/scripts/bundle/list.phtml:229
 msgid "Please Note"
 msgstr "Let Wel"
 
-#: application/modules/default/views/scripts/bundle/list.phtml:227
+#: application/modules/default/views/scripts/bundle/list.phtml:229
 #, php-format
 msgid ""
 "Second hand books are available in this bundle. %s to toggle these items on/"
@@ -470,8 +480,8 @@ msgstr ""
 "Betaling vir jou bestelling met verwysing <strong>%s</strong> is verwerk."
 
 #: application/modules/default/views/scripts/checkout/confirm.phtml:3
-msgid "My Order"
-msgstr "My Bestelling"
+msgid "My order"
+msgstr "My bestelling"
 
 #: application/modules/default/views/scripts/checkout/confirm.phtml:13
 #: application/modules/default/views/scripts/checkout/index.phtml:18
@@ -484,12 +494,10 @@ msgid "Back to checkout"
 msgstr "Terug na bestelling"
 
 #: application/modules/default/views/scripts/checkout/confirm.phtml:52
-#: application/modules/default/views/scripts/checkout/index.phtml:62
 msgid "Payment"
 msgstr "Betaal"
 
 #: application/modules/default/views/scripts/checkout/confirm.phtml:53
-#: application/modules/default/views/scripts/checkout/index.phtml:63
 msgid "Please select your preferred payment method below."
 msgstr "Kies jou betaling metode"
 
@@ -498,31 +506,31 @@ msgid "Please find the contents of your shopping cart below."
 msgstr "Vind die items in jou maandjie hieronder"
 
 #: application/modules/default/views/scripts/checkout/index.phtml:59
-msgid "Continue to Payment"
-msgstr "Gaan na Betaling"
+msgid "Continue to payment"
+msgstr "Gaan na betaling"
 
-#: application/modules/default/views/scripts/checkout/index.phtml:97
+#: application/modules/default/views/scripts/checkout/index.phtml:68
 msgid "login"
 msgstr "Teken In"
 
-#: application/modules/default/views/scripts/checkout/index.phtml:98
+#: application/modules/default/views/scripts/checkout/index.phtml:69
 msgid "register"
 msgstr "Regsiteer"
 
-#: application/modules/default/views/scripts/checkout/index.phtml:101
+#: application/modules/default/views/scripts/checkout/index.phtml:72
 #, php-format
 msgid "Please %s or %s to continue."
 msgstr "Asseblief %s or %s om voort te gaan."
 
-#: application/modules/default/views/scripts/checkout/index.phtml:107
+#: application/modules/default/views/scripts/checkout/index.phtml:78
 msgid "Your shopping cart is empty."
 msgstr "Jou mandjie is leeg."
 
-#: application/modules/default/views/scripts/checkout/index.phtml:111
+#: application/modules/default/views/scripts/checkout/index.phtml:82
 msgid "Go Back"
 msgstr "Gaan Terug"
 
-#: application/modules/default/views/scripts/checkout/index.phtml:132
+#: application/modules/default/views/scripts/checkout/index.phtml:103
 msgid "Are you sure you want to remove item form cart?"
 msgstr "Is U seker u wil die item van die mandjie afhaal ?"
 
@@ -567,6 +575,14 @@ msgstr "Kennisgewingbord"
 #: application/modules/default/views/scripts/content/notice-board.phtml:13
 msgid "There are currently no notices."
 msgstr "Daar is tans geen kennisgewings."
+
+#: application/modules/default/views/scripts/error/denied.phtml:3
+msgid "Access Denied."
+msgstr "Toegang geweier"
+
+#: application/modules/default/views/scripts/error/denied.phtml:4
+msgid "You do not have the proper privileges to access this page."
+msgstr "Jy het nie die nodige regte om hierdie bladsy te sien nie. "
 
 #: application/modules/default/views/scripts/index/index.phtml:3
 #, php-format
@@ -644,8 +660,8 @@ msgid "Pay"
 msgstr "Betaal"
 
 #: application/modules/user/views/scripts/account/history.phtml:14
-msgid "Order History"
-msgstr "Bestel Geskiedenis"
+msgid "Order history"
+msgstr "Bestel geskiedenis"
 
 #: application/modules/user/views/scripts/account/history.phtml:21
 #: application/modules/user/views/scripts/account/transaction.phtml:23
@@ -667,6 +683,16 @@ msgstr "Jy het nie onlangs enige bestellings geplaas nie."
 #: application/modules/user/views/scripts/account/history.phtml:74
 msgid "Are you sure you want to remove this order ?"
 msgstr "Is U seker u wil die transaksie verwyder ?"
+
+#: application/modules/user/views/scripts/account/index.phtml:13
+msgid "VERY IMPORTANT: Please register your child before placing an order."
+msgstr ""
+"BAIE BELANGRIK: Registreer asseblief eers jou kind voordat bestelling "
+"geplaas word."
+
+#: application/modules/user/views/scripts/account/index.phtml:14
+msgid "My Account"
+msgstr "My Rekening"
 
 #: application/modules/user/views/scripts/account/index.phtml:19
 #: application/modules/user/views/scripts/account/index.phtml:86
@@ -715,8 +741,8 @@ msgid "Welcome to your MyAccount."
 msgstr "Welkom by U 'My Rekening'"
 
 #: application/modules/user/views/scripts/account/profile.phtml:14
-msgid "My Profile"
-msgstr "My Profiel"
+msgid "My profile"
+msgstr "My profiel"
 
 #: application/modules/user/views/scripts/account/profile.phtml:15
 msgid "Changes can be made to your details below."
@@ -724,7 +750,7 @@ msgstr "Veranderinge kan gemaak word aan jou besonderhede hieronder. "
 
 #: application/modules/user/views/scripts/account/transaction.phtml:14
 msgid "My Transactions"
-msgstr "My Transaksies"
+msgstr "My transaksies"
 
 #: application/modules/user/views/scripts/account/transaction.phtml:25
 msgid "Debit"
@@ -757,7 +783,7 @@ msgstr "Nuwe Rekening"
 
 #: application/modules/user/views/scripts/login/index.phtml:17
 msgid "Dont' have an account?"
-msgstr "Geen Rekening? "
+msgstr "Geen rekening? "
 
 #: application/modules/user/views/scripts/register/success.phtml:3
 msgid "Registration Successful"
@@ -768,8 +794,8 @@ msgid "A confirmation email has been sent to the address you provided."
 msgstr "'n Bevestigings epos was aan u email adress gestuur."
 
 #: application/modules/user/views/scripts/student/list.phtml:14
-msgid "My Children"
-msgstr "My Kinders"
+msgid "My children"
+msgstr "My kinders"
 
 #: application/modules/user/views/scripts/student/list.phtml:23
 msgid "Grade"
@@ -783,19 +809,11 @@ msgstr "Leerling Nommer"
 msgid "edit"
 msgstr "verander"
 
-#: application/modules/user/views/scripts/student/list.phtml:44
-msgid "manage subjects"
-msgstr "Verander Vakke"
-
-#: application/modules/user/views/scripts/student/list.phtml:58
+#: application/modules/user/views/scripts/student/list.phtml:53
 msgid "There are currently no student accounts linked to you."
 msgstr "Daar is tans geen studente rekeninge aan jou gekoppel."
 
-#: application/modules/user/views/scripts/student/list.phtml:70
-msgid "Link Existing Account"
-msgstr "Koppel bestaande rekening"
-
-#: application/modules/user/views/scripts/student/list.phtml:93
+#: application/modules/user/views/scripts/student/list.phtml:84
 msgid "Please wait"
 msgstr "Wag asseblief"
 
@@ -811,6 +829,26 @@ msgstr "Vakke"
 msgid "Add"
 msgstr "Voeg by"
 
+#~ msgid "Email Address (child)"
+#~ msgstr "E-pos Adres (Kind)"
+
+#~ msgid "manage subjects"
+#~ msgstr "Verander vakke"
+
+#~ msgid "Link Existing Account"
+#~ msgstr "Koppel bestaande rekening"
+
+#, fuzzy
+#~ msgid "My Order"
+#~ msgstr "My Bestellings"
+
+#, fuzzy
+#~ msgid "Add to Cart"
+#~ msgstr "Voeg by mandjie"
+
+#~ msgid "If you would like to customise this order, please"
+#~ msgstr "As u die bestelling wil verander , "
+
 #~ msgid "Home"
 #~ msgstr "Tuis"
 
@@ -825,9 +863,6 @@ msgstr "Voeg by"
 
 #~ msgid "Products"
 #~ msgstr "Produkte"
-
-#~ msgid "My Orders"
-#~ msgstr "My Bestellings"
 
 #~ msgid "My eBooks"
 #~ msgstr "My eBoeke"

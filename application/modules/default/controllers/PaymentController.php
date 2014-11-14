@@ -15,11 +15,11 @@ class PaymentController extends App_Controller_Action
         
         $form    = new Zend_Form();
     	$config  = Zend_Registry::get('config');
-    	
+	//$newTotal = $this->_helper->currency($model->getTotal($cart['id']));
         $data = array(
         	'PAYGATE_ID' 	   => $config['paygate']['id'],
         	'REFERENCE'	       => $cart['reference'],
-        	'AMOUNT'	       => $model->getTotal($cart['id']),
+        	'AMOUNT'	       => $model->getTotal($cart['id']) ,
 			'CURRENCY'	       => 'ZAR',
         	'RETURN_URL'	   => App_Util::getBaseUrl() . 'payment/response?x=order',
 			'TRANSACTION_DATE' => date('Y-m-d H:i:s'),

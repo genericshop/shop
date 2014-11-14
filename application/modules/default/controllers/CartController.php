@@ -22,7 +22,7 @@ class CartController extends App_Controller_Action
         
         $items = json_decode(file_get_contents('php://input'));
         $count = 0;
-        $countNotadded = 0;
+        
         foreach ($items as $item) {
             
             $item = $this->getApiItem($item);
@@ -40,46 +40,29 @@ class CartController extends App_Controller_Action
             $item_cart = $model->getByCart($cart['id'], $params);
             
             // end
-            // check if current user is diffrent from cart.
-            /*
-            if ($item_cart) {
-                foreach ($item_cart as $cartitem) {
-                    if($cartitem->student_name !== $item->student_id)
-                    {
-                       $json['result']  = 1;
-                        $json['count']   = $count;
-                        $json['message'] = 'You cannot add Bundle items for more than one student';
-                        $this->_helper->json($json);
-                        continue;
-                    }
-                }
-            }
-            */
             
             if ($item_cart) {
                 
                 $total  = $item->price * $item->qty;
-                $result = $model->updateItem(array('qty' => $item->qty, 'total' => $total,'grade_id' => $item->grade_id,), $item_cart['id']);
-            $countNotadded++;
+                $result = $model->updateItem(array('qty' => $item->qty, 'total' => $total,), $item_cart['id']);
+            
             } else {
                 
                 $item->cart  = $cart['id'];
                 $item->total = $item->price * $item->qty;
                 
                 $result = $model->createItem((array)$item);
-                $count++;
+                
             }
             
+            $count++;
+            
         }
-        $message  = $message . sprintf($this->view->translate('%s item(s) added to cart.'), $count);
         
-        if($countNotadded > 0)
-        {
-        $message  = $message . ' Some items weren`t added becuase they are on order allready.';    
-        }
         $json['result']  = 1;
         $json['count']   = $count;
-        $json['message'] = $message;
+        $json['message'] = sprintf($this->view->translate('%s item(s) added to cart.'), $count);
+        
         $this->_helper->json($json);
     }
 
@@ -97,7 +80,7 @@ class CartController extends App_Controller_Action
             $qty   = (int) $this->getParam('qty', 1);
             $total = $item['price'] * $qty ;
             
-            $model->updateItem(array('qty' => $qty, 'total' => $total,'grade_id' => $item->grade_id,), $item['id']);
+            $model->updateItem(array('qty' => $qty, 'total' => $total), $item['id']);
             
             $json['result'] = 1;
             $json['total']  = $total;
@@ -151,7 +134,7 @@ class CartController extends App_Controller_Action
                 //Zend_Debug::dump($result);
                 return null;
             }
-           // Zend_Debug::dump($result);
+          //  Zend_Debug::dump($result);
             $item->name    = $result->Name_ENG;
             $item->name_af = $result->Name_AFR;
             $item->price   = $result->Price;
@@ -167,7 +150,7 @@ class CartController extends App_Controller_Action
             
             $item->name  = $item->name_af = $result->Name;
             $item->price = $result->Price;
-	    $item->grade_id = $result->GradeID;
+	   // $item->grade_id = $result->Gradeid;
         
         } else {
             

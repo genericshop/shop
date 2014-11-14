@@ -16,14 +16,14 @@ class User_Form_Register extends App_Form
     	$this->addElementPrefixPath('App_Filter', 'App/Filter/', 'filter');
     	
     	$this->addElement('text', 'Name', array(
-    		'label' 	=> _('First Name'),
+    		'label' 	=> _('First Name / Eerste Naam'),
     		'required' 	=> true,
     		'maxlength' => 30,
     		'filters'	=> array(array('UcWords')),
     	));
     	
     	$this->addElement('text', 'Surname', array(
-    		'label' 	=> _('Last Name'),
+    		'label' 	=> _('Last Name / Van '),
     		'required' 	=> true,
     		'maxlength' => 30,
 			'filters'	=> array(array('UcWords')),
@@ -32,13 +32,13 @@ class User_Form_Register extends App_Form
     	if ($this->account_type === 'parent') {
     	
         	$this->addElement('text', 'HomePhone', array(
-        	    'label' 	 => _('Home Telephone'),
+        	    'label' 	 => _('Home Telephone / Huis Telefoon'),
         	    'maxlength'  => 15,
         	    'filters'    => array(array('Digits')),
         	    'validators' => array(array('Digits'), array('StringLength', false, array('min' => 10, 'max' => 15))),
         	));
         	
-        	$this->addElement('text', 'CellPhone', array(
+        	$this->addElement('text', 'CellPhone / Selfoon', array(
         	    'label' 	 => _('Mobile Telephone'),
         	    'maxlength'  => 15,
         	    'filters'    => array(array('Digits')),
@@ -46,13 +46,13 @@ class User_Form_Register extends App_Form
         	));
         	
         	$this->addElement('text', 'NationalID', array(
-        	    'label' 	 => _('South African ID Number'),
+        	    'label' 	 => _('South African ID Number / Suid Afrikaanse ID Nommer'),
         	    'required' 	 => true,
         	    'maxlength'  => 13,
         	    'validators' => array(array('Digits'), array('StringLength', false, array('min' => 13, 'max' => 13))),
         	));
 
-		$this->addElement('text', 'OldAccount', array(
+		$this->addElement('text', 'OldAccount / Our Rekening Nommer ', array(
         	    'label' 	 => _('Old Account Number 2014'),
         	    'required' 	 => false,
         	    'maxlength'  => 13,
@@ -62,7 +62,7 @@ class User_Form_Register extends App_Form
 
         	
     	$this->addElement('text', 'Email', array(
-    		'label' 		=> _('Email Address'),
+    		'label' 		=> _('E-mail address / E-posadres'),
     		'required' 		=> true,
     		'maxlength' 	=> 50,
 			'filters'		=> array(array('StringToLower')),
@@ -70,16 +70,16 @@ class User_Form_Register extends App_Form
     	));   
     	} elseif ($this->account_type === 'student') {
     	    
-    	    $this->addElement('text', 'LearnerNumber', array(
-    	        'label' 	 => _('Student or ID number'),
-    	        'maxlength'  => 20,
-    	        'required'   => true,
+    	    $this->addElement('text', 'Email', array(
+    	        'label' 	 => _('E-mail (optional, only required for e-books) / E-pos (opsioneel, net nodig vir e-boeke)'),
+    	        'maxlength'  => 50,
+    	        'required'   => false,
     	        //'filters'    => array(array('Digits')),
     	        //'validators' => array(array('Digits'), array('StringLength', false, array('min' => 10, 'max' => 15))),
     	    ));
     	    
     	    $this->addElement('select', 'GradeID', array(
-    	        'label'    => _('Grade (2015)'),
+    	        'label'    => _('Grade (2015) / Graad (2015)'),
     	        'required' => true,
     	        //'filters'    => array(array('Digits')),
     	        //'validators' => array(array('Digits'), array('StringLength', false, array('min' => 10, 'max' => 15))),
@@ -87,12 +87,12 @@ class User_Form_Register extends App_Form
     	    
     	    $this->GradeID->setRegisterInArrayValidator(false);
     	    
-    	   $this->addElement('text', 'Email', array(
-    		'label' 		=> _('Email Address (child)'),
+    	   $this->addElement('text', 'LearnerNumber', array(
+    		'label' 		=> _('ID Number (required to uniquely identify student) / ID Nommer (word vereis om leerder uniek te identifiseer)'),
     		'required' 		=> true,
     		'maxlength' 	=> 50,
-			'filters'		=> array(array('StringToLower')),
-    		'validators'	=> array(array('EmailAddress')),	
+		'filters'		=> array(array('Digits')),
+    		//'validators'	=> array(array('EmailAddress')),	
     	));   
     	}
     	 	

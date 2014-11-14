@@ -14,7 +14,7 @@ class User_LogoutController extends Zend_Controller_Action
 		$cart = new Zend_Session_Namespace('Cart');
 		$cart->unsetAll();
 		
-		$this->_helper->flashMessenger(array('success' => 'You have been logged out successfully.'));
+		$this->_helper->flashMessenger(array('success' => $this->view->translate('You have been logged out successfully.')));
 		$this->_helper->redirector->gotoRoute(array(), 'login');
     }
 

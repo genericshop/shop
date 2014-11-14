@@ -84,7 +84,7 @@ class CheckoutController extends App_Controller_Action
                                 
                             }
                              $params['Total'] = $item['total'] ;
-				$params['GradeID'] = $item['grade_id'] ;
+				$params['GradeID'] = $item['gradeid'] ;
 
                             // specific for bundle items
                             

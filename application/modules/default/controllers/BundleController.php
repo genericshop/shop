@@ -49,7 +49,7 @@ class BundleController extends App_Controller_Action
             });
             //Zend_Debug::dump($bundles);
             $this->view->bundles = $bundles;
-            $this->view->GradeID = $student->GradeID;
+            
             
             
         }

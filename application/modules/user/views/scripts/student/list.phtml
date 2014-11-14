@@ -11,7 +11,7 @@
         
         <div class="col-sm-9">
         
-            <h3><?php echo $this->translate('My Children'); ?></h3>
+            <h3><?php echo $this->translate('My children'); ?></h3>
             
             <?php if ($this->children): ?>
             
@@ -23,7 +23,7 @@
                     <th><?php echo $this->translate('Grade'); ?></th>
                     <th><?php echo $this->translate('Name'); ?></th>
                     <th><?php echo $this->translate('Learner Number'); ?></th>
-                    <th><?php echo $this->translate('Email Address'); ?></th>
+                    <th><?php echo $this->translate('E-mail address'); ?></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -41,12 +41,7 @@
                                     <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
                                 </span>
                             </a>
-                            <a href="<?php echo $this->url(array('reference' => $item->StudentUniqueRef), 'account-child-subject'); ?>" data-toggle="modal" data-target="#modal" data-tooltip="tooltip" data-placement="top" title="<?php echo $this->translate('manage subjects'); ?>">
-                                <span class="fa-stack">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
+                           
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -66,10 +61,6 @@
                 <a class="btn btn-primary" href="user/student/add" data-toggle="modal" data-target="#modal">
                     <?php echo $this->translate('New Student Account'); ?>
                 </a>
-                <a class="btn btn-default" href="user/student/link" data-toggle="modal" data-target="#modal">
-                    <?php echo $this->translate('Link Existing Account'); ?>
-                </a>
-            
             </div>
             
         </div>

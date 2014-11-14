@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/vendor/accounting/accounting.min.js"></script>
 <script>
 $(window).on('load', function() {
-var Total = $('#AMOUNT').val();
+
 //if (Total.indexOf(".") >= 0)
 //	{
 //	   console.log("");
@@ -24,10 +24,34 @@ var Total = $('#AMOUNT').val();
 //{
 //Total = Total.toString()  + ".00"; 
 //}
+console.log(document.referrer);
+//if (document.referrer.indexOf('paygate.co.za') >= 0) { alert('They came from Paygate'); }
 	//Total = Total / 100; 
+var Total = $('#AMOUNT').val();
+if(document.referrer == "http://garsies.boekwinkel.info/public/checkout/confirm")
+{
+console.log("A")
+}
+else
+{
+console.log("B");
+}
+if (Total.lastIndexOf(".") >= 0)
+{
 	Total  = Math.abs(Total);
 	Total  = accounting.formatNumber(Total,2,'');
 	console.log("Converted");
+}
+else{
+Total  = accounting.formatNumber(Total,2,'');
+console.log(Total);
+console.log("Total Length : " + Total.length);
+//Total = Total.substring(0,Total.length - 2) + "." + Total.substring(Total.length - 2);
+console.log("New total " + Total );
+//Total  = Math.abs(Total);
+//Total  = accounting.formatNumber(Total,2,'');
+
+}
 	//$//('#Fullammount').text(Total);
 //$('#form-payment').submit();
 var CustomTotal = "R " + Total;

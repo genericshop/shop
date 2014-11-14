@@ -27,31 +27,15 @@
         <div class="col-sm-6"><?php echo $this->form->LearnerNumber; ?></div>
     </div>
     
-    <?php if (isset($edit)): ?>
     
     <div class="row">
         <div class="col-sm-6"><?php echo $this->form->Email; ?></div>
-        <div class="col-sm-6"><?php echo $this->form->Password; ?></div>
     </div>
-    
-    <?php else: ?>
-    
-    <div class="row">
-        <div class="col-sm-6"><?php echo $this->form->Email; ?></div>
-        <div class="col-sm-6"><?php echo $this->form->EmailC; ?></div>
-    </div>
-    
-    <div class="row">
-        <div class="col-sm-6"><?php echo $this->form->Password; ?></div>
-        <div class="col-sm-6"><?php echo $this->form->PasswordC; ?></div>
-    </div>
-    
-    <?php endif; ?>
-    
+ 
 </form>
 
 <script type="text/javascript">
 $(function() {
-    $('#Password, #PasswordC').val('').prop('autocomplete', 'off');
+    //$('#Password, #PasswordC').val('').prop('autocomplete', 'off');
 });
 </script>
