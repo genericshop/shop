@@ -150,14 +150,14 @@ function checkVersion()
 
   if ( ver > -1 )
   {
-    if ( ver >= 9.0 ) 
+    if ( ver <= 8.0 ) 
 	{
 	  var r = confirm("You should upgrade your copy of Internet Explorer. Please Click 'OK' to continue. / U moet die huidie web leser opgradeer na 'n nuwer weergawe. Druk die 'OK' knoppie om voor te gaan.");
 		if (r == true) {
    		  window.open('http://windows.microsoft.com/en-za/internet-explorer/ie-9-worldwide-languages','_blank');
 		} else {
    		  msg = "You pressed Cancel";
-		  alert( msg );
+		  //alert( msg );
 		}
 	  
 	}
