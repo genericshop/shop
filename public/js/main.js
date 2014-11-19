@@ -13,7 +13,7 @@ $(window).on('load resize', function() {
     
     $('.push').css('height', $fh + 'px');
 	$('.site-wrapper').css({'margin-bottom':'-' + $fh + 'px'});
-	
+	checkVersion();
 });
 
 $(function() {
@@ -128,6 +128,42 @@ function cartModal(show)
 	});
 }
 */
+
+function getInternetExplorerVersion()
+{
+// Returns the version of Internet Explorer or a -1
+// (indicating the use of another browser).
+  var rv = -1; // Return value assumes failure.
+  if (navigator.appName == 'Microsoft Internet Explorer')
+  {
+    var ua = navigator.userAgent;
+    var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  return rv;
+}
+function checkVersion()
+{
+  var msg = "You're not using Internet Explorer.";
+  var ver = getInternetExplorerVersion();
+
+  if ( ver > -1 )
+  {
+    if ( ver >= 9.0 ) 
+	{
+	  var r = confirm("You should upgrade your copy of Internet Explorer. Please Click 'OK' to continue. / U moet die huidie web leser opgradeer na 'n nuwer weergawe. Druk die 'OK' knoppie om voor te gaan.");
+		if (r == true) {
+   		  window.open('http://windows.microsoft.com/en-za/internet-explorer/ie-9-worldwide-languages','_blank');
+		} else {
+   		  msg = "You pressed Cancel";
+		  alert( msg );
+		}
+	  
+	}
+  }
+ 
+}
 
 function isInteger(string) 
 {    
