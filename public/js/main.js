@@ -13,7 +13,7 @@ $(window).on('load resize', function() {
     
     $('.push').css('height', $fh + 'px');
 	$('.site-wrapper').css({'margin-bottom':'-' + $fh + 'px'});
-	
+	checkVersion();
 });
 
 $(function() {
@@ -130,9 +130,9 @@ function cartModal(show)
 */
 
 function getInternetExplorerVersion()
+{
 // Returns the version of Internet Explorer or a -1
 // (indicating the use of another browser).
-{
   var rv = -1; // Return value assumes failure.
   if (navigator.appName == 'Microsoft Internet Explorer')
   {
