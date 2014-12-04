@@ -148,17 +148,15 @@ class CheckoutController extends App_Controller_Action
         
         if (true === $result->Status)
             $this->view->order = $result;
-    
         // Zend_Debug::dump($result);
     }
     
     private function getCartItems()
     {
         $model = new App_Model_CartItem();
-             
-	 $form    = new Default_Form_Payment();
-	  $this->view->form = $form;
-  	return $model->getByCart($this->cart['id']);
+    	$form    = new Default_Form_Payment();
+    	$this->view->form = $form;
+      	return $model->getByCart($this->cart['id']);
     }
     
 }

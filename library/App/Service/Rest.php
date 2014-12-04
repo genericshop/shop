@@ -1,8 +1,10 @@
 <?php
-
+// Correct Rest file to edit
 class App_Service_Rest 
 {
-	
+	//Test: http://197.242.150.225:8083/rest/
+    //Production: http://41.86.98.148/bookshop/rest/
+
     protected $_host = 'http://41.86.98.148/bookshop/rest/';
     protected $_uri  = null;
     

@@ -13,11 +13,6 @@ class BookController extends App_Controller_Action
     
     public function listAction()
     {
-
-	
-	
-	
-
         $type = $this->getParam('type', 'print');
         
         if ($type === 'print') {

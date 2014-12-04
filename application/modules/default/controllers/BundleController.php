@@ -10,14 +10,28 @@ class BundleController extends App_Controller_Action
     
     public function indexAction()
     {
+        $s = new Zend_Session_Namespace('Cart');
+        $m   = new App_Model_Cart();
+        $c = $m->getById($s->id);
+        $mci = new App_Model_CartItem(); 
+        $ci = $mci->getByCart($c['id']);
+
+
         if ($this->_auth->AccountType === 'Student')
             return $this->forward('list');
 
         $children = $this->view->children = $this->_api->getChildrenForParent($this->_auth->UniqueRef);
-        $options  = array('' => $this->view->translate('Please Choose'));
         
-        foreach ($children as $child)
-            $options[$child->StudentUniqueRef] = $child->FullName;
+        if(!empty($ci)){
+            $options  = array('' => $this->view->translate('Please Choose'));
+            $options[$ci[0]["student_id"]] = $ci[0]["student_name"];
+
+            $this->view->info_message = "You can only add more books for child already in shopping cart. Please complete your order, or empty cart to buy books for other children";
+        } else {
+            $options  = array('' => $this->view->translate('Please Choose'));
+            foreach ($children as $child)
+                $options[$child->StudentUniqueRef] = $child->FullName;
+        }
         
         $this->view->children = $options;
     }

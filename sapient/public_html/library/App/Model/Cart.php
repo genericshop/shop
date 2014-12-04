@@ -12,7 +12,7 @@ class App_Model_Cart extends App_Model_Base
 	    $total = 0;
 	    
 	    if ($items) {
-	        
+	    	
 	        foreach ($items as $item) {
 	            $total += ($item['qty'] * $item['price']);
 	        }
