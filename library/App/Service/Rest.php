@@ -3,9 +3,9 @@
 class App_Service_Rest 
 {
 	//Test: http://197.242.150.225:8083/rest/
-    //Production: http://41.86.98.148/bookshop/rest/
+    //Production: http://41.86.98.148/bookshop/rest/   http://154.0.163.97/rest/
 
-    protected $_host = 'http://41.86.98.148/bookshop/rest/';
+    protected $_host = 'http://154.0.163.97/rest/';
     protected $_uri  = null;
     
     private $store_id;
@@ -250,19 +250,19 @@ class App_Service_Rest
     public function getChildForParent($parent_id, $student_id)
     {
         // http://41.86.98.148/bookshop/rest/WS_GetChildForParent?about
-        return $this->doRequest('WS_GetChildForParent?StoreID=' . $this->store_id . '&ParentUniqueRef=' . $parent_id . '&StudentUniqueRef=' . $student_id);
+        return $this->doRequest('WS_GetChildForParent?StoreID=' . $this->store_id . '&ParentUniqueRef=' . $parent_id . '&StudentUniqueRef=' . urlencode($student_id));
     }
     
     public function getSubjectsForStudent($student_id)
     {
         // http://41.86.98.148/bookshop/rest/WS_GetAllSubjectsByStudent?about
-        return $this->doRequest('WS_GetAllSubjectsByStudent?StoreID=' . $this->store_id . '&StudentUniqueRef=' . $student_id);
+        return $this->doRequest('WS_GetAllSubjectsByStudent?StoreID=' . $this->store_id . '&StudentUniqueRef=' . urlencode($student_id));
     }
     
     public function getStudentGrade($student_id)
     {
         // http://41.86.98.148/bookshop/rest/WS_GetStudentGrade?about
-        return $this->doRequest('WS_GetStudentGrade?StoreID=' . $this->store_id . '&StudentUniqueRef=' . $student_id);
+        return $this->doRequest('WS_GetStudentGrade?StoreID=' . $this->store_id . '&StudentUniqueRef=' . urlencode($student_id));
     }
     
     public function addStudentSubject($data)
@@ -540,7 +540,7 @@ class App_Service_Rest
     public function getStudentAccountOrders($student_id)
     {
         // http://41.86.98.148/bookshop/rest/WS_PreviousOrdersByChild?about
-        return $this->doRequest('WS_PreviousOrdersByChild?StoreID=' . $this->store_id . '&StudentUniqueRef=' . $student_id);
+        return $this->doRequest('WS_PreviousOrdersByChild?StoreID=' . $this->store_id . '&StudentUniqueRef=' . urlencode($student_id));
     }
     
     public function getParentBooks($parent_id)
@@ -552,7 +552,7 @@ class App_Service_Rest
     public function getStudentBooks($student_id)
     {
         // http://41.86.98.148/bookshop/rest/WS_GetMyBooksStudent?about
-        return $this->doRequest('WS_GetMyBooksStudent?StoreID=' . $this->store_id . '&StudentUniqueRef=' . $student_id);
+        return $this->doRequest('WS_GetMyBooksStudent?StoreID=' . $this->store_id . '&StudentUniqueRef=' . urlencode($student_id));
     }
     
     public function getAccountEbook($reference)

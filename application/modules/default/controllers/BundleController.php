@@ -76,10 +76,8 @@ class BundleController extends App_Controller_Action
         $student = $this->_api->getChildForParent($this->_auth->UniqueRef, $this->getParam('student', null));
         
         if ($student) {
-
             App_Session::getInstance()->set('BundleStudent', $student);
             $json['result'] = 1;
-            
         }
         
         $this->_helper->json($json);
