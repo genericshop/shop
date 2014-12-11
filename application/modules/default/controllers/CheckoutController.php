@@ -83,8 +83,8 @@ class CheckoutController extends App_Controller_Action
                                 $params['ISBN'] = $item['sid'];
                                 
                             }
-                             $params['Total'] = $item['total'] ;
-				$params['GradeID'] = $item['gradeid'] ;
+                            $params['Total'] = $item['total'] ;
+				            $params['GradeID'] = $item['gradeid'] ;
 
                             // specific for bundle items
                             
@@ -104,15 +104,10 @@ class CheckoutController extends App_Controller_Action
                                     Zend_Debug::dump($result);
                                     exit;
                                 }
-                                
                                 // delete the order (need a function)
                                 goto error;
-                                
+                               
                             }
-                            
-                           // Zend_Debug::dump($params);
-                            //Zend_Debug::dump($result);
-                            
                         }
                         
                         //exit;

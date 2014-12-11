@@ -16,10 +16,17 @@ class App_Plugin_Store extends Zend_Controller_Plugin_Abstract
             $model = new App_Model_Store();
             // echo 'Host :' . $host;
             $store = $model->getByHost($host);
+
             if (!$store) {
-                echo "Could not get store";
-                die('Host: ' . $host . ' has no configuration data.');
+                // Default to cbc.boekwinkel.info
+                $store = $model->getByHost("cbc.boekwinkel.info");
+                $layout = "sapient";
     		}
+
+            if (!$store) {
+                echo "Could not get store<br>";
+                die('Host: ' . $host . ' has no configuration data.');
+            }
             // todo: check if store id actually exists before setting session info
             
             $api  = new App_Service_Rest($store['sid']);
@@ -38,7 +45,8 @@ class App_Plugin_Store extends Zend_Controller_Plugin_Abstract
                 'logo'    => $store['logo'],
                 'Info'    => $info,
                 'Links'   => $api->getStoreLinks(),
-                'StoreID' => $store['sid']
+                'StoreID' => $store['sid'],
+                'layout'=> $layout
             ));
         }
         
