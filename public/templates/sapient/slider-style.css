@@ -77,8 +77,9 @@
 	background:url(images/link.gif) center center no-repeat;
 }
 #thumbnails {
-	margin-top:15px
+	margin-top:15px;
 }
+
 #slideleft {
 	float:left;
 	width:20px;
@@ -101,7 +102,7 @@
 #slidearea {
 	float:left;
 	position:relative;
-	width:456px;
+	width:900px;
 	margin-left:5px;
 	height:81px;
 	overflow:hidden
@@ -114,5 +115,7 @@
 #slider img {
 	cursor:pointer;
 	border:1px solid #666;
-	padding:2px
+	padding:2px;
+	width: 125px;
+	height: 75px;
 }
