@@ -27,18 +27,17 @@
 #information {
 	position:absolute;
 	width:500px;
-	background:#000;
-	color:#fff;
 	overflow:hidden;
 	z-index:200;
 	opacity:.7;
 	filter:alpha(opacity=70);
 	left: 350px;
+	min-height: 200px;
 }
 
 #information h3 {
 	padding:4px 8px 3px;
-	font-size:14px
+	font-size: 20pt
 }
 #information p {
 	padding:0 8px 8px
@@ -67,12 +66,14 @@
 	background:url(images/right.gif) right center no-repeat;
 }
 #imglink {
+	display: none;
 	position:absolute;
 	height:306px;
 	width:100%;
 	z-index:100;
 	opacity:.4;
-	filter:alpha(opacity=40)}
+	filter:alpha(opacity=40)
+}
 .linkhover {
 	background:url(images/link.gif) center center no-repeat;
 }
