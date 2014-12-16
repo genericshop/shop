@@ -15,7 +15,6 @@ class User_LoginController extends App_Controller_Action
 			if ($form->isValid($data)) {
 				
 			    $result = $this->_api->login($form->getValues());
-
 			    if (true === $result->Status) {
 			        
 			        $user = $this->_api->getAccountDetails($result->UniqueRef);

@@ -18,7 +18,7 @@ class App_Plugin_Store extends Zend_Controller_Plugin_Abstract
             $store = $model->getByHost($host);
 
             if (!$store) {
-                // Default to cbc.boekwinkel.info
+                // Default to garsies.boekwinkel.info
                 $store = $model->getByHost("cbc.boekwinkel.info");
                 //$layout = "sapient";
     		}
