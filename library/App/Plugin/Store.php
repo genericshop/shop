@@ -19,8 +19,8 @@ class App_Plugin_Store extends Zend_Controller_Plugin_Abstract
 
             if (!$store) {
                 // Default to cbc.boekwinkel.info
-                $store = $model->getByHost("cbc.boekwinkel.info");
-                $layout = "sapient";
+                //$store = $model->getByHost("cbc.boekwinkel.info");
+                //$layout = "sapient";
     		}
 
             if (!$store) {
@@ -45,8 +45,7 @@ class App_Plugin_Store extends Zend_Controller_Plugin_Abstract
                 'logo'    => $store['logo'],
                 'Info'    => $info,
                 'Links'   => $api->getStoreLinks(),
-                'StoreID' => $store['sid'],
-                'layout'=> $layout
+                'StoreID' => $store['sid']
             ));
         }
         

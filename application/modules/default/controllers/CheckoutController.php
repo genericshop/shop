@@ -20,6 +20,13 @@ class CheckoutController extends App_Controller_Action
     
         $this->view->cart  = $this->cart;
         $this->view->items = $this->getCartItems();
+
+        $sortedItems = array();
+        foreach ($this->view->items as $cartitem) {
+            $sortedItems[$cartitem["student_name"]][] = $cartitem;
+        }
+
+        $this->view->sortedItems = $sortedItems;
     }
 
     public function confirmAction()
@@ -90,7 +97,7 @@ class CheckoutController extends App_Controller_Action
                             
                             if ($item['bundle_id']) {
                                 $params['PriceList'] = $item['bundle_id'];
-                                $params['StudentUniqueRef'] = $item['student_id'];
+                                $params['StudentUniqueRef'] = $item['fc'];
                             }
 
                             // end
