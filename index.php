@@ -19,6 +19,8 @@
 </head>
 <body>
     <div id="mainContent" align="Center"><?php 
+    header('location: http://'.$_SERVER['HTTP_HOST'].'/public/index.php');
+    exit();
 
 	if ($_SERVER['HTTP_HOST'] === 'klofies.boekwinkel.info') {
   	 echo '<img src="public/img/construction_klofies.png" class="img">';
