@@ -24,7 +24,7 @@ class CartController extends App_Controller_Action
         $count = 0;
         
         foreach ($items as $item) {
-            
+            $i = $item;
             $item = $this->getApiItem($item);
             
             if (!$item)

@@ -158,7 +158,9 @@ class CheckoutController extends App_Controller_Action
         $model = new App_Model_CartItem();
     	$form    = new Default_Form_Payment();
     	$this->view->form = $form;
-      	return $model->getByCart($this->cart['id']);
+        
+      	$items = $model->getByCart($this->cart['id']);
+        return (empty($items) ? array() : $items);
     }
     
 }
