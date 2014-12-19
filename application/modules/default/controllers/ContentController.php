@@ -55,8 +55,8 @@ class ContentController extends App_Controller_Action
     		    $values = $form->getValues();
     		    
                 $mail = new App_Mail();
-                               //$mail->addTo($this->_store['Info']->Email);
-		$mail->addTo('karen.jones@mansystems.com');
+                $mail->addTo($this->_store['Info']->Email);
+		//$mail->addTo('roux.dj@gmail.com');
 
 
                 $mail->setReplyTo($values['email']);

@@ -1,0 +1,57 @@
+<div class="page-header">
+
+	<?php if ($this->parent): ?>
+	
+		<h1><a href="admin/navigation">Navigation</a> / <?php echo $this->parent['name']; ?></h1>
+	
+		<div class="btn-group">
+			<a class="btn btn-create" href="<?php echo $this->url(array('action' => 'add')); ?>?parent=<?php echo $this->parent['id']; ?>">Create</a>
+		</div>
+		
+	<?php else: ?>
+	
+		<h1>Navigation</h1>
+	
+		<div class="btn-group">
+			<a class="btn btn-create" href="<?php echo $this->url(array('action' => 'add')); ?>">Create</a>
+		</div>
+	
+	<?php endif; ?>
+	
+</div>
+
+<?php if ($this->items): ?>
+
+	<table class="datatable ui-sortable" data-sort-url="admin/navigation/sort">
+	<thead>
+	<tr>
+        <th class="nosort">Name</th>
+		<th class="action nosort"></th>
+	</tr>
+	</thead>
+	<tbody>
+	<?php foreach ($this->items as $item): ?>
+	<tr id="ord-<?php echo $item['id']; ?>" style="cursor: move;">
+        <td>
+			<?php if ($item['parent'] == null && $item['editable']): ?>
+				<a href="admin/navigation/list?parent=<?php echo $item['id']; ?>"><?php echo $item['name']; ?></a>
+			<?php else: ?>
+				<?php echo $item['name']; ?>
+			<?php endif; ?>
+		</td>
+		<td class="action text-center">
+			<a class="btn btn-default btn-edit" href="admin/navigation/edit?id=<?php echo $item['id'] . ($item['parent'] ? '&parent=' . $item['parent'] : null); ?>">edit</a>
+			<?php if ($item['editable']): ?>
+				<a class="btn btn-danger btn-delete" href="admin/navigation/delete?id=<?php echo $item['id']; ?>" data-name="<?php echo $item['name']; ?>">delete</a>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+	</tbody>
+	</table>
+
+<?php else: ?>
+	
+	<div class="well">Search returned 0 results</div>
+	
+<?php endif; ?>

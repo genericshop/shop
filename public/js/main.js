@@ -13,11 +13,11 @@ $(window).on('load resize', function() {
     
     $('.push').css('height', $fh + 'px');
 	$('.site-wrapper').css({'margin-bottom':'-' + $fh + 'px'});
-	checkVersion();
+	
 });
 
 $(function() {
-	
+	checkVersion();
 	$(':text, :password').prop('autocomplete', 'off');
 	
 	$('[data-tooltip="tooltip"]').tooltip();
@@ -134,6 +134,7 @@ function getInternetExplorerVersion()
 // Returns the version of Internet Explorer or a -1
 // (indicating the use of another browser).
   var rv = -1; // Return value assumes failure.
+  console.log(navigator.appName);
   if (navigator.appName == 'Microsoft Internet Explorer')
   {
     var ua = navigator.userAgent;
@@ -147,7 +148,7 @@ function checkVersion()
 {
   var msg = "You're not using Internet Explorer.";
   var ver = getInternetExplorerVersion();
-
+  console.log("checking browser version : " + ver);
   if ( ver > -1 )
   {
     if ( ver <= 8.0 ) 

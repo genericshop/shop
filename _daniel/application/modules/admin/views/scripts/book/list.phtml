@@ -1,0 +1,47 @@
+<div class="page-header">
+
+    <h1>Books</h1>
+
+    <div class="clearfix" style="margin: 10px 0;">
+        <?php echo $this->partial('book/search.phtml', array('btn' => '<a class="btn btn-create pull-right" href="' . $this->url(array('action' => 'add')) . '">Create</a>')); ?>
+    </div>
+    
+</div>
+
+<?php if ($this->items): ?>
+
+	<table class="datatable disabled">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>ISBN</th>
+		<th class="action nosort"></th>
+	</tr>
+	</thead>
+	<tbody>
+	<?php foreach ($this->items as $item): ?>
+	<tr>
+		<td><?php echo $item['name']; ?></td>
+		<td><?php echo $item['isbn']; ?></td>
+		<td class="action text-center">
+			<a class="btn btn-default btn-edit" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item['id'])); ?>">edit</a>
+			<a class="btn btn-danger btn-delete" href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])); ?>" data-title="<?php echo $this->escape($item['name']); ?>">delete</a>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+	</tbody>
+	</table>
+
+<?php else: ?>
+	
+	<?php if ($this->searched): ?>
+	
+	   <div class="alert alert-danger">Search returned 0 results</div>
+	
+	<?php else: ?>
+	
+	   <div class="alert alert-warning">Please provide book ISBN or name.</div>
+	
+	<?php endif; ?>
+	
+<?php endif; ?>

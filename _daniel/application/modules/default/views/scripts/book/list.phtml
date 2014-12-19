@@ -1,0 +1,80 @@
+<div class="container">
+
+    <?php echo $this->navigation()->breadcrumbs()->setPartial('partial/breadcrumbs.phtml'); ?>
+
+    <div class="row">
+    
+        <div class="col-sm-4 col-lg-3">
+        
+            <div class="sidebar">
+        
+                <h3><?php echo $this->translate('Catalogue'); ?></h3>
+                <?php 
+                    $navigation = $this->navigation()->findOneById('nav-catalogue');
+                    echo $this->navigation()->menu()->renderPartial($navigation, 'partial/sidebar-nav.phtml');
+                ?>
+                <?php echo $this->partial('partial/sidebar-item.phtml', 'default', array('items' => $this->specials,  'title' => $this->translate('Specials'))); ?>
+            
+            </div>
+            
+        </div>
+        
+        <div class="col-sm-8 col-lg-9">
+        
+            <?php if ($this->category): ?>
+        
+                <h3 class="pull-left"><?php echo $this->escape($this->category['name']); ?></h3>
+        
+                <?php if (count($this->paginator)): ?>
+                
+                    <div class="form-group pull-right">
+                        <form id="form-sort" method="get" action="<?php echo urldecode($this->url()); ?>" style="margin: 0;">                               
+                        <select name="sort" class="form-control">
+                            <option value=""><?php echo $this->translate('Sort By'); ?></option>
+                            <option value="name-asc"><?php echo $this->translate('Name (A-Z)'); ?></option>
+                            <option value="name-des"><?php echo $this->translate('Name (Z-A)'); ?></option>
+                            <option value="price-asc"><?php echo $this->translate('Price (Low-High)'); ?></option>
+                            <option value="price-des"><?php echo $this->translate('Price (High-Low)'); ?></option>
+                        </select>
+                        </form>  
+                    </div>
+            
+                    <div class="clearfix"></div>        
+                
+                    <?php echo $this->partial('partial/item-list.phtml', 'default', array('items' => $this->paginator, 'item_class' => 'col-xs-6 col-sm-4', 'item_clearfix' => array(2 => 'visible-xs', 3 => 'visible-sm visible-md visible-lg'))); ?>
+                    <?php echo $this->paginationControl($this->paginator, 'Sliding', 'paginator.phtml'); ?> 
+                
+                <?php endif; ?>    
+                
+            <?php else: ?>
+            
+                <?php echo $this->partial('partial/item-list.phtml', 'default', array('title' => $this->translate('Popular Deals'), 'items' => $this->featured, 'item_class' => 'col-xs-6 col-sm-4', 'item_clearfix' => array(2 => 'visible-xs', 3 => 'visible-sm visible-md visible-lg'))); ?>
+                <div class="seperator"></div>
+                <?php echo $this->partial('partial/item-carousel.phtml', 'default', array('title' => $this->translate('Specials'),  'items' => $this->specials, 'script' => true)); ?>
+            
+            <?php endif; ?>   
+            
+        </div>
+                                                                            
+    </div>
+
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(function() {
+    $('[name="sort"]').on('change', function() {
+        if (!$(this).val())
+            return;
+        $('#form-sort').submit();
+    });
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>
+
+<?php 
+
+	$title = $this->category ? $this->category['name'] : $this->translate('Catalogue');
+	$this->headTitle($title);
+	
+?>

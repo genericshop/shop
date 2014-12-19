@@ -1,0 +1,120 @@
+<div class="container product-view">
+
+
+    <div class="row">
+    
+        <div class="col-sm-4 col-lg-3 hidden-xs">
+        
+            <div class="sidebar">
+        
+                <h3><?php echo $this->translate('Catalogue'); ?></h3>
+                <?php 
+                    $navigation = $this->navigation()->findOneById('nav-catalogue');
+                    echo $this->navigation()->menu()->renderPartial($navigation, 'partial/sidebar-nav.phtml');
+                ?>
+                <?php //echo $this->partial('partial/sidebar-item.phtml', 'default', array('items' => $this->specials,  'title' => $this->translate('Specials'))); ?>
+            
+            </div>
+            
+        </div>
+        
+        <div class="col-sm-8 col-lg-9">
+        
+            <h3><?php echo $this->escape($this->book['name']); ?></h3>
+        
+            <div class="row">
+            
+                <div class="col-sm-6 product-image">
+                    <?php if ($this->book['image']): ?>
+                        <?php echo $this->image('media/book/' . $this->book['image'], 600, null, array('class' => 'img-responsive')); ?>
+                    <?php else: ?>
+                        <img src="<?php echo $this->book['image_url']; ?>" class="img-responsive">
+                    <?php endif; ?>
+                </div>
+                
+                <div class="col-sm-6 product-info">
+                
+                    <?php $formats = explode(',', $this->book['format']); ?>
+                
+                    <h4>Available Formats</h4>
+                
+                    <table class="table">
+                    <?php if (in_array('Print', $formats)): ?>
+                    <tr>
+                        <td><?php echo $this->translate('Print'); ?></td>
+                        <td><strong><?php echo $this->currency($this->book['price']); ?></strong></td>
+                        <td>
+                            <?php if ($this->book['available']): ?>
+                            <button class="btn btn-default btn-block btn-primary cart-add" data-id="<?php echo $this->book['id']; ?>" data-type="book">
+                                <?php echo $this->translate('Add to Cart'); ?>
+                            </button>
+                            <?php else: ?>
+                                <?php echo $this->translate('Out of Stock'); ?>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if (in_array('PDF', $formats) || in_array('ePub', $formats) && $this->book['ebook_active']): ?>
+                        
+                        <?php if (in_array('PDF', $formats)): ?>
+                        <tr>
+                            <td>PDF</td>
+                            <td><strong><?php echo $this->currency($this->book['ebook_price']); ?></strong></td>
+                            <td>
+                                <button class="btn btn-block btn-danger cart-add text-center" data-id="<?php echo $this->book['id']; ?>" data-type="book" data-format="pdf" data-child="<?php echo $this->book['ebook_id']; ?>">
+                                    <?php echo $this->translate('Add to Cart'); ?>
+                                </button>
+                            </td>
+                        </tr>
+                        <?php endif; ?>
+                        
+                        <?php if (in_array('ePub', $formats)): ?>
+                        <tr>
+                            <td>ePub</td>
+                            <td><strong><?php echo $this->currency($this->book['ebook_price']); ?></strong></td>
+                            <td>
+                                <button class="btn btn-block btn-danger cart-add text-center" data-id="<?php echo $this->book['id']; ?>" data-type="book" data-format="epub" data-child="<?php echo $this->book['ebook_id']; ?>">
+                                    <?php echo $this->translate('Add to Cart'); ?>
+                                </button>
+                            </td>
+                        </tr>
+                        <?php endif; ?>
+                        
+                    <?php endif; ?>
+                    </table>
+                
+                </div>
+                
+            </div> <br>
+                
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab"><?php echo $this->translate('Description'); ?></a></li>
+            </ul>
+            
+            <div class="tab-content">
+            
+                <div class="tab-pane active" id="tab1">
+                    <?php echo $this->book['description']; ?>
+                </div>
+                
+            </div>
+            
+        </div>
+                                                                            
+    </div>
+
+</div>
+
+<?php 
+
+	$title = $this->book['meta_title'] ? $this->book['meta_title'] : $this->book['name'];
+
+	$this->headTitle($title);
+	
+	if ($this->book['meta_description'])
+		$this->headMeta()->setName('description', $this->book['meta_description']);
+
+	if ($this->book['meta_keywords'])
+		$this->headMeta()->setName('keywords', $this->book['meta_keywords']);	
+	
+?>

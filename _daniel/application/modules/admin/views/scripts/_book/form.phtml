@@ -1,0 +1,100 @@
+<div class="page-header">
+
+	<h1><a href="admin/book">Books</a> / <?php echo $this->action; ?></h1>
+
+	<div class="btn-group">
+		<a class="btn btn-back" href="admin/book">Back</a>
+	</div>	
+
+</div>
+
+<form method="post" enctype="multipart/form-data">
+
+    <?php echo $this->form->category; ?>
+    <?php echo $this->form->name; ?>
+    
+    <?php echo $this->form->description; ?>
+    <?php echo $this->form->description_af; ?>
+    <?php echo $this->form->publisher; ?>
+    <?php echo $this->form->author; ?>
+    
+    <?php echo $this->form->format; ?>
+    
+    <div class="panel panel-default">
+    
+        <div class="panel-heading">Print Format Details</div>
+    
+        <div class="panel-body">
+        
+            <?php echo $this->form->isbn; ?>
+            
+            <div class="print-resource-wrapper">
+                <?php echo $this->form->price; ?>
+                <?php echo $this->form->published; ?>
+            </div>
+        
+        </div>
+        
+    </div>
+    
+    <div class="panel panel-default" id="ebook-form">
+    
+        <div class="panel-heading">eBook Format Details</div>
+    
+        <div class="panel-body">
+    
+            <div class="ebook-pdf-resource-wrapper">
+            	<?php echo $this->form_e->ebook_isbn_pdf; ?>
+            </div>
+            <div class="ebook-epub-resource-wrapper">
+            	<?php echo $this->form_e->ebook_isbn_epub; ?>
+            </div>
+    
+            <?php echo $this->form_e->ebook_price; ?>
+            <?php echo $this->form_e->ebook_published; ?>  
+            <?php echo $this->form_e->ebook_active; ?>
+        
+        </div>
+        
+    </div>
+    
+    <?php echo $this->form->image; ?>
+    <?php echo $this->form->available; ?>
+    <?php echo $this->form->language; ?>
+    <?php echo $this->form->featured; ?>
+    <?php echo $this->form->special; ?>
+    <?php echo $this->form->active; ?>                   
+
+    <?php echo $this->form->submit; ?>    
+    
+</form>
+
+<?php echo $this->partial('partial/form-image.phtml', 'admin', array('item' => $this->item, 'image' => 'media/book/' . $this->item['image'])); ?>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(function() {
+    $('#format').change(function() {
+        var flag = false;
+        $('.print-resource-wrapper, .ebook-pdf-resource-wrapper, .ebook-epub-resource-wrapper').hide();
+        $(':selected', this).each(function() {
+            switch ($(this).text()) {
+                case 'Print':
+                    $('.print-resource-wrapper').show();
+                    break;
+                case 'ePub':
+                    $('.ebook-epub-resource-wrapper').show();
+                    flag = true;
+                    break;
+    
+                case 'PDF':
+                    $('.ebook-pdf-resource-wrapper').show();
+                    flag = true;
+                    break;
+            }
+        });
+        flag ? $('#ebook-form').show() : $('#ebook-form').hide();
+    }).change();
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

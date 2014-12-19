@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+
+	<nav>
+	
+		<home>
+			<label>Home</label>
+			<module>default</module>
+			<controller>index</controller>
+			<action>index</action>
+			<route>default</route>
+		</home>
+				<catalouge>
+			<label>Books</label>
+			<uri>javascript:;</uri>
+			<pages>
+				<publisher>
+					<label>Publishers</label>
+					<module>admin</module>
+					<controller>publisher</controller>
+					<action>index</action>
+				</publisher>
+				<author>
+					<label>Authors</label>
+					<module>admin</module>
+					<controller>author</controller>
+					<action>index</action>
+				</author>
+		        <category>
+		            <label>Categories</label>
+		            <module>admin</module>
+		            <controller>category</controller>
+		            <action>index</action>
+		        </category>
+				<book>
+					<label>Books</label>
+					<module>admin</module>
+					<controller>book</controller>
+					<action>index</action>
+				</book>
+			</pages>
+		</catalouge>
+		<product>
+			<label>Products</label>
+			<route>product</route>
+		</product>
+		<bundle>
+			<label>Place an Order</label>
+			<route>bundle</route>
+			<resource>default:bundle</resource>
+		</bundle>
+		<buyback>
+			<label>Buy Back Books</label>
+			<route>buy-back</route>
+		</buyback>
+		<notice>
+			<label>Notice Board</label>
+			<route>notice-board</route>
+		</notice>
+		<contact>
+			<label>Contact</label>
+			<route>contact</route>
+		</contact>
+		
+		<account>
+			<id>nav-account</id>
+			<label>My Account</label>
+			<route>account</route>
+			<resource>user</resource>
+			<pages>
+				<profile>
+					<label>My Profile</label>
+					<route>account-profile</route>
+				</profile>
+				<children>
+					<label>My Children</label>
+					<route>account-children</route>
+					<resource>user:account:children</resource>
+				</children>
+				<order>
+					<label>My Orders</label>
+					<route>account-history</route>
+				</order>
+				<ebook>
+					<label>My eBooks</label>
+					<route>account-books</route>
+				</ebook>
+				<transactions>
+					<label>My Transactions</label>
+					<route>account-books</route>
+				</transactions>
+
+			</pages>
+		</account>
+		
+	</nav>
+	
+</configdata>

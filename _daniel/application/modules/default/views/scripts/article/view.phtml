@@ -1,0 +1,21 @@
+<div class="container">
+
+    <div class="article">
+
+        <h3><?php echo $this->escape($this->article['name']); ?></h3>
+        
+        <div class="item-meta">
+            <i class="fa fa-calendar"></i> <?php echo date('jS F Y', strtotime($this->article['published'])); ?> 
+        </div>
+        
+        <?php if ($this->article['image']): ?>
+        <img src="media/news/<?php echo $this->article['image']; ?>" alt="<?php echo $this->escape($this->article['name']); ?>" class="img-responsive img-thumbnail"><br><br>
+        <?php endif; ?>
+    
+        <?php echo $this->article['description']; ?><br>
+        
+        <a class="btn btn-default" href="javascript:history.back();"><i class="fa fa-chevron-left"></i>&nbsp; <?php echo $this->translate('Back'); ?></a>
+    
+    </div>
+
+</div>

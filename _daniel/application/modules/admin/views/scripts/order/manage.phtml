@@ -1,0 +1,149 @@
+<?php $reference = App_Model_Order::getOrderReference($this->order['id']); ?>
+<div class="page-header">
+
+	<h1><a href="admin/order">Orders</a> / <?php echo $reference; ?></h1>
+
+	<div class="btn-group">
+		<a class="btn btn-back" href="admin/order">Back</a>
+	</div>	
+
+</div>
+
+<div class="row">
+
+	<div class="col-md-6">
+	
+		<table class="table table-bordered">
+		<tr>
+			<th>Reference</th>
+			<td><?php echo $reference; ?></td>
+		</tr>
+		<tr>
+			<th>Payment Method</th>
+			<td><?php echo $this->order['payment_method'] ? strtoupper($this->order['payment_method']) : 'N/A'; ?></td>
+		</tr>
+		<tr>
+			<th>Status</th>
+			<td>
+                <?php echo App_Model_Order::getStatusText($this->order['status']); ?>
+                <?php if ($this->order['deleted']): ?>
+                    <br>Deleted
+                <?php elseif ($this->order['archived']): ?>
+                    <br>Archived
+                <?php endif; ?>
+            </td>
+		</tr>		
+		</table>
+	
+	</div>
+
+	<div class="col-md-6">
+	
+		<table class="table table-bordered">
+		<tr>
+			<th>User</th>
+			<td>
+				<?php echo $this->user['surname']; ?>, <?php echo $this->user['name']; ?><br>
+				<?php echo $this->user['email']; ?>
+				<?php echo $this->user['tel'] ? '<br>' . $this->user['tel'] : null; ?>
+			</td>
+		</tr>
+		<tr>
+			<th>Address</th>
+			<td>
+				<?php echo $this->user['address_line_1']; ?><br>
+				<?php echo $this->user['address_line_2'] ?  $this->user['address_line_2'] . '<br>' : null; ?>
+				<?php echo $this->user['address_city']; ?><br>
+				<?php echo $this->user['address_postcode']; ?><br>
+			</td>
+		</tr>		
+		</table>
+	
+	</div>
+
+</div>
+
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+	<th>Item</th>
+	<th>Item Type</th>
+	<th>Price</th>
+	<th>Qty</th>
+	<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($this->items as $item): ?>
+<tr>
+	<td><?php echo $item['item_name']; ?></td>
+	<td><?php echo ucfirst($item['item_type']); ?><?php echo $item['item_format'] ? ' - ' . strtoupper($item['item_format']) : null; ?></td>
+	<td><?php echo $this->currency($item['item_price']); ?></td>
+	<td><?php echo $item['item_qty']; ?></td>
+	<td><?php echo $this->currency($item['item_total']); ?></td>
+</tr>
+<?php endforeach; ?>
+<?php if ($this->order['voucher']): ?>
+<tr>
+	<td colspan="4">Voucher - <?php echo $this->order['voucher']; ?></td>
+	<td><?php echo $this->currency($this->order['voucher_discount']); ?></td>
+</tr>
+<?php endif; ?>
+<tr>
+	<th colspan="4">Total</th>
+	<th><?php echo $this->currency($this->order['total']); ?></th>
+</tr>
+</tbody>
+</table> <br>
+
+<?php if (!$this->order['deleted'] && !$this->order['archived']): ?>
+
+<form class="form-inline">
+<?php if ($this->order['status'] == 0): ?>
+
+    <button type="button" class="btn btn-process btn-success" data-id="<?php echo $this->order['id']; ?>" data-status="paid">Mark as Paid</button>
+
+<?php elseif ($this->order['status'] == 1): ?>
+
+    <?php if ($this->order['delivery_required']): ?>
+        <input class="form-control" type="text" name="tracking" value="" placeholder="Tracking Code">
+    <?php endif; ?>
+
+    <button type="button" class="btn btn-process btn-success" data-id="<?php echo $this->order['id']; ?>" data-status="processed">Mark as Processed</button>
+
+<?php elseif ($this->order['status'] == 2): ?>
+
+    <button type="button" class="btn btn-process btn-success" data-id="<?php echo $this->order['id']; ?>" data-status="archive">Archive Order</button>
+
+<?php endif; ?>
+</form>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(function() {
+    $('.btn-process').on('click', function(e) {
+        e.preventDefault();
+        var $data = {},
+            $this = $(this), $text = $this.text();
+        $this.text('Please wait...');
+        $data.id     = $this.data('id'); 
+        $data.status = $this.data('status');
+        if ($('input[name="tracking"]'))
+            $data.tracking = $('input[name="tracking"]').val();
+        $.getJSON('admin/order/process', $data, function(data) {
+            if (data.result === 1) {
+                if (data.callback) {
+                    eval(data.callback);
+                } else {
+                    location.href = document.location;
+                }
+            } else {
+                $this.text($text);
+            }
+        });
+    });
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>
+
+<?php endif; ?>

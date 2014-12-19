@@ -1,0 +1,13 @@
+<div class="page-header">
+
+	<h1><a href="admin/news">Articles</a> / <?php echo $this->action; ?></h1>
+
+	<div class="btn-group">
+		<a class="btn btn-back" href="admin/news">Back</a>
+	</div>	
+
+</div>
+
+<?php echo $this->form; ?>
+<?php echo $this->partial('partial/form-image.phtml', 'admin', array('item' => $this->item, 'image' => 'media/news/' . $this->item['image'])); ?>
+<?php //echo $this->partial('partial/ckeditor-image.phtml', 'admin', array('items' => array('description'))); ?>

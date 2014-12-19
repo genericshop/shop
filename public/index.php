@@ -1,4 +1,5 @@
 <?php
+
 define('APPLICATION_ENV', 'production');
 define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 

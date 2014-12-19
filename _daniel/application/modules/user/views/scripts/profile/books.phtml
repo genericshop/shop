@@ -1,0 +1,128 @@
+<?php $this->headScript()->captureStart(); ?>
+
+	$(function () {
+		
+		$('.download-link').click(function (e) {
+			var $this = $(this),
+				url = $this.attr('href');
+				
+			e.preventDefault();
+				
+			$.post(url, {}, function (response) {
+				if (response.error == false) {
+					window.location = response.url;
+				} else {
+					bootbox.alert("<strong>Error</strong><br>There was an error while trying to generate the download link.<br>Please try again later.");
+				}
+			});
+		});
+		
+	});
+
+<?php $this->headScript()->captureEnd(); ?>
+
+<div class="full registration my-books">
+    <div class="top-controls">
+        <div class="breadcrumbs">
+            <strong>You are here</strong> 
+            <span class="sep">&gt;</span> 
+            <?php 
+            	echo $this->navigation()
+						  ->breadcrumbs()
+						  ->setSeparator(' <span class="sep">&gt;</span> ')
+						  ->setMinDepth(0)
+						  ->setRenderInvisible(true); 
+            ?>
+        </div>
+    </div>
+
+    <h1>My Books</h1>
+    <div class="margin">
+    	<p>To view a step-by-step guide on how to download ebooks from our website <a href="http://www.macmillan.co.za/media/content/Downloading_ebooks_from_Macmillan.pdf">click here</a>.</p>
+    	<div class="orders">
+    	<?php if ($this->orders): ?>
+	        <?php foreach($this->orders as $order): ?>
+	            <div class="order">
+	                <h2>Order: <?php echo $order['ref']; ?></h2>
+                    <?php if ($order['payment_method'] == 'eft'): ?>
+                    Payment Type: EFT<br>
+                    <?php if ($order['status'] == 1): ?>
+                        Payment Status: Paid<br>
+                        <?php else: ?>
+                        Payment Status: Unpaid<br>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php if ($order['payment_method'] == 'credit_card'): ?>
+                    Payment Type: Card<br>
+                    Payment Status: 
+                    <?php
+                    	$status = App_Model_Order::getStatusText($order['status']);
+                    	echo $status;
+                    	if ($status == 'Declined'):
+                    ?>
+                    
+                    <a href="<?php echo $this->url(array('orderId' => $order['id']), 'user-book-retry-payment'); ?>">Retry Payment</a>
+                    
+                    <?php endif; ?>
+                    <br>
+                    <?php endif; ?>
+                    <?php if ($order['total_print'] > 0): ?>
+                        Total Print: <?php echo App_Util::currency($order['total_print']); ?><br>
+                    <?php endif; ?>
+                    <?php if ($order['total_digital'] > 0): ?>
+                        Total Digital: <?php echo App_Util::currency($order['total_digital']); ?>
+                    <?php endif; ?>
+	                <?php if (count($order['items'])): ?>
+	                    <div class="items">
+                            <h4>Items:</h4>
+	                        <?php foreach($order['items'] as $item): ?>
+	                        	<?php if ($item['item_format'] == 'print') continue; ?>
+                                <div class="item">
+                                    <div>
+                                        <strong><?php echo $item['item_name']; ?></strong>
+                                    </div>
+                                    <div>
+                                        Format: <?php echo $item['item_format']; ?><br>
+                                        Price: <?php echo App_Util::currency($item['item_price']); ?><br>
+                                        <?php
+                                            $model = new App_Model_EditionGuard();
+                                        ?>
+                                        <?php if ($order['status'] == 1): ?>
+	                                        <?php if ($item['item_quantity'] == 1): ?>
+	                                            <?php if ($item['download_link']): ?>
+	                                            	<a href="<?php echo $item['download_link']; ?>">Download</a>
+	                                            <?php else: ?>
+	                                            	<a class="download-link" href="<?php echo $this->url(array('orderId' => $order['id'], 'itemId' => $item['id']), 'user-book-download-link'); ?>">Download</a>
+	                                            <?php endif; ?>
+	                                        <?php endif; ?>
+	
+	                                        <?php if ($item['item_quantity'] > 1): ?>
+	                                            <?php for ($i = 1; $i < $item['item_quantity']+1; $i++): ?>
+	                                           		<a class="download-link" href="<?php echo $this->url(array(
+	                                           			'orderId'			=> $order['id'],
+	                                           			'itemId'			=> $item['id'],
+	                                           			'quantityModifier'	=> $i
+	                                           		), 'user-book-download-link'); ?>">Download (<?php echo $i; ?>)</a>
+	                                            <?php endfor; ?>
+	                                        <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+	                        <?php endforeach; ?>
+	                    </div>
+	                <?php endif; ?>
+	            </div>
+	            
+	        <?php endforeach; ?>
+        
+        </div>
+        
+        <?php else: ?>
+        
+        <p>You currently have no book orders.</p>
+        
+        <?php endif; ?>
+        
+    </div>
+    
+</div>

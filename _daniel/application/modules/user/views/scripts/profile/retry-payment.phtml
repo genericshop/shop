@@ -1,0 +1,40 @@
+<?php $this->headScript()->captureStart(); ?>
+$(function() {
+	$('#cred-form').submit();
+});
+<?php $this->headScript()->captureEnd(); ?>
+
+<div class="full registration">
+
+	<div style="padding:20px;">
+
+	    <h1>Redirecting to payment gateway</h1>
+	    <p class="margin20">Please wait while we redirect you to our payment gateway...</p>
+    
+    </div>
+    
+</div>
+
+<form id="cred-form" method="POST" action="https://www.vcs.co.za/vvonline/ccform.asp">
+    <input type="hidden" name="p1" value="4273"> <?php // terminal id ?>
+    <input type="hidden" name="p2" value="<?php echo $this->order['reference']; ?>"> <?php //order reference ?>
+    <input type="hidden" name="p3" value="Digital format book purchase"> <?php //description of goods ?>
+    <input type="hidden" name="p4" value="<?php echo $this->order['grand_total_digital']; ?>"> <?php //transaction amount ?>
+    <?php // <input type="hidden" name="p10" value="j"> <?php //url for cancelled transactions ?>
+    <?php // <input type="hidden" name="CardholderEmail" value="p"> ?>
+    <?php $hash = md5('4273'.$this->order['reference'].'Digital format book purchase'.$this->order['grand_total_digital'].'mcmillan123'); ?>
+    <input type="hidden" name="Hash" value="<?php echo $hash; ?>">
+    <?php /*
+                <input type="hidden" name="m_1" value="z">
+                <input type="hidden" name="m_2" value="z">
+                <input type="hidden" name="m_3" value="z">
+                <input type="hidden" name="m_4" value="z">
+                <input type="hidden" name="m_5" value="z">
+                <input type="hidden" name="m_6" value="z">
+                <input type="hidden" name="m_7" value="z">
+                <input type="hidden" name="m_8" value="z">
+                <input type="hidden" name="m_9" value="z">
+                <input type="hidden" name="m_10" value="z">
+                */ ?>
+    <?php /* <input class="btn" type="submit" value="Credit / Debit Card Payment"> */ ?>
+</form>

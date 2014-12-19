@@ -14,8 +14,8 @@ class BundleController extends App_Controller_Action
             return $this->forward('list');
 
         $children = $this->view->children = $this->_api->getChildrenForParent($this->_auth->UniqueRef);
-        
         $options  = array('' => $this->view->translate('Please Choose'));
+        
         foreach ($children as $child)
             $options[$child->StudentUniqueRef] = $child->FullName;
         
@@ -60,10 +60,12 @@ class BundleController extends App_Controller_Action
     {
         $json    = array('result' => 0);
         $student = $this->_api->getChildForParent($this->_auth->UniqueRef, $this->getParam('student', null));
-        
+
         if ($student) {
+
             App_Session::getInstance()->set('BundleStudent', $student);
             $json['result'] = 1;
+            
         }
         
         $this->_helper->json($json);

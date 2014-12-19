@@ -86,7 +86,7 @@
         <p><?php echo $this->translate('Your shopping cart is empty.'); ?></p>
     
     <?php endif; ?>  
-			<button id="btn-Back" class="btn btn-primary pull-right" data-type="stock" type="button" onclick="goBack()">
+            <button id="btn-Back" class="btn btn-primary pull-right" data-type="stock" type="button" onclick="goBack()">
                         <?php echo $this->translate('Go Back'); ?>
                     </button>
 
@@ -100,26 +100,26 @@ $(function() {
         $(this).attr('data-qty', accounting.formatNumber($(this).val(), 0, ''))
     }).on('blur', function(e) {
         if ($(this).val() != $(this).closest('tr').attr('data-qty'))
-     	   setQty($(this));
+           setQty($(this));
     }).on('keypress', function(e) {
-    	var keycode = (e.keyCode ? e.keyCode : e.which);
-    	if (keycode == '13')
-        	setQty($(this));
+        var keycode = (e.keyCode ? e.keyCode : e.which);
+        if (keycode == '13')
+            setQty($(this));
     });
-	$('.cart-remove').on('click', function(e) {
-		e.preventDefault();
-		if (window.confirm("<?php echo $this->translate('Are you sure you want to remove item form cart?'); ?>")) {       
-		var $tr = $(this).closest('tr');
-		$.getJSON('cart/remove', { id: $tr.data('id') }, function(data) {
-			var $table = $tr.closest('table');
-			if ($table.find('tbody tr').length <= 2) {
-				location.href = document.location;
-			} else {
-			    $tr.remove(); setTotal();
-			}
-		});
-		}		
-	});
+    $('.cart-remove').on('click', function(e) {
+        e.preventDefault();
+        if (window.confirm("<?php echo $this->translate('Are you sure you want to remove item form cart?'); ?>")) {       
+        var $tr = $(this).closest('tr');
+        $.getJSON('cart/remove', { id: $tr.data('id') }, function(data) {
+            var $table = $tr.closest('table');
+            if ($table.find('tbody tr').length <= 2) {
+                location.href = document.location;
+            } else {
+                $tr.remove(); setTotal();
+            }
+        });
+        }       
+    });
 
 });
 function setQty(obj)
@@ -144,10 +144,10 @@ function setQty(obj)
 function setTotal()
 {
     var $total = 0;
-	$('tr[data-total]').each(function() {
-	    $total = $total + parseFloat(accounting.formatNumber($(this).attr('data-total'), 2, ''));
-	});
-	$('#grand-total').text(accounting.formatMoney($total, 'R', 2, ' ', ','));
+    $('tr[data-total]').each(function() {
+        $total = $total + parseFloat(accounting.formatNumber($(this).attr('data-total'), 2, ''));
+    });
+    $('#grand-total').text(accounting.formatMoney($total, 'R', 2, ' ', ','));
 }
 </script>
 <?php $this->placeholder('deferred')->captureEnd(); ?>

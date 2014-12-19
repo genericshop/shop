@@ -1,0 +1,15 @@
+<div class="page-header">
+
+	<h1><a href="admin/user">Users</a> / <?php echo $this->action; ?></h1>
+
+	<div class="btn-group">
+		<a class="btn btn-back" href="admin/user">Back</a>
+	</div>	
+
+</div>
+
+<?php echo $this->form; ?>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>$(function() { $(':password').val(''); });</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

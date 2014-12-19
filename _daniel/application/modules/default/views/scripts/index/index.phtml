@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h2><?php echo sprintf($this->translate('Welcome to %s'), $this->store['Info']->Name . ' ' . $this->translate('Bookshop')); ?></h2>
+
+    
+    
+    <br> <div class="seperator"></div> <br>
+    <h3><?php echo $this->translate('Registration Terms & Conditions'); ?></h3>
+    <div>
+		
+        <?php
+	if ($_COOKIE['language'] == "en") {
+ 	echo $this->terms->TC;
+	}
+	else
+	{
+	echo $this->terms->TC_AFR;
+	}
+
+ 	?>
+    </div>
+</div>

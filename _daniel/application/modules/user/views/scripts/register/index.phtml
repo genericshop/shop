@@ -1,0 +1,41 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="col-sm-7">Test
+            
+            <h3><?php echo $this->translate('Registration Terms & Conditions'); ?></h3>
+            
+            <div class="wysiwyg">
+                <?php echo $this->terms->TC; ?>
+            </div>
+               <div align="center"><input id="Agree" type="button" value="I Agree "> <input id="DontAgree" type="button" value="I Dont Agree "></div>
+        </div>
+        
+        <div class="col-sm-5" id="RegForm">
+            
+            <h3><?php echo $this->translate('Register'); ?></h3>
+            <?php echo $this->form; ?>
+            
+        </div>
+        
+    </div>
+
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(function() {
+   $('#submit').prop('disabled', true);
+    $('#Email, #EmailC').attr('type', 'email');
+    $('#HomePhone, #CellPhone').attr('type', 'tel');
+   $("#Agree").click(function() {
+      $('#submit').prop('disabled', false);
+   });
+   $("#DontAgree").click(function() {
+      $('#submit').prop('disabled', true)
+    });
+
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

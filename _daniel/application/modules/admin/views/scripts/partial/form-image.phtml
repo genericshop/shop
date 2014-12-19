@@ -1,0 +1,19 @@
+<?php if ($this->item): ?>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+
+<?php if ($this->item['image']): ?>
+
+    <?php echo $this->image($this->image, 200, null, array('class' => 'image img-thumbnail')); ?>
+
+<?php elseif (isset($this->item['image_url']) && $this->item['image_url']): ?>
+
+    <img src="<?php echo $this->item['image_url']; ?>" class="image">
+
+<?php endif; ?>
+
+<script>$(function() {	$('#image').after($('.image').css({ 'display': 'block', 'margin-top': '10px' })); });</script>
+
+<?php $this->placeholder('deferred')->captureEnd(); ?>
+
+<?php endif; ?>

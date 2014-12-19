@@ -27,7 +27,7 @@ class App_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
             ),
             
             'bundle' => array(
-                'label'    => _('Place an Order'),
+                'label'    => _('Place an order'),
                 'route'    => 'bundle',
                 'resource' => 'default:bundle',
             ),
@@ -49,34 +49,34 @@ class App_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
             
             'account' => array(
                 'id'       => 'nav-account',
-                'label'    => _('My Account'),
+                'label'    => _('My account'),
                 'route'    => 'account',
                 'resource' => 'user',
                 'pages'    => array(
                 
                     array(
-                        'label'    => _('My Profile'),
+                        'label'    => _('My profile'),
                         'route'    => 'account-profile',
                     ),
                     
                    'children' => array(
-                        'label'    => _('My Children'),
+                        'label'    => _('My children'),
                         'route'    => 'account-children',
                         'resource' => 'user:account:children'
                     ),
                     
                     'history' => array(
-                        'label'    => _('My Orders'),
+                        'label'    => _('My orders'),
                         'route'    => 'account-history',
                     ),
                     
                     'transaction' => array(
-                        'label'    => _('My Transactions'),
+                        'label'    => _('My transactions'),
                         'route'    => 'account-transaction',
                     ),
                     
                     'ebook' => array(
-                        'label'    => _('My eBooks'),
+                        'label'    => _('My e-books'),
                         'route'    => 'account-books',
                     ),
                     

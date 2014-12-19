@@ -1,0 +1,14 @@
+<?php if ($this->pages): ?>
+<?php $size = count($this->pages); $count = 0;?>
+<ul class="breadcrumb">
+    <?php foreach ($this->pages as $page): $count++; ?>
+    <li>
+        <?php if ($size > $count): ?>
+            <a href="<?php echo $page->getHref(); ?>"><?php echo $page->getLabel(); ?></a>
+        <?php else: ?>
+            <?php echo $page->getLabel(); ?>
+        <?php endif; ?>
+    </li>
+    <?php endforeach; ?>
+</ul>
+<?php endif; ?>

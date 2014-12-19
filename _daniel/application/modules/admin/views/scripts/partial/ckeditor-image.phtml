@@ -1,0 +1,51 @@
+<?php $this->placeholder('deferred')->captureStart(); ?>
+
+<?php foreach ($this->items as $item): ?>
+<div id="pl-container-<?php echo $item; ?>" class="pull-right"><a id="pick-file-<?php echo $item; ?>" class="btn btn-default" style="border-radius:0;">Insert Image</a></div>
+<?php endforeach; ?>
+
+<script>
+$(window).on('load', function() {
+
+	var editor;
+
+	<?php foreach ($this->items as $item): ?>
+		
+		<?php $uploader = 'uploader' . ucfirst($item); ?>
+
+		editor = CKEDITOR.instances.<?php echo $item; ?>;
+		
+		$('#pl-container-<?php echo $item; ?>').appendTo($('#<?php echo $item; ?>').closest('.control-input'));
+		
+		var <?php echo $uploader; ?> = new plupload.Uploader({
+			runtimes: 'html5',
+			browse_button: 'pick-file-<?php echo $item; ?>',
+			container: 'pl-container-<?php echo $item; ?>',
+			max_file_size: '8mb',
+			url: '<?php echo $this->url(array('action' => 'upload-content-image')); ?>'
+		});
+		
+		<?php echo $uploader; ?>.init();
+	
+		<?php echo $uploader; ?>.bind('FilesAdded', function(up, files) {
+			<?php echo $uploader; ?>.start();
+		});
+	
+		<?php echo $uploader; ?>.bind('Error', function(up, err) {
+			alert(err.message);
+		});
+	
+		<?php echo $uploader; ?>.bind('FileUploaded', function(up, file, data) {
+			var response = $.parseJSON(data.response);
+			if (response.result === 1) {
+				editor.insertHtml('<p><img src="' + response.image + '"></p>');
+			} else {
+				alert(response.message);
+			}
+		});
+
+	<?php endforeach; ?>
+		
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

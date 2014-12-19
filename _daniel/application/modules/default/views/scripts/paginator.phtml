@@ -1,0 +1,50 @@
+<?php if ($this->pageCount > 1): ?>
+
+	<?php 
+		
+		$parts 	= parse_url(Zend_Controller_Front::getInstance()->getRequest()->getRequestUri());
+		$params = array();
+		
+		if (isset($parts['query'])) {
+		
+			parse_str($parts['query'], $params);
+			unset($params['page']);
+			
+		}
+		
+		$query 	= http_build_query($params);
+		$base	= $parts['path']  .'?' . ($query ?  $query . '&' : null);
+		
+	?>
+
+	<div class="paging">
+	
+		<?php if (isset($this->previous)): ?>
+		
+			<a href="<?php echo $base; ?>page=<?php echo $this->previous; ?>"><?php echo $this->translate('Previous'); ?></a>
+			
+		<?php endif; ?>
+		 
+		<?php foreach ($this->pagesInRange as $page): ?>
+		
+			<?php if ($page != $this->current): ?>
+			
+		    	<a href="<?php echo $base; ?>page=<?php echo $page; ?>"><?php echo $page; ?></a> 
+		    	
+			<?php else: ?>
+			
+		    	<span class="current"><?php echo $page; ?></span>
+		    	
+			<?php endif; ?>
+			
+		<?php endforeach; ?>
+		 
+		<?php if (isset($this->next)): ?>
+		
+			<a href="<?php echo $base; ?>&page=<?php echo $this->next; ?>"><?php echo $this->translate('Next'); ?></a> 
+			
+		<?php endif; ?>
+	
+	</div>
+
+<?php endif; ?>

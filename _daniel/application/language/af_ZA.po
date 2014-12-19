@@ -1,0 +1,524 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sapient\n"
+"POT-Creation-Date: 2014-09-16 15:09+0200\n"
+"PO-Revision-Date: 2014-09-16 15:10+0200\n"
+"Last-Translator: Gregg <gregg@bigg.co.za>\n"
+"Language-Team: Bigg\n"
+"Language: af_ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: E:\\Projects\\htdocs\\sapient\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: translate;label;_\n"
+"X-Poedit-SearchPath-0: application\n"
+"X-Poedit-SearchPathExcluded-0: application/*_*.*\n"
+
+#: application/modules/default/controllers/BundleController.php:24
+msgid "Please Choose"
+msgstr ""
+
+#: application/modules/default/controllers/CartController.php:64
+#, php-format
+msgid "%s item(s) added to cart."
+msgstr ""
+
+#: application/modules/default/controllers/CheckoutController.php:112
+#: application/modules/default/controllers/PaymentController.php:124
+msgid ""
+"An unknown error has occurred. Please contact us for further assistance."
+msgstr ""
+
+#: application/modules/default/controllers/CheckoutController.php:119
+msgid "Please select a payment option before proceeding."
+msgstr ""
+
+#: application/modules/default/controllers/PaymentController.php:131
+msgid "Payment failed - "
+msgstr ""
+
+#: application/modules/default/forms/Contact.php:11
+#: application/modules/user/views/scripts/account/children.phtml:21
+msgid "Name"
+msgstr ""
+
+#: application/modules/default/forms/Contact.php:18
+#: application/modules/user/forms/Login.php:10
+#: application/modules/user/forms/Register.php:77
+#: application/modules/user/views/scripts/account/children.phtml:26
+msgid "Email Address"
+msgstr ""
+
+#: application/modules/default/forms/Contact.php:26
+msgid "Telephone"
+msgstr ""
+
+#: application/modules/default/forms/Contact.php:33
+msgid "Your message"
+msgstr ""
+
+#: application/modules/default/forms/Contact.php:38
+#: application/modules/user/views/scripts/account/children.phtml:93
+#: application/modules/user/views/scripts/partial/modal-form.phtml:16
+msgid "Submit"
+msgstr ""
+
+#: application/modules/default/forms/Payment.php:9
+msgid "Cash"
+msgstr "Cash"
+
+#: application/modules/default/forms/Payment.php:10
+msgid "Cheque Deposit"
+msgstr ""
+
+#: application/modules/default/forms/Payment.php:11
+msgid "Credit Card"
+msgstr ""
+
+#: application/modules/default/forms/Payment.php:12
+msgid "EFT"
+msgstr ""
+
+#: application/modules/default/forms/Payment.php:21
+msgid "How would you like to pay?"
+msgstr ""
+
+#: application/modules/default/forms/Payment.php:26
+msgid "Place Order"
+msgstr ""
+
+#: application/modules/user/controllers/LoginController.php:84
+msgid ""
+"Your password was successfully reset. Please check your email account for "
+"your new password."
+msgstr ""
+
+#: application/modules/user/controllers/LoginController.php:89
+msgid ""
+"We were unable to reset your password. Please contact us for further "
+"assistance."
+msgstr ""
+
+#: application/modules/user/controllers/StudentController.php:53
+#: application/modules/user/views/scripts/account/children.phtml:51
+msgid "New Student Account"
+msgstr ""
+
+#: application/modules/user/controllers/StudentController.php:98
+msgid "Link Student Account"
+msgstr ""
+
+#: application/modules/user/forms/Login.php:17
+#: application/modules/user/forms/Register.php:94
+msgid "Password"
+msgstr ""
+
+#: application/modules/user/forms/Login.php:23
+#: application/layouts/scripts/layout.phtml:94
+msgid "Sign In"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:19
+msgid "First Name"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:26
+msgid "Last Name"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:35
+msgid "Home Telephone"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:42
+msgid "Mobile Telephone"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:49
+msgid "South African ID Number"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:58
+#: application/modules/user/forms/StudentLink.php:10
+#: application/modules/user/views/scripts/account/children.phtml:25
+msgid "Learner Number"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:66
+msgid "Grade"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:85
+msgid "Confirm Email"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:101
+msgid "Confirm Password"
+msgstr ""
+
+#: application/modules/user/forms/Register.php:109
+msgid "Create My Account"
+msgstr ""
+
+#: application/layouts/scripts/layout.phtml:48
+#: application/modules/default/views/scripts/index/index.phtml:3
+msgid "Bookshop"
+msgstr "Boekwinkel"
+
+#: application/layouts/scripts/layout.phtml:65
+#: application/modules/default/views/scripts/checkout/index.phtml:3
+msgid "Checkout"
+msgstr ""
+
+#: application/layouts/scripts/layout.phtml:75
+#: application/modules/user/views/scripts/account/index.phtml:14
+msgid "My Account"
+msgstr ""
+
+#: application/layouts/scripts/layout.phtml:84
+msgid "Sign Out"
+msgstr ""
+
+#: application/layouts/scripts/layout.phtml:103
+#: application/modules/user/views/scripts/login/index.phtml:17
+#: application/modules/user/views/scripts/register/index.phtml:17
+msgid "Register"
+msgstr ""
+
+#: application/layouts/scripts/layout.phtml:155
+msgid "Contact"
+msgstr ""
+
+#: application/layouts/scripts/layout.phtml:180
+msgid "Links"
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/list.phtml:9
+#: application/modules/default/views/scripts/bundle/list.phtml:25
+#: application/modules/default/views/scripts/bundle/view.phtml:9
+#: application/modules/default/views/scripts/bundle/view.phtml:179
+msgid "Bundles"
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/view.phtml:27
+#: application/modules/default/views/scripts/checkout/confirm.phtml:14
+#: application/modules/default/views/scripts/checkout/index.phtml:18
+msgid "Item"
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/view.phtml:28
+#: application/modules/default/views/scripts/checkout/confirm.phtml:15
+#: application/modules/default/views/scripts/checkout/index.phtml:19
+msgid "Price"
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/view.phtml:29
+#: application/modules/default/views/scripts/checkout/confirm.phtml:16
+#: application/modules/default/views/scripts/checkout/index.phtml:20
+msgid "Qty"
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/view.phtml:30
+#: application/modules/default/views/scripts/checkout/complete.phtml:36
+#: application/modules/default/views/scripts/checkout/confirm.phtml:17
+#: application/modules/default/views/scripts/checkout/index.phtml:21
+msgid "Total"
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/view.phtml:69
+#: application/modules/default/views/scripts/checkout/confirm.phtml:13
+#: application/modules/default/views/scripts/checkout/index.phtml:17
+msgid "Student"
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/view.phtml:74
+#: application/modules/default/views/scripts/bundle/view.phtml:146
+#: application/modules/default/views/scripts/product/view.phtml:39
+msgid "Add to Cart"
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/view.phtml:110
+msgid "Please assign these items to a student account."
+msgstr ""
+
+#: application/modules/default/views/scripts/bundle/view.phtml:139
+msgid "Please wait..."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:5
+msgid "Thank you for your order"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:10
+#, php-format
+msgid "You have chosen to pay by %s."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:11
+#, php-format
+msgid ""
+"Please pay the amount of <strong>%s</strong> using the banking details and "
+"reference below."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:16
+msgid "Bank"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:20
+msgid "Branch"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:24
+msgid "Account Name"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:28
+msgid "Account Number"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:32
+#: application/modules/user/views/scripts/account/history.phtml:22
+msgid "Reference"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/complete.phtml:45
+#, php-format
+msgid ""
+"Payment for your order with reference <strong>%s</strong> has been processed "
+"successfully."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:3
+msgid "My Order"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:47
+msgid "Back to checkout"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:52
+msgid "Payment"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:53
+msgid "Please select your preferred payment method below."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:61
+msgid "Some description here of how the CASH payment option works..."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:64
+msgid "Some description here of how the CHEQUE payment option works..."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:67
+msgid "Some description here of how the CREDIT CARD payment option works..."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/confirm.phtml:70
+msgid "Some description here of how the EFT payment option works..."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/index.phtml:7
+msgid "Please find the contents of your shopping cart below."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/index.phtml:58
+msgid "Continue to Payment"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/index.phtml:65
+msgid "login"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/index.phtml:66
+msgid "register"
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/index.phtml:69
+#, php-format
+msgid "Please %s or %s to continue."
+msgstr ""
+
+#: application/modules/default/views/scripts/checkout/index.phtml:75
+msgid "Your shopping cart is empty."
+msgstr ""
+
+#: application/modules/default/views/scripts/content/contact.phtml:7
+msgid "Contact Form"
+msgstr ""
+
+#: application/modules/default/views/scripts/content/contact.phtml:8
+msgid "Have a question? Complete your details below and we'll get back to you."
+msgstr ""
+
+#: application/modules/default/views/scripts/content/contact.phtml:16
+msgid "Find Us"
+msgstr ""
+
+#: application/modules/default/views/scripts/content/contact.phtml:20
+msgid "Address"
+msgstr ""
+
+#: application/modules/default/views/scripts/content/notice-board.phtml:3
+msgid "Notice Board"
+msgstr ""
+
+#: application/modules/default/views/scripts/content/notice-board.phtml:13
+msgid "There are currently no notices."
+msgstr ""
+
+#: application/modules/default/views/scripts/index/index.phtml:3
+#, php-format
+msgid "Welcome to %s"
+msgstr ""
+
+#: application/modules/default/views/scripts/index/index.phtml:17
+msgid "Specials"
+msgstr ""
+
+#: application/modules/default/views/scripts/paginator.phtml:24
+msgid "Previous"
+msgstr ""
+
+#: application/modules/default/views/scripts/paginator.phtml:44
+msgid "Next"
+msgstr ""
+
+#: application/modules/default/views/scripts/payment/complete.phtml:22
+msgid "Thank you"
+msgstr ""
+
+#: application/modules/default/views/scripts/payment/complete.phtml:26
+msgid ""
+"Your order will be processed as soon as we have received payment "
+"confirmation from the payment gateway."
+msgstr ""
+
+#: application/modules/default/views/scripts/payment/complete.phtml:30
+msgid ""
+"To complete your order, please pay the outstanding amount with correct "
+"reference. This information has been sent through to you by email. If you "
+"have not received this message within 5 minutes please check your spam "
+"folder."
+msgstr ""
+
+#: application/modules/default/views/scripts/payment/complete.phtml:34
+msgid "Your order will be processed shortly."
+msgstr ""
+
+#: application/modules/default/views/scripts/payment/redirect.phtml:3
+msgid "Redirecting"
+msgstr ""
+
+#: application/modules/default/views/scripts/payment/redirect.phtml:4
+msgid "Please wait while we redirect you for payment processing"
+msgstr ""
+
+#: application/modules/default/views/scripts/product/list.phtml:9
+#: application/modules/default/views/scripts/product/view.phtml:9
+msgid "Categories"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/book.phtml:14
+msgid "My Books"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/book.phtml:26
+msgid "Download"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/book.phtml:34
+msgid "You have not ordered any digital books with us."
+msgstr ""
+
+#: application/modules/user/views/scripts/account/children.phtml:14
+msgid "My Children"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/children.phtml:42
+msgid "There are currently no student accounts linked to you."
+msgstr ""
+
+#: application/modules/user/views/scripts/account/children.phtml:54
+msgid "Link Existing Account"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/children.phtml:75
+msgid "Please wait"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/history-item.phtml:26
+msgid "There are no items in this order."
+msgstr ""
+
+#: application/modules/user/views/scripts/account/history-item.phtml:34
+#: application/modules/user/views/scripts/partial/modal-form.phtml:15
+msgid "Close"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/history.phtml:14
+msgid "Order History"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/history.phtml:21
+msgid "Date"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/history.phtml:23
+msgid "Status"
+msgstr ""
+
+#: application/modules/user/views/scripts/account/history.phtml:49
+msgid "You have not placed any orders with us recently."
+msgstr ""
+
+#: application/modules/user/views/scripts/account/index.phtml:15
+msgid "Welcome to your MyAccount."
+msgstr ""
+
+#: application/modules/user/views/scripts/account/profile.phtml:14
+msgid "My Profile"
+msgstr ""
+
+#: application/modules/user/views/scripts/login/forgot-password.phtml:3
+#: application/modules/user/views/scripts/login/index.phtml:10
+msgid "Forgotten your password?"
+msgstr ""
+
+#: application/modules/user/views/scripts/login/forgot-password.phtml:4
+msgid ""
+"Please provide the email address associated with your account in the box "
+"below. A new password will be generated and sent to you."
+msgstr ""
+
+#: application/modules/user/views/scripts/login/index.phtml:7
+msgid "Login to your account"
+msgstr ""
+
+#: application/modules/user/views/scripts/login/index.phtml:16
+msgid "New User"
+msgstr ""
+
+#: application/modules/user/views/scripts/login/index.phtml:17
+msgid "Dont' have an account?"
+msgstr ""
+
+#: application/modules/user/views/scripts/register/index.phtml:7
+msgid "Registration Terms & Conditions"
+msgstr ""
+
+#: application/modules/user/views/scripts/register/success.phtml:3
+msgid "Registration Successful"
+msgstr ""
+
+#: application/modules/user/views/scripts/register/success.phtml:4
+msgid ""
+"A confirmation email has been sent to the address you provided. Please click "
+"on the link in the email to validate and activate your account."
+msgstr ""

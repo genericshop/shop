@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="row">
+    
+        <div class="sidebar col-sm-3">
+            <?php 
+                $navigation = $this->navigation()->findOneById('nav-account');
+                echo $this->navigation()->menu()->renderPartial($navigation, array('partial/sidebar-nav.phtml', 'default'));
+            ?>
+        </div>
+        
+        <div class="col-sm-9">
+        
+            <h3><?php echo $this->translate('My Books'); ?></h3>
+            
+            <?php if ($this->items): ?>
+            
+                <table class="table table-striped">
+                <tbody>
+                <?php foreach ($this->items as $item): ?>
+                <tr>
+                    <td>
+                        <?php echo $this->escape($item['item_name']); ?>
+                        (<?php echo $item['item_format']; ?>)
+                    </td>
+                    <td><a href="<?php echo $item['download_link']; ?>"><?php echo $this->translate('Download'); ?></a></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>           
+                </table>
+            
+            <?php else: ?>
+            
+                <p><?php echo $this->translate('You have not ordered any digital books with us.'); ?></p>
+                
+            <?php endif; ?>
+        
+        </div>
+        
+    </div>
+
+</div>

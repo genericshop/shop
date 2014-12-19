@@ -1,0 +1,13 @@
+<div class="page-header">
+
+	<h1><a href="admin/content">Content</a> / <?php echo $this->action; ?></h1>
+
+	<div class="btn-group">
+		<a class="btn btn-back" href="admin/content">Back</a>
+	</div>	
+
+</div>
+
+<?php echo $this->form; ?>
+
+<?php echo $this->partial('partial/ckeditor-image.phtml', 'admin', array('items' => array('description'))); ?>

@@ -1,0 +1,51 @@
+<?php if (!is_array($this->items) || empty($this->items)) return; ?>
+
+<?php $count = 0; ?>
+
+<div class="row">
+<?php foreach ($this->items as $item): ?>
+    <?php 
+        $key_name = 'Name_' . Zend_Registry::get('LanguageSuffix');
+        $key_desc = 'Description_' . Zend_Registry::get('LanguageSuffix');
+    ?>
+    <div class="<?php echo $this->item_class ? $this->item_class : 'col-xs-6 col-sm-4 col-md-3'; ?>">
+        <a class="item" href="<?php echo $this->url(array('id' => $item->StockID), 'product-view'); ?>">
+            <div class="item-image">
+                <?php echo $this->image64($item->ProductImage); ?>
+            </div>
+            <div class="item-detail">
+                <div class="ellipsis">
+                    <h4><?php echo $this->escape($item->{$key_name}); ?></h4>
+                    <p><?php echo $this->escape($item->{$key_desc}); ?></p>
+                </div>
+                <div class="item-price"><?php echo $this->currency($item->Price); ?></div>
+            </div>
+        </a>
+    </div>
+    
+    <?php
+
+        $count++;
+    
+        if ($this->item_clearfix) {
+                
+            foreach ($this->item_clearfix as $k => $v) {
+                if ($count % $k == 0)
+                    echo '<div class="clearfix ' . $v . '"></div>';
+            }
+                
+        } else { 
+        
+            if ($count % 2 === 0)
+                echo '<div class="clearfix visible-xs"></div>';
+            if ($count % 3 === 0)
+                echo '<div class="clearfix visible-sm"></div>';
+            if ($count % 4 === 0)
+                echo '<div class="clearfix visible-md visible-lg"></div>';
+                
+        }
+        
+    ?>
+    
+<?php endforeach; ?>
+</div>

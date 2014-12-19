@@ -1,0 +1,106 @@
+<?php if (!$this->items) return; ?>
+
+<div class="product-carousel">
+
+    <h2><?php echo $this->escape($this->title); ?></h2>
+    
+    <div class="carousel-nav">
+        <a class="prev" id="car-prev" href="#"><i class="fa fa-chevron-left"></i></a>
+        <a class="next" id="car-next" href="#"><i class="fa fa-chevron-right"></i></a>
+    </div>
+    
+    <div class="carousel">
+    <?php foreach ($this->items as $item): ?>
+
+        <?php
+        
+            if ($item['type'] === 'book') {
+                
+                $params = App_Model_BaseCategory::getRouteParams($item['category'], 'nav-catalogue');
+                $url    = urldecode($this->url(array('uri' => $params['uri'] . '/' . $item['uri'], 'category-id' => $params['id'], 'id' => $item['id']), 'catalogue-view'));
+            
+            } elseif ($item['type'] === 'product') {
+                
+                $params = App_Model_BaseCategory::getRouteParams($item['category'], 'nav-product');
+                $url    = urldecode($this->url(array('uri' => $params['uri'] . '/' . $item['uri'], 'category-id' => $params['id'], 'id' => $item['id']), 'product-view'));
+            
+            } else { 
+               
+                $url = 'javascript:;';
+            
+            }
+             
+        ?>
+    
+        <div class="item">
+            <?php if ($item['image'] || $item['image_url']): ?>
+            <div class="item-image">
+                <a href="<?php echo $url; ?>">
+                    <?php if ($item['image']): ?>
+                        <?php echo $this->image('media/' . $item['type'] . '/' . $item['image'], 250, null, array('class' => 'img-responsive')); ?>
+                    <?php else: ?>
+                        <img src="<?php echo $item['image_url']; ?>" class="img-responsive">
+                    <?php endif; ?>
+                </a>
+            </div>
+            <?php endif; ?>
+            <div class="item-detail">
+                <h4><a href="<?php echo $url; ?>"><?php echo $this->escape($item['name']); ?></a></h4>
+                <div class="item-price"><?php echo $this->currency($item['price']); ?></div>
+            </div> 
+        
+        </div>
+    
+    <?php endforeach; ?>
+    </div>
+    
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(window).on('load', function() {
+
+    if ($('.product-carousel').length) {
+
+    	$('.product-carousel').fadeIn(800);
+        $('.product-carousel .carousel').carouFredSel({
+        	width: '100%', height: 'variable',
+          	responsive: true,
+          	auto: {
+          	    play: false,
+          	},
+          	prev : {
+          		button	: "#car-prev",
+          		key		: "left"
+          	},
+          	next : {
+          		button	: "#car-next",
+          		key		: "right"
+          	},
+          	swipe: {
+          		onMouse: true,
+          		onTouch: true
+          	},
+          	items: {
+          		visible: {
+          			min: 1,
+          			max: 4
+          		},
+          	},
+        });
+
+    }
+    
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>
+
+<?php 
+
+    if (true === $this->script) {
+
+        $this->headScript()
+            ->appendFile('js/vendor/carousel/jquery.carouFredSel-6.2.1-packed.js');
+    
+    }
+?>

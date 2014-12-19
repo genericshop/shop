@@ -1,0 +1,12 @@
+<div class="page-header">
+
+	<h1><a href="admin/product">Products</a> / <?php echo $this->action; ?></h1>
+
+	<div class="btn-group">
+		<a class="btn btn-back" href="admin/product">Back</a>
+	</div>	
+
+</div>
+
+<?php echo $this->form; ?>
+<?php echo $this->partial('partial/form-image.phtml', 'admin', array('item' => $this->item, 'image' => 'media/product/' . $this->item['image'])); ?>

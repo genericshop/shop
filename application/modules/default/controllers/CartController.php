@@ -24,13 +24,14 @@ class CartController extends App_Controller_Action
         $count = 0;
         
         foreach ($items as $item) {
-            $i = $item;
+            
             $item = $this->getApiItem($item);
             
             if (!$item)
                 continue;
 
             // check if item already exists in cart...
+            
             $params = array('sid' => $item->sid);
             
             if (isset($item->student_id))
@@ -39,13 +40,19 @@ class CartController extends App_Controller_Action
             $item_cart = $model->getByCart($cart['id'], $params);
             
             // end
+            
             if ($item_cart) {
+                
                 $total  = $item->price * $item->qty;
                 $result = $model->updateItem(array('qty' => $item->qty, 'total' => $total,), $item_cart['id']);
+            
             } else {
+                
                 $item->cart  = $cart['id'];
                 $item->total = $item->price * $item->qty;
+                
                 $result = $model->createItem((array)$item);
+                
             }
             
             $count++;

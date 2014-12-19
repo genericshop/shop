@@ -1,0 +1,70 @@
+<div class="page-header">
+
+	<h1>Pending Orders</h1>
+    
+    <div class="page-actions">
+    
+    	<div class="clearfix">
+    	
+    		<div class="input-group">
+    			<span class="input-group-addon">INV</span>
+    			<input class="form-control" type="text" id="reference" value="" autocomplete="off">
+    			<span class="input-group-btn">
+    			    <button class="btn btn-primary btn-view">View Order</button>
+    			</span>
+    		</div>
+    		
+    	</div>
+    	
+    </div>
+	
+</div>
+
+<?php if ($this->items): ?>
+
+	<table class="datatable">
+	<thead>
+	<tr>
+		<th>Reference</th>
+		<th>Status</th>
+		<th>Created</th>
+		<th class="action nosort"></th>
+	</tr>
+	</thead>
+	<tbody>
+	<?php foreach ($this->items as $item): ?>
+	<?php $reference = App_Model_Order::getOrderReference($item['id']); ?>
+	<tr>
+		<td><?php echo $reference; ?></td>
+		<td><?php echo App_Model_Order::getStatusText($item['status']); ?></td>
+		<td><?php echo $item['created']; ?></td>
+		<td class="action text-center">
+			<a class="btn btn-default btn-edit" href="<?php echo $this->url(array('action' => 'manage', 'id' => $item['id'])); ?>">view</a>
+			<a class="btn btn-danger btn-delete" href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])); ?>" data-title="<?php echo $reference; ?>">delete</a>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+	</tbody>
+	</table>
+
+<?php else: ?>
+	
+	<div class="well">Search returned 0 results</div>
+	
+<?php endif; ?>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(function() {
+    $('#reference').on('keypress', function(e) {
+        var keycode = e.keyCode;
+        if (keycode == '13')
+            $('.btn-view').trigger('click');
+    });
+	$('.btn-view').on('click', function(e) {
+		e.preventDefault();
+		location.href = 'admin/order/manage/id/' + $('#reference').val();
+	});
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

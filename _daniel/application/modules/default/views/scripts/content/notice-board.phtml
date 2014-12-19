@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h3><?php echo $this->translate('Notice Board'); ?></h3>
+    
+<?php
+	if ($_COOKIE['language'] == "en") {
+		if($this->notice)
+		{
+			echo " <div class='wysiwyg'>";
+ 			echo $this->notice;
+		}
+		else
+		{
+	 	 echo $this->translate('There are currently no notices.'); 
+
+		}
+	}
+	else
+	{
+		if($this->noticeAFR)
+		{
+
+		echo " <div class='wysiwyg'>";
+		echo $this->noticeAFR;
+		echo "</div>";
+		}
+		else
+		{
+		 echo $this->translate('There are currently no notices.'); 
+
+		}
+	}
+?>
+
+</div>

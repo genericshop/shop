@@ -1,0 +1,24 @@
+<div class="container">
+
+    <?php Zend_Debug::dump($this->student); ?>
+    <?php Zend_Debug::dump($this->subjects); ?>
+
+    <div class="row">
+    
+        <div class="col-sm-3 sidebar">
+            <?php 
+                $navigation = $this->navigation()->findOneById('nav-account');
+                echo $this->navigation()->menu()->renderPartial($navigation, array('partial/sidebar-nav.phtml', 'default'));
+            ?>
+        </div>
+        
+        <div class="col-sm-9">
+        
+            <h3><?php echo $this->escape($this->student->FullName); ?></h3>
+            
+            
+        </div>
+        
+    </div>
+
+</div>

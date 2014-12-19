@@ -1,0 +1,43 @@
+<?php
+
+function renderMenuSidebar($container, $navigation)
+{
+    
+   foreach ($container as $page) {
+        
+        $class    = array();
+        $hasPages = false;
+        
+        /*
+        if (!$page->isVisible() || !$navigation->accept($page))
+            continue;
+        */
+        
+        if ($page->isActive(true)) 
+            $class[] = 'active';
+        
+        if ($page->hasPages()) {
+            $class[]  = 'dropdown';
+            $hasPages = true;
+        } 
+        
+    	echo '<li' . (!empty($class) ? ' class="' . implode(' ', $class) . '"' : null) . '>';
+        if ($hasPages) {
+	      echo '<div id="referrer"><input type="checkbox" name="BookItem" value=""><a id="linkContent1" href="' . $page->getHref() . '">';
+	        	echo $page->getLabel();
+	        echo '</a></div>';
+	        echo '<ul>';
+	        	renderMenuSidebar($page->getPages(), $navigation);
+	        echo '</ul>';
+        } else {
+            echo '<div id="referrer"><input type="checkbox" name="BookItem" value="' . $page->getHref() . '"><a id="linkContent2" href="' . urldecode($page->getHref()) . '">' . $page->getLabel() . '</a></div>';
+        }
+    	echo '</li>';
+
+   }
+
+}
+
+?>
+
+<nav><ul class="navigation"><?php renderMenuSidebar($this->container, $this->navigation()); ?></ul></nav> <br><button class="btn btn-primary" id="BundlesView" onclick="AddBundlesToCart()">Continue</button> <button class="btn btn-primary" id="BundlesClear" onclick="ClearOrder()">Clear Order</button>

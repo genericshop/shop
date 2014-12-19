@@ -1,0 +1,62 @@
+<div class="full registration profile">
+
+   
+    </div>
+
+    <h1>My Account</h1>
+
+	<div class="margin">
+		<form class="form-horizontal" action="" method="post" enctype="application/x-www-form-urlencoded">
+			<div class="clearfix">
+				<div class="col-left">
+					<div class="info-block login-block">
+						<h2>Log In Details</h2>
+						<?php echo $this->form->email; ?>
+						<?php echo $this->form->emailc; ?>
+						<?php echo $this->form->password; ?>
+						<?php echo $this->form->passwordc; ?>
+					</div>
+				</div>
+				<div class="col-left">
+					<div class="info-block">
+						<h2>Personal Details</h2>
+						<?php echo $this->form->title; ?>
+						<?php echo $this->form->name; ?>
+						<?php echo $this->form->surname; ?>
+						<?php echo $this->form->job_title; ?>
+						<?php echo $this->form->school; ?>
+						<?php echo $this->form->tel; ?>
+					</div>
+				</div>
+			</div>
+			<div class="info-block address-block">
+				<h2>My Address</h2>
+				<?php echo $this->form->address_line_1; ?>
+				<?php echo $this->form->address_line_2; ?>
+				<?php echo $this->form->address_city; ?>
+				<?php echo $this->form->address_postcode; ?>
+				<?php echo $this->form->country; ?>
+				<?php echo $this->form->address_type; ?>
+			</div>
+			<div class="opt">
+				<h2>Keep me informed</h2>
+				<div class="opt-checkbox">
+					<?php echo $this->form->opt_marketing; ?>
+				</div>
+				<div class="opt-label">
+					I wish to receive emails with news and teaching resources from Macmillan South Africa.
+				</div>
+			</div>
+			<div class="buttons">
+				<?php echo $this->form->submit; ?>
+			</div>
+		</form>
+	</div>    
+
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+	$('.form-horizontal label[for="submit"]').remove();
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>

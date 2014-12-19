@@ -1,0 +1,44 @@
+<div class="page-header">
+
+	<h1>Content</h1>
+	
+	<div class="btn-group">
+		<a class="btn btn-create" href="<?php echo $this->url(array('action' => 'add')); ?>">Create</a>
+	</div>
+	
+</div>
+
+<?php if ($this->items): ?>
+
+	<table class="datatable">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th class="action nosort"></th>
+	</tr>
+	</thead>
+	<tbody>
+	<?php foreach ($this->items as $item): ?>
+	<tr>
+        <td>
+			<?php //if ($item['navigation3_name'] !== null) echo $this->escape($item['navigation3_name']).' \ '; ?>
+			<?php //if ($item['navigation2_name'] !== null) echo $this->escape($item['navigation2_name']).' \ '; ?>
+			<?php //if ($item['navigation1_name'] !== null) echo $this->escape($item['navigation1_name']).' \ '; ?>        
+            <?php echo $this->escape($item['name']); ?>
+        </td>
+		<td class="action text-center">
+			<a class="btn btn-default btn-edit" href="<?php echo $this->url(array('action' => 'edit', 'id' => $item['id'])); ?>">edit</a>
+			<?php if (!$item['static']): ?>
+			<a class="btn btn-danger btn-delete" href="<?php echo $this->url(array('action' => 'delete', 'id' => $item['id'])); ?>" data-title="<?php echo $this->escape($item['name']); ?>">delete</a>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+	</tbody>
+	</table>
+
+<?php else: ?>
+	
+	<div class="well">Search returned 0 results</div>
+	
+<?php endif; ?>

@@ -90,14 +90,14 @@ class CheckoutController extends App_Controller_Action
                                 $params['ISBN'] = $item['sid'];
                                 
                             }
-                            $params['Total'] = $item['total'] ;
-				            $params['GradeID'] = $item['gradeid'] ;
+                             $params['Total'] = $item['total'] ;
+				$params['GradeID'] = $item['gradeid'] ;
 
                             // specific for bundle items
                             
                             if ($item['bundle_id']) {
                                 $params['PriceList'] = $item['bundle_id'];
-                                $params['StudentUniqueRef'] = $item['fc'];
+                                $params['StudentUniqueRef'] = $item['student_id'];
                             }
 
                             // end
@@ -111,10 +111,15 @@ class CheckoutController extends App_Controller_Action
                                     Zend_Debug::dump($result);
                                     exit;
                                 }
+                                
                                 // delete the order (need a function)
                                 goto error;
-                               
+                                
                             }
+                            
+                           // Zend_Debug::dump($params);
+                           // Zend_Debug::dump($result);
+                            
                         }
                         
                         //exit;
@@ -150,17 +155,17 @@ class CheckoutController extends App_Controller_Action
         
         if (true === $result->Status)
             $this->view->order = $result;
+    
         // Zend_Debug::dump($result);
     }
     
     private function getCartItems()
     {
         $model = new App_Model_CartItem();
-    	$form    = new Default_Form_Payment();
-    	$this->view->form = $form;
-        
-      	$items = $model->getByCart($this->cart['id']);
-        return (empty($items) ? array() : $items);
+             
+	 $form    = new Default_Form_Payment();
+	  $this->view->form = $form;
+  	return $model->getByCart($this->cart['id']);
     }
     
 }

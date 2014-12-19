@@ -1,0 +1,33 @@
+<div class="container">
+
+    <h3><?php echo $this->translate('Product Bundles'); ?></h3>
+    <p>Some description here explaining that product bundles are shown and bought indivdually per student.....</p> <br>
+
+    <?php if ($this->auth->AccountType === 'Parent'): ?>
+        <div class="form-group">
+            <label><?php echo $this->translate('Show bundles for'); ?></label>
+            <?php echo $this->formSelect('student', null, array(), $this->children); ?>
+        </div>
+    <?php endif; ?>
+
+</div>
+
+<?php $this->placeholder('deferred')->captureStart(); ?>
+<script>
+$(function() {
+    $('#student').on('change', function() {
+        if (!$(this).val())
+            return;
+        $.getJSON('bundle/set-student', { student: $(this).val() }, function(data) {
+            if (data.result === 1) {
+                location.href = '<?php echo $this->url(array(), 'bundle-list'); ?>';
+            } else {
+                displayMessage('An unknown error occurred', 'error');
+            }
+        });
+    });
+});
+</script>
+<?php $this->placeholder('deferred')->captureEnd(); ?>
+
+<?php $this->headTitle($this->translate('Product Bundles')); ?>
