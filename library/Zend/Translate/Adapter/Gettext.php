@@ -67,7 +67,7 @@ class Zend_Translate_Adapter_Gettext extends Zend_Translate_Adapter {
         $this->_data      = array();
         $this->_bigEndian = false;
         $this->_file      = @fopen($filename, 'rb');
-        echo $filename;
+
         if (!$this->_file) {
             require_once 'Zend/Translate/Exception.php';
             throw new Zend_Translate_Exception('Error opening translation file \'' . $filename . '\'.');
