@@ -22,6 +22,7 @@
                     <tr>
                         <th><?php echo $this->translate('Date'); ?></th>
                         <th><?php echo $this->translate('Reference'); ?></th>
+                        <th><?php echo $this->translate('Description'); ?></th>
                         <th><?php echo $this->translate('Debit'); ?></th>
                         <th><?php echo $this->translate('Credit'); ?></th>
                     </tr> 
@@ -30,6 +31,7 @@
                     <?php foreach ($this->transactions as $item): ?>
                     <tr>
                         <td><?php echo date('Y-m-d', $item->TransactionDate / 1000)?></td>
+                        <td><?php echo $this->escape($item->Reference); ?></td>
                         <td><?php echo $this->escape($item->Description); ?></td>
                         <td><?php echo $this->escape($this->currency($item->Debit)); ?></td>
                         <td><?php echo $this->escape($this->currency($item->Credit)); ?></td>
