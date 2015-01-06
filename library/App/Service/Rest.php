@@ -5,7 +5,7 @@ class App_Service_Rest
 	//Test: http://197.242.150.225:8083/rest/
     //Production: http://41.86.98.148/bookshop/rest/   http://154.0.163.97/rest/
 
-    protected $_host = 'http://197.242.150.225:8083/rest/';
+    protected $_host = 'http://154.0.163.97/rest/';
     protected $_uri  = null;
     
     private $store_id;
