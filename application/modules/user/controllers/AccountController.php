@@ -98,7 +98,6 @@ class User_AccountController extends App_Controller_Action
     {
 
         if ('Parent' === $this->_auth->AccountType) {
-            
             $result = $this->_api->getParentBooks($this->_auth->UniqueRef);
             $children = $this->_api->getChildrenForParent($this->_auth->UniqueRef);
             foreach ($children as $child) {
