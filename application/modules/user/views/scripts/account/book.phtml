@@ -11,12 +11,14 @@
         
         <div class="col-sm-9">
         
-            <h3><?php echo $this->translate('My Books'); ?></h3>
-            
+            <h3 style="float:left"><?php echo $this->translate('My Books'); ?></h3>
+            <div style="float: right"><a href="https://www.mystudies.co.za/Download">Download E Reader</a></div>
+            <div style="clear: both"></div>
+
             <?php if ($this->items): ?>
             
                 <div class="table-responsive">
-            
+                    
                     <table class="table table-striped">
                     <thead>
                     <tr>
@@ -37,9 +39,7 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                    <tr>
-                        <td colspan="3" ><a href="https://www.mystudies.co.za/Download">Download E Reader</a></td>
-                    </tr>
+                    
                     </tbody>           
                     </table>
                 
