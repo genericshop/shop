@@ -21,14 +21,7 @@
     <div id="mainContent" align="Center"><?php 
 header('location: http://'.$_SERVER['HTTP_HOST'].'/public/index.php');
 exit();
-//else if($_SERVER['HTTP_HOST'] === 'garsies.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'duo-edu.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'cbc.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'midstreamridge.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'midstreamprimary.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'midstreamcollege.boekwinkel.info'){
-	if ($_SERVER['HTTP_HOST'] === 'klofies.boekwinkel.info') {
-  	 echo '<img src="public/img/construction_klofies.png" class="img">';
-	}
-	else if($_SERVER['HTTP_HOST'] === 'duo-edu.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'garsies.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'cbc.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'midstreamridge.boekwinkel.info'  || $_SERVER['HTTP_HOST'] === 'midstreamprimary.boekwinkel.info' || $_SERVER['HTTP_HOST'] === 'midstreamcollege.boekwinkel.info'){
-	 header('location: http://'.$_SERVER['HTTP_HOST'].'/public/index.php');
-}  
-	
+
 ?>
        <p><h1>WEBSITE CLOSED FOR ORDERS 2015
 AT 12H00 27-11-2014</h1></br>
