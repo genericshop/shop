@@ -11,7 +11,7 @@ class ProductController extends App_Controller_Action
     
     public function listAction()
     {
-        $category_id     = $this->getParam('category', null);
+        $category_id     = $this->getParam('category', 32);
         $category_sub_id = $this->getParam('sub_category', null);
         
         if ($category_id || $category_sub_id) {

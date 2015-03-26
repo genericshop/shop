@@ -17,7 +17,7 @@ class App_Service_Rest
     
     private function doRequest($uri, array $data = array(), $type = 'post')
     {
-        // echo $this->_host . $uri;
+        //echo $this->_host . $uri;
         
         $ch = curl_init($this->_host . $uri);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

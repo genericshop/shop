@@ -13,12 +13,16 @@ class BundleController extends App_Controller_Action
         if ($this->_auth->AccountType === 'Student')
             return $this->forward('list');
 
+
+        $this->_api->getAllProducts();
+
         $children = $this->view->children = $this->_api->getChildrenForParent($this->_auth->UniqueRef);
         $options  = array('' => $this->view->translate('Please Choose'));
         
         foreach ($children as $child)
             $options[$child->StudentUniqueRef] = $child->FullName;
         
+
         $this->view->children = $options;
     }
     
@@ -30,7 +34,7 @@ class BundleController extends App_Controller_Action
             $this->_helper->redirector->gotoRoute(array(), 'bundle');
         
         $bundles = $this->_api->getPriceLists($student->GradeID);
-       // Zend_Debug::dump($bundles);
+        
         if ($bundles) {
             
             foreach ($bundles as $k => &$bundle) {

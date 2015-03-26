@@ -42,11 +42,18 @@ class App_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
                 'route'    => 'notice-board',
             ),
             
+            'product' => array(
+                'label'      => _('Products'),
+                'module'     => 'default',
+                'controller' => 'products',
+                'action'     => 'index',
+                'route'      => 'default'
+            ),
             'contact' => array(
                 'label'    => _('Contact'),
                 'route'    => 'contact',
             ),
-            
+
             'account' => array(
                 'id'       => 'nav-account',
                 'label'    => _('My account'),
