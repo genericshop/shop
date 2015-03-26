@@ -1,27 +1,12 @@
 <div class="container">
-
-    <h2><?php echo sprintf($this->translate('Welcome to %s'), $this->store['Info']->Name); ?></h2>
-    
-    <div class="seperator"></div> <br>
-    
-    <h3><?php echo $this->translate('Registration Terms & Conditions'); ?></h3>
-    
-    <div class="wysiwyg">
-        <?php $key = 'TC' . ($this->lang === 'AFR' ? '_AFR' : null); ?>
-        <?php echo $this->terms->{$key}; ?>
+    <div class="col-sm-8 col-lg-9 col-sm-push-2 col-lg-push-1">
+        <?php if ($this->category): ?>
+            <?php $key_name = 'Name_' . $this->lang; ?>
+            <h3><?php echo $this->category->{$key_name}; ?></h3>
+            
+            <div class="product-list">
+                <?php echo $this->partial('partial/list-product.phtml', array('items' => $this->items, 'item_class' => 'col-xs-6 col-sm-4', 'item_clearfix' => array(2 => 'visible-xs', 3 => 'visible-sm visible-md visible-lg'))); ?>
+            </div>
+        <?php endif; ?>
     </div>
-    
-    <?php /*
-    
-    <?php if ($this->specials): ?>
-
-        <h3><?php echo $this->translate('Specials'); ?></h3>
-        <div class="product-list">
-            <?php echo $this->partial('partial/item-list.phtml', array('items' => $this->specials)); ?>
-        </div>
-    
-    <?php endif; ?>
-
-    */ ?>
-
 </div>
