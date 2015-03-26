@@ -14,6 +14,13 @@ class ProductController extends App_Controller_Action
         $category_id     = $this->getParam('category', null);
         $category_sub_id = $this->getParam('sub_category', null);
         
+        if (!$category_id && !$category_sub_id) {
+            $categories = $this->_api->getCategories();
+            if (count($categories) > 0) {
+                $category_id = $categories[0]->_ID;
+            }
+        }
+
         if ($category_id || $category_sub_id) {
             
             if ($category_sub_id) {
@@ -30,7 +37,8 @@ class ProductController extends App_Controller_Action
                 $items = $this->view->items = $this->_api->getAllProductsBySubCategory($category->_ID);
                 
             } else {
-                
+                $categories = $this->_api->getCategories();
+        
                 $category = $this->view->category = $this->_api->getCategory($category_id);
                 
                 if (true !== $category->Status) {
@@ -42,7 +50,6 @@ class ProductController extends App_Controller_Action
                 
                 if (is_array($result))
                     $items = $this->view->items = $result;
-                
             }
 
         }
