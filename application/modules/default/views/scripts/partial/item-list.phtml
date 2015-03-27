@@ -14,7 +14,7 @@
     <div class="<?php echo $this->item_class ? $this->item_class : 'col-xs-6 col-sm-4 col-md-3'; ?>">
         <a class="item" href="<?php echo $this->url(array('id' => $item->StockID), 'product-view'); ?>">
             <div class="item-image">
-                <img class="img-responsive" src="<?php echo $item->ProductImage; ?>">
+                <img class="img-responsive" src="data:image/jpeg;base64,<?php echo $item->ProductImage; ?>">
             </div>
             <div class="item-detail">
                 <div class="ellipsis">
