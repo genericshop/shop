@@ -11,31 +11,14 @@
     <div class="seperator seperator-large"></div>
     
     <h3><?php echo $this->translate('Payment'); ?></h3>
-    <p><?php echo $this->translate('Please select your preferred payment method below.'); ?></p> <hr> <br>
     
     <form method="post">
-    
-        <?php echo $this->form->paytype; ?>
+        <p>
+            Click next to sign into cloudbanc
+        </p>
         
-        <?php /*
-        
-        <div id="paytype-info" class="paytype-info">
-            <div class="paytype-info-item" data-type="cash">
-                <?php echo $this->translate('Some description here of how the CASH payment option works...'); ?>        
-            </div>
-            <div class="paytype-info-item" data-type="cheque">
-                <?php echo $this->translate('Some description here of how the CHEQUE payment option works...'); ?>        
-            </div>
-            <div class="paytype-info-item" data-type="card">
-                <?php echo $this->translate('Some description here of how the CREDIT CARD payment option works...'); ?>        
-            </div>
-            <div class="paytype-info-item" data-type="eft">
-                <?php echo $this->translate('Some description here of how the EFT payment option works...'); ?>        
-            </div>
-        </div>
-        
-        */ ?>
-        
+
+
         <?php echo $this->form->submit; ?>
     
     </form>

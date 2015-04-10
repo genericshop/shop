@@ -1,1 +1,1 @@
-a:1:{i:0;O:8:"stdClass":5:{s:15:"Description_ENG";s:5:"Sport";s:15:"Description_AFR";s:5:"Sport";s:8:"Name_ENG";s:5:"Sport";s:8:"Name_AFR";s:5:"Sport";s:3:"_ID";i:37;}}
+a:1:{i:0;O:8:"stdClass":6:{s:15:"Description_ENG";s:5:"Sport";s:15:"Description_AFR";s:5:"Sport";s:8:"Name_ENG";s:5:"Sport";s:8:"Name_AFR";s:5:"Sport";s:3:"_ID";i:37;s:5:"Items";a:1:{i:0;O:8:"stdClass":6:{s:15:"Description_ENG";s:6:"Soccer";s:6:"Status";b:0;s:15:"Description_AFR";s:6:"Soccer";s:8:"Name_ENG";s:6:"Soccer";s:8:"Name_AFR";s:6:"Soccer";s:3:"_ID";i:667;}}}}
