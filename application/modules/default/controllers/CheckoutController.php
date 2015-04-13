@@ -47,7 +47,7 @@ class CheckoutController extends App_Controller_Action
 
         if ($request->isPost()) {
             $data = $request->getPost();
-            $url = "http://41.185.31.134:81/requests.aspx?verb=getpaymentcodeforcompanycode&param1=1WY5PJSJ&param2=92";
+            $url = "http://41.185.31.134:81/requests.aspx?verb=getpaymentcodeforcompanycode&param1=Q8LSW2N1&param2=" . $this->getCartTotal();
             $client = new Zend_Http_Client($url, array('timeout' => 300));
             $token_info = $client->request()->getBody();
 
@@ -100,4 +100,15 @@ class CheckoutController extends App_Controller_Action
         return $model->getByCart($this->cart['id']);
     }
     
+    private function getCartTotal()
+    {
+        $items = $this->getCartItems();
+        
+        $total = 0;
+        foreach ($items as $item) {
+            $total += $item["total"];
+        }
+
+        return $total;
+    }
 }
