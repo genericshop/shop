@@ -7,7 +7,7 @@ class User_Form_Login extends App_Form
     {
         
     	$this->addElement('text', 'Email', array(
-    		'label' 	=> _('E-mail address'),
+    		'label' 	=> _('Username/Phone Number'),
     		'required' 	=> true,
     		'maxlength' => 50,
     		'filters'	=> array(array('StringToLower')),
