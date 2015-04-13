@@ -25,13 +25,13 @@ class App_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
                 'action'     => 'index',
                 'route'      => 'default'
             ),
-            
+            /*
             'bundle' => array(
                 'label'    => _('Place an order'),
                 'route'    => 'bundle',
                 'resource' => 'default:bundle',
             ),
-            
+            */
             'buy-back' => array(
                 'label'    => _('Buy Back Books'),
                 'route'    => 'buy-back',
@@ -65,13 +65,13 @@ class App_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
                         'label'    => _('My profile'),
                         'route'    => 'account-profile',
                     ),
-                    
+                    /*
                    'children' => array(
                         'label'    => _('My children'),
                         'route'    => 'account-children',
                         'resource' => 'user:account:children'
                     ),
-                    
+                    */
                     'history' => array(
                         'label'    => _('My orders'),
                         'route'    => 'account-history',
@@ -81,12 +81,12 @@ class App_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
                         'label'    => _('My transactions'),
                         'route'    => 'account-transaction',
                     ),
-                    
+                    /*
                     'ebook' => array(
                         'label'    => _('My e-books'),
                         'route'    => 'account-books',
                     ),
-                    
+                    */
                 )
             ),
             

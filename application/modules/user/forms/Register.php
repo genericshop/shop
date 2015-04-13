@@ -30,14 +30,14 @@ class User_Form_Register extends App_Form
     	));
 
     	if ($this->account_type === 'parent') {
-    	
+    	   /*
         	$this->addElement('text', 'HomePhone', array(
         	    'label' 	 => _('Home Telephone / Huis Telefoon'),
         	    'maxlength'  => 15,
         	    'filters'    => array(array('Digits')),
         	    'validators' => array(array('Digits'), array('StringLength', false, array('min' => 10, 'max' => 15))),
         	));
-        	
+        	*/
         	$this->addElement('text', 'CellPhone / Selfoon', array(
         	    'label' 	 => _('Mobile Telephone'),
         	    'maxlength'  => 15,
@@ -51,15 +51,14 @@ class User_Form_Register extends App_Form
         	    'maxlength'  => 13,
         	    'validators' => array(array('Digits'), array('StringLength', false, array('min' => 13, 'max' => 13))),
         	));
-
+        /*
 		$this->addElement('text', 'OldAccount / Our Rekening Nommer ', array(
         	    'label' 	 => _('Old Account Number 2014'),
         	    'required' 	 => false,
         	    'maxlength'  => 13,
         	    'validators' => array(array('Digits'), array('StringLength', false, array('min' => 0, 'max' => 13))),
         	));
-
-
+        */
         	
     	$this->addElement('text', 'Email', array(
     		'label' 		=> _('E-mail address / E-posadres'),
