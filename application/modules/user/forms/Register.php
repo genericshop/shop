@@ -38,7 +38,7 @@ class User_Form_Register extends App_Form
         	    'validators' => array(array('Digits'), array('StringLength', false, array('min' => 10, 'max' => 15))),
         	));
         	*/
-        	$this->addElement('text', 'CellPhone / Selfoon', array(
+        	$this->addElement('text', 'CellPhone', array(
         	    'label' 	 => _('Mobile Telephone'),
         	    'maxlength'  => 15,
         	    'filters'    => array(array('Digits')),

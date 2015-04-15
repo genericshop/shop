@@ -19,32 +19,23 @@ class User_RegisterController extends App_Controller_Action
     	$request = $this->getRequest();
     
     	if ($request->isPost()) {
-    		
     		$data = $request->getPost();
     		
     		if ($form->isValid($data)) {
-    			
     		    $result = $this->_api->registerParentAccount($form->getValues());
     		    
     			if (true === $result->Status) {
-    				
     				$this->_helper->redirector->gotoRoute(array(), 'register-success');
-    				
     			} else {
-    				
-    				$this->_helper->flashMessenger(array('error' => $result->StatusMessage));    				
-    				
+                    $this->_helper->flashMessenger(array('error' => $result->StatusMessage));    				
     			}
     			
     		} else {
-    		    
     		    if (!$form->getValue('agree'))
     		        $this->_helper->flashMessenger(array('error' => $this->view->translate('You must agree to the terms and conditions to continue.')));
 
-		     if (!$form->getValue('password'))
-                        $this->_helper->flashMessenger(array('error' => _('You must enter a password to continue.')));
-
-    		    
+                if (!$form->getValue('password'))
+                    $this->_helper->flashMessenger(array('error' => _('You must enter a password to continue.')));
     		}
     		
     	}
