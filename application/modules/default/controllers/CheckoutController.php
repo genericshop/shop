@@ -1,4 +1,5 @@
 <?php
+require_once APPLICATION_PATH . '/../library/QrCode/QrCode.php';
 
 class CheckoutController extends App_Controller_Action
 {
@@ -29,6 +30,22 @@ class CheckoutController extends App_Controller_Action
         $this->view->sortedItems = $sortedItems;
     }
 
+    public function getqrAction()
+    {
+        $qrCode = new QrCode();
+        $qrCode
+            ->setText("Life is too short to be generating QR codes")
+            ->setSize(300)
+            ->setPadding(10)
+            ->setErrorCorrection('high')
+            ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
+            ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
+            ->setLabel('My label')
+            ->setLabelFontSize(16)
+            ->render();
+
+        $this->view->item = "Oka";
+    }
     public function confirmAction()
     {
         if (!Zend_Auth::getInstance()->hasIdentity() || !$this->cart)
@@ -45,21 +62,29 @@ class CheckoutController extends App_Controller_Action
         $form    = new Default_Form_Payment();
         $request = $this->getRequest();
 
+        $this->view->cb_token = $this->getPaymentToken();
+
         if ($request->isPost()) {
             $data = $request->getPost();
-            $url = "http://41.185.31.134:81/requests.aspx?verb=getpaymentcodeforcompanycode&param1=Q8LSW2N1&param2=" . $this->getCartTotal();
-            $client = new Zend_Http_Client($url, array('timeout' => 300));
-            $token_info = $client->request()->getBody();
-
-            $token = split("\|", $token_info);
-            $token = split("\*", $token[1]);
-            $token = $token[1];
+            
             $this->_helper->redirector->gotourl("http://wallet.cloudbanc.co.za/code/" . $token);
             exit();
         }
         
         $this->view->cart = $this->cart;
         $this->view->form = $form;
+    }
+
+    public function getPaymentToken(){
+        $url = "http://41.185.31.134:81/requests.aspx?verb=getpaymentcodeforcompanycode&param1=1WY5PJSJ&param2=" . $this->getCartTotal();
+        $client = new Zend_Http_Client($url, array('timeout' => 300));
+        $token_info = $client->request()->getBody();
+
+        $token = split("\|", $token_info);
+        $token = split("\*", $token[1]);
+        $token = $token[1];
+
+        return $token;
     }
 
     public function completeAction()

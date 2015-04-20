@@ -1,26 +1,27 @@
 <div class="container">
 
     <h3><?php echo $this->translate('My order'); ?></h3>
-        
-    <?php 
+
+    <?php
         $grand       = 0;
         $lang_suffix = $this->lang === 'AFR' ? '_af' : null;
     ?>
 
-    
+
     <div class="seperator seperator-large"></div>
-    
+
     <h3><?php echo $this->translate('Payment'); ?></h3>
-    
-    <form method="post">
-        <p>
-            Click next to sign into cloudbanc
-        </p>
-        
 
+    <form method="post" target="_blank">
+        <div class="caption">Sign in with this cloudbanc code: <a target="_blank" href="http://wallet.cloudbanc.co.za/code/<?php echo $this->cb_token ?>"><?php echo $this->cb_token ?></a> or scan the QR code below with your Cloudbanc app</div>
 
-        <?php echo $this->form->submit; ?>
-    
+        <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?php echo $this->cb_token ?>&choe=UTF-8" class="pull-left">
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="">
+                <a href="http://wallet.cloudbanc.co.za/code/<?php echo $this->cb_token ?>" target="_blank"><button name="submit" id="submit" type="button" class="btn btn-primary">Continue</button></a>
+            </div>
+        </div>
     </form>
 
 </div>
