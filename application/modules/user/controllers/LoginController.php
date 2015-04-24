@@ -60,7 +60,7 @@ class User_LoginController extends App_Controller_Action
 			        // end
 			        
 			        $this->performRedirect(); // session redirects
-			        $this->_helper->redirector->gotoRoute(array(), 'account');
+			        $this->_helper->redirector->gotoUrl("/");
 			        
 			    } else {
 			        

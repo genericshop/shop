@@ -12,10 +12,13 @@ class CheckoutController extends App_Controller_Action
         $this->session = new Zend_Session_Namespace('Cart');
         $this->model   = new App_Model_Cart();
         $this->cart    = isset($this->session->id) ? $this->model->getById($this->session->id) : null;
+
+        $this->completeAction();
     }
     
     public function indexAction()
     {
+
         if (!$this->cart)
             return;
     
@@ -30,22 +33,6 @@ class CheckoutController extends App_Controller_Action
         $this->view->sortedItems = $sortedItems;
     }
 
-    public function getqrAction()
-    {
-        $qrCode = new QrCode();
-        $qrCode
-            ->setText("Life is too short to be generating QR codes")
-            ->setSize(300)
-            ->setPadding(10)
-            ->setErrorCorrection('high')
-            ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
-            ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
-            ->setLabel('My label')
-            ->setLabelFontSize(16)
-            ->render();
-
-        $this->view->item = "Oka";
-    }
     public function confirmAction()
     {
         if (!Zend_Auth::getInstance()->hasIdentity() || !$this->cart)
@@ -62,7 +49,15 @@ class CheckoutController extends App_Controller_Action
         $form    = new Default_Form_Payment();
         $request = $this->getRequest();
 
-        $this->view->cb_token = $this->getPaymentToken();
+        $cb_token = null;
+        if (empty($this->cart['id'])) {
+            $cb_token = $this->getPaymentToken();
+            $this->model->updateItem(array('reference_payment' => $cb_token), $this->cart['id']);
+        } else {
+            $cb_token = $this->cart['reference_payment'];
+        }
+        
+        $this->view->cb_token = $cb_token;
 
         if ($request->isPost()) {
             $data = $request->getPost();
@@ -87,41 +82,83 @@ class CheckoutController extends App_Controller_Action
         return $token;
     }
 
+    public function checkToken(){
+        if(!empty($this->cart['reference_payment'])){
+            $url = "http://41.185.31.134:81/requests.aspx?verb=checkcode&param1=" . $this->cart['reference_payment'];
+            $client = new Zend_Http_Client($url, array('timeout' => 300));
+
+            $token_info = $client->request()->getBody();
+
+            $token = split("\|", $token_info);
+            $token = split("\*", $token[1]);
+            $token = $token[1];
+
+            if ($token == "Paid") {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function completeAction()
     {
-        $orders = $this->getParam('reference', null);
-        $orders = split("\|", $orders);
-
-        $results = array();
-        foreach ($orders as $OrderRef) {
-            if(empty($OrderRef)) {
-                continue;
-            }
-            $result = $this->_api->getOrderDetails($OrderRef);
-            if (true === $result->Status)
-                $results[] = $result;
+        if(!$this->checkToken()){
+            return;
         }
-        
-        if (!empty($results)) {
-            $result = $results[0];
-            $sum = 0;
-            foreach ($results as $res) {
-                $sum += $res->_TotalAmount;
-            }
 
-            $result->_TotalAmount = $sum;
-            $this->view->order = $result;
+        $items = $this->getCartItems();
+        $orderRef = $this->createOrder();
+
+        foreach ($items as $item) {
+            $this->createOrderItem($item, $orderRef);
         }
-        //if (true === $result->Status)
-            //$this->view->order = $result;
-        Zend_Debug::dump($results);
+
+        // Empty cart
+        $this->model->deleteItem($this->cart['id']);
     }
     
+    private function createOrder(){
+        $params = array(
+            'AccountUniqueRef' => $this->_auth->UniqueRef,
+            'PaymentMethot'    => "cloudbanc",
+            'OrderState'       => 'Paid',
+        );
+
+        $order = $this->_api->createOrder($params);
+        if (true === $order->Status) {
+            return $order->OrderRef;
+        }
+
+        return null;
+    }
+
+    private function createOrderItem($item, $orderRef){
+        $params = array(
+            'OrderRef'  => $orderRef,
+            'Quantity'  => $item['qty'],
+        );
+
+        if ('stock' === $item['type']) {
+            $params['StockID'] = $item['sid'];
+        } elseif ('book' === $item['type']) {
+            $params['ISBN'] = $item['sid'];
+        }
+
+        $params['Total'] = $item['total'];
+
+        $result = $this->_api->createOrderItem($params);
+        return $result->Status;
+    }
+
     private function getCartItems()
     {
         $model = new App_Model_CartItem();
         $form = new Default_Form_Payment();
         $this->view->form = $form;
+        if(empty($model->getByCart($this->cart['id']))){
+            return array();
+        }
+
         return $model->getByCart($this->cart['id']);
     }
     
