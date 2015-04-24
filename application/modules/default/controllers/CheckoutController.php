@@ -50,7 +50,7 @@ class CheckoutController extends App_Controller_Action
         $request = $this->getRequest();
 
         $cb_token = null;
-        if (empty($this->cart['id'])) {
+        if (empty($this->cart['reference_payment'])) {
             $cb_token = $this->getPaymentToken();
             $this->model->updateItem(array('reference_payment' => $cb_token), $this->cart['id']);
         } else {
