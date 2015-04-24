@@ -20,7 +20,6 @@
             <table class="table table-striped table-item">
             <thead>
             <tr>
-                <th><?php echo $this->translate('Student'); ?></th>
                 <th><?php echo $this->translate('Item'); ?></th>
                 <th><?php echo $this->translate('Price'); ?></th>
                 <th><?php echo $this->translate('Qty'); ?></th>
@@ -34,20 +33,13 @@
                 $sub += $item['total'];
                 ?>
                 <tr data-id="<?php echo $item['id']; ?>" data-sid="<?php echo $item['id']; ?>" data-qty="<?php echo $item['qty']; ?>" data-total="<?php echo $item['total']; ?>">
-                    <td>
-                        <?php if ($item['student_id']): ?>
-                            <?php echo $this->escape($item['student_name']); ?>
-                        <?php else: ?>
-                            N/A
-                        <?php endif; ?>
-                    </td>
                     <td><?php echo $this->escape($item['name' . $lang_suffix]); ?></td>
                     <td><?php echo $this->currency($item['price']); ?></td>
                     <td><input type="text" name="qty" value="<?php echo $item['qty']; ?>" maxlength="2" size="4"></td>
                     <td>
                         <span class="total"><?php echo $this->currency($item['total']); ?></span>
                     </td>
-                    <td class="text-center"><a href="javascript:;" class="cart-remove" tabIndex="-1"><i class="fa fa-times text-danger"></i></a></td>
+                    <td class="text-center"><a href="cart/remove?id=<?php echo $item['id']; ?>&redirect=1" onclick="return confirm('<?php echo $this->translate('Are you sure you want to remove item form cart?'); ?>')" class="cart-remove" tabIndex="-1"><i class="fa fa-times text-danger"></i></a></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -105,20 +97,6 @@ $(function() {
         var keycode = (e.keyCode ? e.keyCode : e.which);
         if (keycode == '13')
             setQty($(this));
-    });
-    $('.cart-remove').on('click', function(e) {
-        e.preventDefault();
-        if (window.confirm("<?php echo $this->translate('Are you sure you want to remove item form cart?'); ?>")) {       
-        var $tr = $(this).closest('tr');
-        $.getJSON('cart/remove', { id: $tr.data('id') }, function(data) {
-            var $table = $tr.closest('table');
-            if ($table.find('tbody tr').length <= 2) {
-                location.href = document.location;
-            } else {
-                $tr.remove(); setTotal();
-            }
-        });
-        }       
     });
 
 });

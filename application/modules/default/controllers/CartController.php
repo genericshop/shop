@@ -96,6 +96,9 @@ class CartController extends App_Controller_Action
         
         $model = new App_Model_CartItem();
         $model->delete(array('cart = ?' => $cart['id'], 'id = ?' => $this->getParam('id', 0)));
+        if($this->getParam('redirect', 0)){
+            $this->_helper->redirector->gotourl("/checkout");
+        }
         
         $this->_helper->json($json);
     }
